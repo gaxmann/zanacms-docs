@@ -20,7 +20,7 @@ If you know nothing about ZANACMS yet, start with the [README](https://github.co
 - [Interfaces]({{ '/guide/interfaces/' | relative_url }}) — footer tokens, page variables, links, CSS and public helper interfaces.
 - [Update]({{ '/guide/update/' | relative_url }}) — update policy, backup flow and rollback notes.
 - [Layout generator manual]({{ '/guide/layout-generator-manual/' | relative_url }}) — generator structure and implementation notes.
-- [Third-party notices]({{ '/guide/third-party-notices/' | relative_url }}) — bundled components and external design notes.
+- [Third-party notices](https://github.com/gaxmann/zanacms/blob/master/layout/THIRD-PARTY-NOTICES.md) — bundled components and external design notes.
 - [License FAQ]({{ '/guide/license-faq/' | relative_url }}) — practical licensing questions.
 
 For short admin help pages, see the [Help area]({{ '/help/' | relative_url }}).
