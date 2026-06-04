@@ -5,7 +5,7 @@ permalink: /guide/intro/
 # ZANACMS Quick Start
 # 1. General information
 
-This guide explains the basic file structure and setup of ZANACMS. For license terms, see [ZANACMS license](https://github.com/gaxmann/zanacms/blob/main/LICENSE) and [`license-faq.md`]({{ '/guide/license-faq/' | relative_url }}). Bundled third-party components and notes about supported external design packages are listed in [`third-party-notices.md`]({{ '/guide/third-party-notices/' | relative_url }}).
+This guide explains the basic file structure and setup of ZANACMS. For license terms, see [ZANACMS license](https://github.com/gaxmann/zanacms/blob/master/LICENSE) and [`license-faq.md`]({{ '/guide/license-faq/' | relative_url }}). Bundled third-party components and notes about supported external design packages are listed in [`third-party-notices.md`]({{ '/guide/third-party-notices/' | relative_url }}).
 
 ZANACMS supports three operating modes:
 

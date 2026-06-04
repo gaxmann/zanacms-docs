@@ -26,4 +26,4 @@ Main admin help pages:
 
 License terms are maintained in the main ZANACMS repository:
 
-- [ZANACMS license](https://github.com/gaxmann/zanacms/blob/main/LICENSE)
+- [ZANACMS license](https://github.com/gaxmann/zanacms/blob/master/LICENSE)

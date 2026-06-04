@@ -5,7 +5,7 @@ permalink: /guide/license-faq/
 # ZANACMS License FAQ
 
 This FAQ explains the practical meaning of the ZANACMS Community License.
-The license text in [ZANACMS license](https://github.com/gaxmann/zanacms/blob/main/LICENSE) is the authoritative text.
+The license text in [ZANACMS license](https://github.com/gaxmann/zanacms/blob/master/LICENSE) is the authoritative text.
 
 ## Is ZANACMS open source?
 
