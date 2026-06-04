@@ -1,8 +1,12 @@
+---
+title: "ZANACMS Guide for MD Mode"
+permalink: /guide/markdown-mode/
+---
 # ZANACMS Guide for MD Mode
 
-MD mode is the Markdown-based content mode of ZANACMS. It is for users who want to edit page files as Markdown, either directly or through the optional built-in Markdown editor. Editor-oriented Rich sites should use Rich mode; see [`guide/rich-mode.md`](rich-mode.md).
+MD mode is the Markdown-based content mode of ZANACMS. It is for users who want to edit page files as Markdown, either directly or through the optional built-in Markdown editor. Editor-oriented Rich sites should use Rich mode; see [`guide/rich-mode.md`]({{ '/guide/rich-mode/' | relative_url }}).
 
-Shared setup topics such as layouts, languages, footer syntax, CSS and media access are in [`guide/index.md`](index.md). Public interface details, including ZTOKENS, page variables and footer tokens, are in [`guide/interfaces.md`](interfaces.md).
+Shared setup topics such as layouts, languages, footer syntax, CSS and media access are in [`guide/index.md`]({{ '/guide/' | relative_url }}). Public interface details, including ZTOKENS, page variables and footer tokens, are in [`guide/interfaces.md`]({{ '/guide/interfaces/' | relative_url }}).
 
 
 ### MD additions/extensions for ZANACMS
@@ -319,6 +323,6 @@ The media gallery is available at:
 
 ## 15. See also
 
-- [`guide/index.md`](index.md) for shared setup and all-modes topics
-- [`guide/interfaces.md`](interfaces.md) for ZTOKENS, footer tokens, page variables and public interfaces
-- [`guide/rich-mode.md`](rich-mode.md) for the visual Rich editor workflow
+- [`guide/index.md`]({{ '/guide/' | relative_url }}) for shared setup and all-modes topics
+- [`guide/interfaces.md`]({{ '/guide/interfaces/' | relative_url }}) for ZTOKENS, footer tokens, page variables and public interfaces
+- [`guide/rich-mode.md`]({{ '/guide/rich-mode/' | relative_url }}) for the visual Rich editor workflow

@@ -1,0 +1,15 @@
+title: ZANACMS Docs
+url: https://gaxmann.github.io
+baseurl: /zanacms-docs
+markdown: kramdown
+permalink: pretty
+exclude:
+  - README.md
+  - LICENSE
+  - guide/todo.txt
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: default

@@ -1,3 +1,7 @@
+---
+title: "Links"
+permalink: /help/links/
+---
 # Links
 
 Internal links should use page IDs, not file paths or full URLs.
@@ -42,7 +46,7 @@ Footer configuration must use footer tokens:
 [footertext]
 ```
 
-Direct PHP function calls such as `zlink()` or `zhref()` are not allowed in `/__config/conf.php`. See [Footer](footer.md) for details.
+Direct PHP function calls such as `zlink()` or `zhref()` are not allowed in `/__config/conf.php`. See [Footer]({{ '/help/footer/' | relative_url }}) for details.
 
 ## External links
 
@@ -50,8 +54,8 @@ External `http://` and `https://` links can be used wherever the editor or a PHP
 
 ## More details
 
-- [Footer](footer.md)
-- [Pages](seitenuebersicht.md)
+- [Footer]({{ '/help/footer/' | relative_url }})
+- [Pages]({{ '/help/page-overview/' | relative_url }})
 - [PHP internal links](../guide/php-mode.md#6-internal-links)
 - [MD internal links](../guide/markdown-mode.md#8-internal-links)
 - [Rich internal links](../guide/rich-mode.md#8-internal-links)

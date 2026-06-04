@@ -1,8 +1,12 @@
+---
+title: "ZANACMS Interfaces"
+permalink: /guide/interfaces/
+---
 # ZANACMS Interfaces
 
 This document describes the public customisation and extension interfaces of ZANACMS. It is intended for advanced users who build their own site structure, layout adjustments, local variables or small integrations. It is not a guide for changing ZANACMS core files.
 
-For the first setup, use [`guide/index.md`](index.md). For mode-specific page formats, use [`guide/php-mode.md`](php-mode.md), [`guide/markdown-mode.md`](markdown-mode.md) and [`guide/rich-mode.md`](rich-mode.md).
+For the first setup, use [`guide/index.md`]({{ '/guide/' | relative_url }}). For mode-specific page formats, use [`guide/php-mode.md`]({{ '/guide/php-mode/' | relative_url }}), [`guide/markdown-mode.md`]({{ '/guide/markdown-mode/' | relative_url }}) and [`guide/rich-mode.md`]({{ '/guide/rich-mode/' | relative_url }}).
 
 
 ## Contents
@@ -103,7 +107,7 @@ The optional GitHub status check in the admin status table is enabled by default
 'autoupdcheck'=>false,
 ```
 
-The status check reads the latest version from GitHub and stable/warning policy data from `img/updatepolicy.json`. `warnings` can mark installed version ranges for which an update is recommended. `endofline` marks breaking versions; the admin dashboard will not present breaking updates as normal safe updates. Details are documented in [guide/update.md](update.md).
+The status check reads the latest version from GitHub and stable/warning policy data from `img/updatepolicy.json`. `warnings` can mark installed version ranges for which an update is recommended. `endofline` marks breaking versions; the admin dashboard will not present breaking updates as normal safe updates. Details are documented in [guide/update.md]({{ '/guide/update/' | relative_url }}).
 
 ## 4. Footer syntax
 
@@ -504,7 +508,7 @@ Common ZTOKENS are:
 
 Footer tokens are the ZTOKENS used in footer configuration. They work in all three modes because the footer is handled by shared runtime logic. Page variable tokens such as `[VAR:name]` are used in MD and Rich content and are resolved from `/pages/zvars.php`.
 
-MD additions/extensions for ZANACMS are the MD-mode additions to normal Markdown. They include internal `@page` links and compact image syntax for relative `/img` images. They are documented in [`guide/markdown-mode.md`](markdown-mode.md).
+MD additions/extensions for ZANACMS are the MD-mode additions to normal Markdown. They include internal `@page` links and compact image syntax for relative `/img` images. They are documented in [`guide/markdown-mode.md`]({{ '/guide/markdown-mode/' | relative_url }}).
 
 ## 10. CSS customisation
 
@@ -569,7 +573,7 @@ Supplied ZANACMS generator:
 /layout/_zpgen/<family>/zpgen.php
 ```
 
-Generator development is documented separately in [`layout-generator-manual.md`](layout-generator-manual.md).
+Generator development is documented separately in [`layout-generator-manual.md`]({{ '/guide/layout-generator-manual/' | relative_url }}).
 
 This section only explains that generators are a public extension point. It does not replace the generator manual.
 

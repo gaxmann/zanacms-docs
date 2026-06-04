@@ -1,3 +1,7 @@
+---
+title: "⧉ Backup"
+permalink: /help/backup/
+---
 # ⧉ Backup
 
 The Backup tool creates backups of the current ZANACMS website. – The Update tool updates ZANACMS system files; it is only shown when the admin exposure level permits it.
@@ -34,7 +38,7 @@ If you install from a Rollback file, ZANACMS creates a new Rollback for the stat
 
 ## More details
 
-- [Admin dashboard](adminbereich.md)
-- [Configuration](konfiguration.md)
-- [Troubleshooting](fehlersuche.md)
-- [Detailed update system documentation](../guide/update.md)
+- [Admin dashboard]({{ '/help/admin-area/' | relative_url }})
+- [Configuration]({{ '/help/configuration/' | relative_url }})
+- [Troubleshooting]({{ '/help/troubleshooting/' | relative_url }})
+- [Detailed update system documentation]({{ '/guide/update/' | relative_url }})

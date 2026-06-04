@@ -1,3 +1,7 @@
+---
+title: "Footer"
+permalink: /help/footer/
+---
 # Footer
 
 Footer lines are configured in `/__config/conf.php`. Footer handling is shared by all three modes: PHP mode, MD mode and Rich mode.
@@ -32,6 +36,6 @@ Footer tokens are ZTOKENS. They are written as plain text and resolved by ZANACM
 
 ## More details
 
-- [Links](links.md)
-- [Configuration](konfiguration.md)
+- [Links]({{ '/help/links/' | relative_url }})
+- [Configuration]({{ '/help/configuration/' | relative_url }})
 - [Footer syntax](../guide/interfaces.md#4-footer-syntax)

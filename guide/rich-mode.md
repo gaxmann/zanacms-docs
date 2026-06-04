@@ -1,8 +1,12 @@
+---
+title: "ZANACMS Guide for Rich Mode"
+permalink: /guide/rich-mode/
+---
 # ZANACMS Guide for Rich Mode
 
 Rich mode is the main editor-oriented content mode of ZANACMS. It stores ready-to-use page data as PHP arrays and uses the built-in rich text editor for page editing. The public page runtime stays small: it loads the page data file and lets the selected layout render the page.
 
-Shared setup topics such as layouts, languages, footer syntax, CSS and media access are in [`guide/index.md`](index.md). Public interface details, including ZTOKENS, page variables and footer tokens, are in [`guide/interfaces.md`](interfaces.md).
+Shared setup topics such as layouts, languages, footer syntax, CSS and media access are in [`guide/index.md`]({{ '/guide/' | relative_url }}). Public interface details, including ZTOKENS, page variables and footer tokens, are in [`guide/interfaces.md`]({{ '/guide/interfaces/' | relative_url }}).
 
 ## 1. File structure for Rich mode
 
@@ -451,7 +455,7 @@ and add its label under `langs[language]['navi']`.
 
 Rich mode is the editor-oriented mode. MD mode is a separate regular mode. MD pages use Markdown files and `/zpcache/`; Rich pages use `.data.php` files and no Markdown cache. Shared concepts such as internal links, footer links and `[VAR:...]` variables are documented here because Rich mode is the main reference for those mechanisms.
 
-For Markdown sites see [`guide/markdown-mode.md`](markdown-mode.md). For PHP page fragments and full PHP mode see [`guide/php-mode.md`](php-mode.md).
+For Markdown sites see [`guide/markdown-mode.md`]({{ '/guide/markdown-mode/' | relative_url }}). For PHP page fragments and full PHP mode see [`guide/php-mode.md`]({{ '/guide/php-mode/' | relative_url }}).
 
 ## 14. Mistakes in Rich mode
 
@@ -461,6 +465,6 @@ For Markdown sites see [`guide/markdown-mode.md`](markdown-mode.md). For PHP pag
 
 ## 15. See also
 
-- [`guide/index.md`](index.md) for shared setup and all-modes topics
-- [`guide/interfaces.md`](interfaces.md) for ZTOKENS, footer tokens, page variables and public interfaces
-- [`guide/markdown-mode.md`](markdown-mode.md) for Markdown-based sites
+- [`guide/index.md`]({{ '/guide/' | relative_url }}) for shared setup and all-modes topics
+- [`guide/interfaces.md`]({{ '/guide/interfaces/' | relative_url }}) for ZTOKENS, footer tokens, page variables and public interfaces
+- [`guide/markdown-mode.md`]({{ '/guide/markdown-mode/' | relative_url }}) for Markdown-based sites

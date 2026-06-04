@@ -1,8 +1,12 @@
+---
+title: "ZANACMS Guide for PHP Mode"
+permalink: /guide/php-mode/
+---
 # ZANACMS Guide for PHP Mode
 
 PHP mode is the mode for advanced users that know PHP. In PHP mode, pages are PHP files. Each page includes ZP, prepares its page data, and calls `out_page()`.
 
-Shared setup topics such as layouts, languages, footer syntax, CSS and editor/media access are in [`guide/index.md`](index.md). Full details for public helper functions such as `zlink()` and `zhref()` are in [`guide/interfaces.md`](interfaces.md).
+Shared setup topics such as layouts, languages, footer syntax, CSS and editor/media access are in [`guide/index.md`]({{ '/guide/' | relative_url }}). Full details for public helper functions such as `zlink()` and `zhref()` are in [`guide/interfaces.md`]({{ '/guide/interfaces/' | relative_url }}).
 
 ## 1. File structure for PHP mode
 
@@ -456,5 +460,5 @@ Set this before ZANACMS is loaded `include_once __DIR__.'/zp/zana.php';` if the 
 
 ## 14. See also
 
-- [`guide/index.md`](index.md) for shared setup and all-modes topics
-- [`guide/interfaces.md`](interfaces.md) for public PHP function parameters and customisation interfaces
+- [`guide/index.md`]({{ '/guide/' | relative_url }}) for shared setup and all-modes topics
+- [`guide/interfaces.md`]({{ '/guide/interfaces/' | relative_url }}) for public PHP function parameters and customisation interfaces

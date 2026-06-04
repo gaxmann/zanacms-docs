@@ -1,3 +1,7 @@
+---
+title: "Third-party components and external design support"
+permalink: /guide/third-party-notices/
+---
 # Third-party components and external design support
 
 This file lists third-party components that are bundled with ZANACMS and

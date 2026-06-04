@@ -1,3 +1,7 @@
+---
+title: "Editor"
+permalink: /help/editor/
+---
 # Editor
 
 ZANACMS has two page editors: Rich and MD. They look similar, but the main text field works differently.

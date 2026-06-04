@@ -1,3 +1,7 @@
+---
+title: "ZANACMS update system"
+permalink: /guide/update/
+---
 # ZANACMS update system
 
 The ZANACMS update system is an admin tool for checking, inspecting and installing ZANACMS code updates from GitHub. It is conservative by design: the admin dashboard may show update information, but no update is installed automatically.

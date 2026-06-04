@@ -1,3 +1,7 @@
+---
+title: "ZANACMS: Layout Generator Manual"
+permalink: /guide/layout-generator-manual/
+---
 # ZANACMS: Layout Generator Manual
 
 This file defines how layout generator work should be done in ZANACMS. It is written as an implementation manual for generator tasks, not as end-user documentation.

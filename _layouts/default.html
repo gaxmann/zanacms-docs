@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.title %}{{ page.title | escape }} · {% endif %}{{ site.title | escape }}</title>
+<link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+</head>
+<body>
+<header class="top">
+<a class="brand" href="{{ '/' | relative_url }}">ZANACMS Docs</a>
+<nav>
+<a href="{{ '/help/' | relative_url }}">Help</a>
+<a href="{{ '/guide/' | relative_url }}">Guide</a>
+<a href="https://github.com/gaxmann/zanacms">CMS</a>
+</nav>
+</header>
+<main>
+{{ content }}
+</main>
+<footer>
+ZANACMS documentation
+</footer>
+</body>
+</html>

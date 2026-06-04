@@ -1,7 +1,11 @@
+---
+title: "ZANACMS License FAQ"
+permalink: /guide/license-faq/
+---
 # ZANACMS License FAQ
 
 This FAQ explains the practical meaning of the ZANACMS Community License.
-The license text in [`LICENSE`](../LICENSE) is the authoritative text.
+The license text in [`LICENSE`]({{ '/LICENSE' | relative_url }}) is the authoritative text.
 
 ## Is ZANACMS open source?
 
@@ -111,7 +115,7 @@ code and distribution files.
 No. Bundled third-party components, libraries, fonts and assets remain under
 their own original licenses. External design packages that you download and
 install separately, for example HTML5 UP or WordPress-based designs, also
-remain under their own upstream licenses. See [`third-party-notices.md`](third-party-notices.md).
+remain under their own upstream licenses. See [`third-party-notices.md`]({{ '/guide/third-party-notices/' | relative_url }}).
 
 ## What if I am unsure whether my use case is commercial?
 
