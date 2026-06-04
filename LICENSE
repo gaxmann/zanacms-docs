@@ -1,0 +1,109 @@
+ZANACMS Community License
+Copyright (c) 2014-2026 Gordon Axmann
+
+ZANACMS is source-available software. It is not OSI-certified open source.
+
+This license applies to the ZANACMS software source code, documentation,
+example files and assets contained in this repository, unless a file or
+directory contains a separate license notice.
+
+Third-party components, themes, layouts, libraries, fonts or assets are
+licensed under their respective original licenses. The ZANACMS Community
+License does not replace or override any third-party license terms.
+
+---------------------------------------------------------------------------
+FREE USE
+---------------------------------------------------------------------------
+
+ZANACMS may be used free of charge for:
+
+  * private websites and personal projects
+  * educational use
+  * non-commercial organisations and non-commercial projects
+  * local development, testing and evaluation
+
+A non-commercial organisation does not require a commercial license only
+because it has members, donations, public funding or a small operating
+budget. A commercial license is required if the website is primarily used
+for commercial services, paid client work, business promotion, sales,
+marketing or other revenue-generating activities.
+
+Agencies, freelancers and other commercial users may evaluate and test
+ZANACMS locally free of charge. A commercial license is required when
+ZANACMS is used for paid client work or for a productive commercial website.
+
+---------------------------------------------------------------------------
+COMMERCIAL USE
+---------------------------------------------------------------------------
+
+Commercial use requires a valid commercial site license.
+
+Commercial use includes, but is not limited to:
+
+  * company or business websites
+  * websites for self-employed professionals
+  * client or customer projects
+  * agency use and paid client work
+  * commercial services built on ZANACMS
+  * hosting, resale or white-label use of ZANACMS-based systems
+
+A commercial site license is valid for one productive website.
+
+A productive website is a public or internal live website used for a real
+person, organisation, business, client or project. Development, local
+testing and staging installations for the same website do not require an
+additional license.
+
+One website may include multiple languages, layouts and normal subpages.
+Separate websites, separate client projects and separate independently
+operated domains require separate licenses.
+
+A commercial site license covers all releases within the same major version,
+for example all 2.x releases. A new commercial site license is required for
+a new major version.
+
+The license fee is the fee listed at the time of purchase. The current 
+license fee is listed at: https://axmann.eu/zcmspricing.php?lg=en 
+
+A commercial site license grants the right to use ZANACMS for the licensed
+website. It does not include support, maintenance, custom development,
+hosting or guaranteed updates unless agreed separately.
+
+---------------------------------------------------------------------------
+MODIFICATIONS
+---------------------------------------------------------------------------
+
+You may modify ZANACMS for your own permitted use under this license.
+
+Modified versions may not be distributed, sold, sublicensed, rebranded or
+offered as a competing CMS product without separate written permission.
+
+If you modify ZANACMS for a licensed commercial website, the commercial
+site license applies to that website only. It does not grant the right to
+redistribute ZANACMS or modified versions of ZANACMS as a separate product.
+
+---------------------------------------------------------------------------
+RESTRICTIONS
+---------------------------------------------------------------------------
+
+Without separate written permission, the following is not permitted:
+
+  * reselling or sublicensing ZANACMS itself
+  * distributing ZANACMS as part of a competing CMS product
+  * offering ZANACMS itself as a hosted CMS service
+  * distributing modified versions under the ZANACMS name
+  * removing or altering copyright, author or license notices from the
+    ZANACMS source code or distribution files
+
+---------------------------------------------------------------------------
+DISCLAIMER
+---------------------------------------------------------------------------
+
+This software is provided "as is", without warranty of any kind, express
+or implied. The author is not liable for any damages arising from the use
+of this software.
+
+---------------------------------------------------------------------------
+
+If you are unsure whether your use case requires a commercial license,
+please contact: https://axmann.eu/kontakt.php?lg=en
