@@ -34,7 +34,7 @@ Some layouts support a **page image** or a **layout image**. A page image is par
 
 - [Media]({{ '/help/media/' | relative_url }})
 - [Pages]({{ '/help/page-overview/' | relative_url }})
-- [PHP media gallery](../guide/php-mode.md#8-media-gallery)
-- [MD editor and media gallery](../guide/markdown-mode.md#13-md-editor-and-media-gallery)
-- [Rich editor](../guide/rich-mode.md#10-rich-editor)
-- [zoutimg()](../guide/interfaces.md#zoutimgfile-md)
+- [PHP media gallery]({{ '/guide/php-mode/' | relative_url }}#8-media-gallery)
+- [MD editor and media gallery]({{ '/guide/markdown-mode/' | relative_url }}#13-md-editor-and-media-gallery)
+- [Rich editor]({{ '/guide/rich-mode/' | relative_url }}#10-rich-editor)
+- [zoutimg()]({{ '/guide/interfaces/' | relative_url }}#zoutimgfile-md)

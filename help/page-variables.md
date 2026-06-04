@@ -38,5 +38,5 @@ A variable can return a simple text value or complex generated HTML. Editors onl
 ## More details
 
 - [Pages]({{ '/help/page-overview/' | relative_url }})
-- [Page variables in interfaces](../guide/interfaces.md#8-page-variables)
-- [Intro page variables](../guide/index.md#page-variables)
+- [Page variables in interfaces]({{ '/guide/interfaces/' | relative_url }}#8-page-variables)
+- [Intro page variables]({{ '/guide/' | relative_url }}#page-variables)

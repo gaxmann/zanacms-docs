@@ -56,7 +56,7 @@ External `http://` and `https://` links can be used wherever the editor or a PHP
 
 - [Footer]({{ '/help/footer/' | relative_url }})
 - [Pages]({{ '/help/page-overview/' | relative_url }})
-- [PHP internal links](../guide/php-mode.md#6-internal-links)
-- [MD internal links](../guide/markdown-mode.md#8-internal-links)
-- [Rich internal links](../guide/rich-mode.md#8-internal-links)
-- [Link interfaces](../guide/interfaces.md#5-internal-links-by-context)
+- [PHP internal links]({{ '/guide/php-mode/' | relative_url }}#6-internal-links)
+- [MD internal links]({{ '/guide/markdown-mode/' | relative_url }}#8-internal-links)
+- [Rich internal links]({{ '/guide/rich-mode/' | relative_url }}#8-internal-links)
+- [Link interfaces]({{ '/guide/interfaces/' | relative_url }}#5-internal-links-by-context)

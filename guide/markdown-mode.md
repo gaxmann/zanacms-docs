@@ -228,7 +228,7 @@ Internal ZP page links use `@page` as the Markdown link target:
 [Contact with parameter](@contact?value=4)
 ```
 
-The same internal-link idea is used in Rich mode and is described in more detail in [`guide/rich-mode.md`](rich-mode.md#8-internal-links).
+The same internal-link idea is used in Rich mode and is described in more detail in [`guide/rich-mode.md`]({{ '/guide/rich-mode/' | relative_url }}#8-internal-links).
 
 ## 9. Variables
 
@@ -244,7 +244,7 @@ Variables are defined in:
 /pages/zvars.php
 ```
 
-They are intended for prepared reusable values or generated output. A PHP developer can provide the variable, and a normal editor user can insert it without writing PHP. More detail is in [`guide/interfaces.md`](interfaces.md#8-page-variables).
+They are intended for prepared reusable values or generated output. A PHP developer can provide the variable, and a normal editor user can insert it without writing PHP. More detail is in [`guide/interfaces.md`]({{ '/guide/interfaces/' | relative_url }}#8-page-variables).
 
 The central array is `$ZVARS_PAGES`:
 
@@ -267,7 +267,7 @@ function zvar_get($key, $lg) {
 }
 ```
 
-See [`guide/rich-mode.md`](rich-mode.md#9-variables) for the common variable rules.
+See [`guide/rich-mode.md`]({{ '/guide/rich-mode/' | relative_url }}#9-variables) for the common variable rules.
 
 ## 10. Footer
 
@@ -306,7 +306,7 @@ The MD editor is available through `/admin/e.php` when editor access is enabled 
 
 `pageimg.src` stores the optional page image. See `guide/rich-mode.md` for the shared page image output rule.
 
-Editor access is described in [`guide/index.md`](index.md#optional-editor-media-gallery-and-device-manager).
+Editor access is described in [`guide/index.md`]({{ '/guide/' | relative_url }}#optional-editor-media-gallery-and-device-manager).
 
 The media gallery is available at:
 

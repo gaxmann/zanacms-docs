@@ -36,5 +36,5 @@ Keep page IDs short and stable. If the displayed menu text needs to change, edit
 
 - [Pages]({{ '/help/page-overview/' | relative_url }})
 - [Links]({{ '/help/links/' | relative_url }})
-- [MD navigation file](../guide/markdown-mode.md#7-navigation-file)
-- [Rich navigation editor](../guide/rich-mode.md#7-navigation-editor)
+- [MD navigation file]({{ '/guide/markdown-mode/' | relative_url }}#7-navigation-file)
+- [Rich navigation editor]({{ '/guide/rich-mode/' | relative_url }}#7-navigation-editor)

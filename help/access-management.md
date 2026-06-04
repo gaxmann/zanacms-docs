@@ -18,7 +18,7 @@ For the initial setup, temporary access to the device manager can be enabled by 
 /__config/EDITACCESS_ENABLE.php
 ```
 
-Set the first value to the number of minutes the window should be open and the second value to the number of new device cookies that may be created. After all allowed cookies have been set, temporary access disables itself automatically. See the [Intro guide](../guide/index.md#editor-access-details) for the exact syntax.
+Set the first value to the number of minutes the window should be open and the second value to the number of new device cookies that may be created. After all allowed cookies have been set, temporary access disables itself automatically. See the [Intro guide]({{ '/guide/' | relative_url }}#editor-access-details) for the exact syntax.
 
 ## Typical use
 
@@ -28,4 +28,4 @@ You usually only need this page during the first setup, when adding a new device
 
 - [Configuration]({{ '/help/configuration/' | relative_url }})
 - [Troubleshooting]({{ '/help/troubleshooting/' | relative_url }})
-- [Editor access details](../guide/index.md#editor-access-details)
+- [Editor access details]({{ '/guide/' | relative_url }}#editor-access-details)

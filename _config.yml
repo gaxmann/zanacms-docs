@@ -5,7 +5,6 @@ markdown: kramdown
 permalink: pretty
 exclude:
   - README.md
-  - LICENSE
   - guide/todo.txt
 defaults:
   - scope:

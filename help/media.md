@@ -40,4 +40,4 @@ Use the small delete button on an image to remove it from the media folder. If a
 
 - [Images and media]({{ '/help/images-and-media/' | relative_url }})
 - [Pages]({{ '/help/page-overview/' | relative_url }})
-- [Media gallery](../guide/php-mode.md#8-media-gallery)
+- [Media gallery]({{ '/guide/php-mode/' | relative_url }}#8-media-gallery)

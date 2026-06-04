@@ -38,4 +38,4 @@ Footer tokens are ZTOKENS. They are written as plain text and resolved by ZANACM
 
 - [Links]({{ '/help/links/' | relative_url }})
 - [Configuration]({{ '/help/configuration/' | relative_url }})
-- [Footer syntax](../guide/interfaces.md#4-footer-syntax)
+- [Footer syntax]({{ '/guide/interfaces/' | relative_url }}#4-footer-syntax)

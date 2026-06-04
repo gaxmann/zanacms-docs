@@ -35,6 +35,6 @@ A custom design folder is yours entirely. Because you are not modifying an exist
 ## More details
 
 - [Configuration]({{ '/help/configuration/' | relative_url }})
-- [CSS customisation](../guide/interfaces.md#10-css-customisation)
-- [HTML layouts](../guide/interfaces.md#11-html-layouts)
+- [CSS customisation]({{ '/guide/interfaces/' | relative_url }}#10-css-customisation)
+- [HTML layouts]({{ '/guide/interfaces/' | relative_url }}#11-html-layouts)
 - [HTML layout readme](https://github.com/gaxmann/zanacms/blob/master/layout/html/README.md)

@@ -22,4 +22,4 @@ Check this page after the initial setup, after an update, and whenever something
 
 - [Backup/Update]({{ '/help/backup/' | relative_url }})
 - [Configuration]({{ '/help/configuration/' | relative_url }})
-- [Intro guide](../guide/index.md#optional-editor-media-gallery-and-device-manager)
+- [Intro guide]({{ '/guide/' | relative_url }}#optional-editor-media-gallery-and-device-manager)

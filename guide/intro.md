@@ -5,7 +5,7 @@ permalink: /guide/intro/
 # ZANACMS Quick Start
 # 1. General information
 
-This guide explains the basic file structure and setup of ZANACMS. For license terms, see [`LICENSE`]({{ '/LICENSE' | relative_url }}) and [`license-faq.md`]({{ '/guide/license-faq/' | relative_url }}). Bundled third-party components and notes about supported external design packages are listed in [`third-party-notices.md`]({{ '/guide/third-party-notices/' | relative_url }}).
+This guide explains the basic file structure and setup of ZANACMS. For license terms, see [ZANACMS license](https://github.com/gaxmann/zanacms/blob/main/LICENSE) and [`license-faq.md`]({{ '/guide/license-faq/' | relative_url }}). Bundled third-party components and notes about supported external design packages are listed in [`third-party-notices.md`]({{ '/guide/third-party-notices/' | relative_url }}).
 
 ZANACMS supports three operating modes:
 
@@ -445,7 +445,7 @@ The `wondercms` family generator takes a complete WonderCMS `theme.php`, reads i
 'layout'=>'wondercms/<design>',
 ```
 
-Cached templates use central placeholders. `~~ZBASEURL~~` is the explicit basepath placeholder for local layout resources such as CSS, JavaScript and images. The full placeholder list is in [`layout-generator-manual.md`](layout-generator-manual.md#html-cache-standard).
+Cached templates use central placeholders. `~~ZBASEURL~~` is the explicit basepath placeholder for local layout resources such as CSS, JavaScript and images. The full placeholder list is in [`layout-generator-manual.md`]({{ '/guide/layout-generator-manual/' | relative_url }}#html-cache-standard).
 
 ## WordPress 2015 generator scripts
 

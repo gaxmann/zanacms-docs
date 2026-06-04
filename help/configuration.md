@@ -48,5 +48,5 @@ Do not place local configuration into `/zp/` or `/admin/`. `/zp/` contains runti
 
 - [Modes]({{ '/help/modes/' | relative_url }})
 - [Footer]({{ '/help/footer/' | relative_url }})
-- [Intro guide](../guide/index.md#example-files)
-- [Configuration interface](../guide/interfaces.md#3-configuration-in-confconfphp)
+- [Intro guide]({{ '/guide/' | relative_url }}#example-files)
+- [Configuration interface]({{ '/guide/interfaces/' | relative_url }}#3-configuration-in-confconfphp)

@@ -293,7 +293,7 @@ If additional query parameters follow, pass `qsep` as `?` in the option array. `
 "<a href='".zlink('contact', ['qsep'=>'?'])."somevalue=12'>Contact</a>"
 ```
 
-In PHP page code, layout PHP and generator PHP, use `zlink('page')` for internal link URLs or `zhref('page', 'Text')` for a complete anchor tag. Optional link behaviour is passed as an array, for example `zlink('page', ['qsep'=>'?'])`, `zlink('page', ['lg'=>'en'])`. In the structured navigation config, use page IDs such as `'contact'`; ZP normalises them centrally through `zlink()` when the navigation is prepared. `contact.php` is also tolerated, but `contact` is the recommended form. In footer and text fields, use `[[@page]]`, for example `[[@contact]]`, for a complete internal link, or `[@contact]` when only the URL is needed inside a custom `<a href="[@contact]">Text</a>` tag. For the complete parameter reference of the public PHP functions, see [`guide/interfaces.md`](interfaces.md#6-public-php-functions-for-page-authors).
+In PHP page code, layout PHP and generator PHP, use `zlink('page')` for internal link URLs or `zhref('page', 'Text')` for a complete anchor tag. Optional link behaviour is passed as an array, for example `zlink('page', ['qsep'=>'?'])`, `zlink('page', ['lg'=>'en'])`. In the structured navigation config, use page IDs such as `'contact'`; ZP normalises them centrally through `zlink()` when the navigation is prepared. `contact.php` is also tolerated, but `contact` is the recommended form. In footer and text fields, use `[[@page]]`, for example `[[@contact]]`, for a complete internal link, or `[@contact]` when only the URL is needed inside a custom `<a href="[@contact]">Text</a>` tag. For the complete parameter reference of the public PHP functions, see [`guide/interfaces.md`]({{ '/guide/interfaces/' | relative_url }}#6-public-php-functions-for-page-authors).
 
 ## 7. URL rewrite
 
@@ -319,7 +319,7 @@ Internal PHP links should still be written as `zlink('page')` or `zhref('page', 
 
 ## 8. Media gallery
 
-PHP mode does not use a page editor and does not need `/admin/` for runtime. It needs `/admin/` only if image upload through the optional media gallery or device access tools are used. Rich and Markdown page editing are disabled in PHP mode. Activation of the optional media gallery and device manager is handled centrally; see [`guide/index.md`](index.md#optional-editor-media-gallery-and-device-manager).
+PHP mode does not use a page editor and does not need `/admin/` for runtime. It needs `/admin/` only if image upload through the optional media gallery or device access tools are used. Rich and Markdown page editing are disabled in PHP mode. Activation of the optional media gallery and device manager is handled centrally; see [`guide/index.md`]({{ '/guide/' | relative_url }}#optional-editor-media-gallery-and-device-manager).
 
 When gallery access is active, in PHP mode ZANACMS adds a small `[i]` link to the footer. The link opens the media gallery:
 

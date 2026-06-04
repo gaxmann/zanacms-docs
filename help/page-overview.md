@@ -24,5 +24,5 @@ Keep page IDs short and stable. Changing a page ID also changes the targets of a
 
 - [Modes]({{ '/help/modes/' | relative_url }})
 - [Links]({{ '/help/links/' | relative_url }})
-- [MD editor and media gallery](../guide/markdown-mode.md#13-md-editor-and-media-gallery)
-- [Rich editor](../guide/rich-mode.md#10-rich-editor)
+- [MD editor and media gallery]({{ '/guide/markdown-mode/' | relative_url }}#13-md-editor-and-media-gallery)
+- [Rich editor]({{ '/guide/rich-mode/' | relative_url }}#10-rich-editor)

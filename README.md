@@ -8,4 +8,22 @@ guide/  longer guides, reference documents and introductory texts
 assets/ shared documentation assets
 ```
 
-The GitHub Pages site starts at [`index.md`](index.md). The short help area starts at [`help/index.md`](help/index.md). The longer documentation starts at [`guide/index.md`](guide/index.md), which links to the introduction and the mode-specific guides.
+The published documentation site starts here:
+
+- [Documentation start](https://gaxmann.github.io/zanacms-docs/)
+- [Help overview](https://gaxmann.github.io/zanacms-docs/help/)
+- [Guide overview](https://gaxmann.github.io/zanacms-docs/guide/)
+
+Main admin help pages:
+
+- [Admin dashboard](https://gaxmann.github.io/zanacms-docs/help/admin-area/)
+- [Device management](https://gaxmann.github.io/zanacms-docs/help/access-management/)
+- [Page overview](https://gaxmann.github.io/zanacms-docs/help/page-overview/)
+- [Navigation editor](https://gaxmann.github.io/zanacms-docs/help/navigation-editor/)
+- [Media](https://gaxmann.github.io/zanacms-docs/help/media/)
+- [Backup](https://gaxmann.github.io/zanacms-docs/help/backup/)
+
+
+License terms are maintained in the main ZANACMS repository:
+
+- [ZANACMS license](https://github.com/gaxmann/zanacms/blob/main/LICENSE)
