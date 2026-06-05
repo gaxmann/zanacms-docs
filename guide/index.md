@@ -17,9 +17,8 @@ If you know nothing about ZANACMS yet, start with the [README](https://github.co
 
 ## Reference
 
-- [Sidebar editor]({{ '/help/sidebar-editor/' | relative_url }}) — file-based `~~ZCOL2~~` content for suitable layouts.
 - [Interfaces]({{ '/guide/interfaces/' | relative_url }}) — footer tokens, page variables, links, CSS and public helper interfaces.
-- [Update]({{ '/guide/update/' | relative_url }}) — update policy, backup flow and rollback notes.
+- [Update]({{ '/guide/update/' | relative_url }}) — Detailed information about the update tool.
 - [HTML designs]({{ '/guide/html-designs/' | relative_url }}) — create a design with `design.html`, CSS variants and `design.ini`.
 - [Layout generator manual]({{ '/guide/layout-generator-manual/' | relative_url }}) — generator structure and implementation notes.
 - [Third-party notices](https://github.com/gaxmann/zanacms/blob/master/layout/THIRD-PARTY-NOTICES.md) — bundled components and external design notes.

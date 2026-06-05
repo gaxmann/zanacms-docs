@@ -109,6 +109,6 @@ This design is included for preview and evaluation purposes. Use on a public or 
 
 ## Related files
 
-- [`/layout/html/README.md`](https://github.com/gaxmann/zanacms/blob/master/layout/html/README.md)
+- [/layout/html/README.md](https://github.com/gaxmann/zanacms/blob/master/layout/html/README.md)
 - [Design and CSS]({{ '/help/design-and-css/' | relative_url }})
 - [Sidebar editor]({{ '/help/sidebar-editor/' | relative_url }})

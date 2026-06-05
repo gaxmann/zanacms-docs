@@ -12,16 +12,16 @@ For the full technical documentation, start with the [Guide overview]({{ '/guide
 
 - ☷ [Admin dashboard]({{ '/help/admin-area/' | relative_url }}) — site status, current mode and installed version.
 - ⚙ [Device management]({{ '/help/access-management/' | relative_url }}) — activate a browser or device for admin access.
-- @ [Pages]({{ '/help/page-overview/' | relative_url }}) — edit pages in MD mode or Rich mode.
-- ➔ [Navigation]({{ '/help/navigation-editor/' | relative_url }}) — edit the website menu.
 - ◫ [Sidebar editor]({{ '/help/sidebar-editor/' | relative_url }}) — edit the global sidebar content.
+- ➔ [Navigation]({{ '/help/navigation-editor/' | relative_url }}) — edit the website menu.
+- @ [Pages]({{ '/help/page-overview/' | relative_url }}) — edit pages in MD mode or Rich mode.
 - ⚃ [Media]({{ '/help/media/' | relative_url }}) — upload images and copy ready-to-use image code.
 - ⧉ [Backup/Update]({{ '/help/backup/' | relative_url }}) — create backups (run updates).
 
 ## Website setup
 
-- [Configuration]({{ '/help/configuration/' | relative_url }}) — create and edit `/__config/conf.php`.
 - [Modes]({{ '/help/modes/' | relative_url }}) — choose PHP mode, MD mode or Rich mode.
+- [Configuration]({{ '/help/configuration/' | relative_url }}) — create and edit `/__config/conf.php`.
 - [Links]({{ '/help/links/' | relative_url }}) — add internal and external links.
 - [Footer]({{ '/help/footer/' | relative_url }}) — add footer links and translated footer text.
 - [Sidebar editor]({{ '/help/sidebar-editor/' | relative_url }}) — add content for layouts with `~~ZCOL2~~`.
