@@ -28,6 +28,13 @@ Undo and redo are handled by the browser or text field, for example with `Ctrl+Z
 
 When you upload an image from the editor, ZANACMS resizes it in the browser before uploading it. It also creates a smaller copy for normal page display.
 
+
+## Sidebar editor
+
+The **Sidebar editor** admin tool uses the same editor style for the global `~~ZCOL2~~` content. It has language tabs in one form. The sidebar editor does not store a page title or a page H1, and H1 is not supported there.
+
+In PHP mode, the sidebar editor uses the Rich editor.
+
 ## Saving
 
 There is no autosave. Changes are applied only when you press the save button.

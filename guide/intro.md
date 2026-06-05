@@ -156,11 +156,11 @@ The optional media gallery also reads this directory. Uploaded images are saved 
 
 ## Optional editor, media gallery and device manager
 
-The editor and media gallery are safety-disabled by default. Access can be enabled through the device manager `/admin/d.php` for single devices/browsers. PHP mode does not need `/admin/` for runtime; it needs `/admin/` only if image upload through the optional media gallery or device access tools are used. MD mode needs `/admin/` only when the built-in Markdown editor or media tools are used. If Markdown files are edited directly, for example via FTP, `/admin/` can be removed and MD runtime still rebuilds `/zpcache/`. Rich mode needs `/admin/`; without the Rich editor, the Rich mode concept is not useful. 
+The editor, sidebar editor and media gallery are safety-disabled by default. Access can be enabled through the device manager `/admin/d.php` for single devices/browsers. PHP mode does not need `/admin/` for runtime; it needs `/admin/` only if image upload through the optional media gallery or device access tools are used. MD mode needs `/admin/` only when the built-in Markdown editor or media tools are used. If Markdown files are edited directly, for example via FTP, `/admin/` can be removed and MD runtime still rebuilds `/zpcache/`. Rich mode needs `/admin/`; without the Rich editor, the Rich mode concept is not useful. 
 
 When access is active and the current device has the editing cookie, Rich mode shows a small `[e]` link to the rich text editor in the footer. MD mode uses the same `[e]` link for the Markdown editor. PHP mode shows a small `[i]` link to the media gallery in the footer if the admin tools are installed. For setup details, see [Editor access details](#editor-access-details).
 
-In Rich mode, the editor can edit page content, create missing language versions, upload images into `/img`, insert images into the rich text body, and insert `[VAR:...]` variables from `/pages/zvars.php`. The Markdown editor can edit existing Markdown pages, create new Markdown pages, create missing language versions, upload images into `/img`, insert image code into Markdown text, insert page links, apply simple Markdown/HTML toolbar actions, and insert `[VAR:...]` variables from `/pages/zvars.php`.
+In Rich mode, the editor can edit page content, create missing language versions, upload images into `/img`, insert images into the rich text body, and insert `[VAR:...]` variables from `/pages/zvars.php`. The Markdown editor can edit existing Markdown pages, create new Markdown pages, create missing language versions, upload images into `/img`, insert image code into Markdown text, insert page links, apply simple Markdown/HTML toolbar actions, and insert `[VAR:...]` variables from `/pages/zvars.php`. The sidebar editor edits global `~~ZCOL2~~` content when the active design defines `columns=2` in `design.ini` and `$GLOBALS['zconf']['col2']` is not set.
 
 The media gallery displays images and can also delete images. The small red `×` button in the top-left corner of an image deletes the image after confirmation. If a matching large version exists in `/img/big`, both files are deleted.
 
@@ -172,7 +172,7 @@ The admin overview page is available at:
 /admin/
 ```
 
-It is a simple link list. It links to the device manager, page overview, navigation editor and media gallery. It is a convenient entry point when you do not remember the individual admin URLs. 
+It shows the system status and links to the device manager. The other tools are available from the top admin navigation. 
 
 The admin status table can also show a cached GitHub version check. This is only an information display; ZANACMS does not install updates automatically from this check. The check runs through a small admin maintenance pixel and uses a local cache, so the admin page itself does not wait for GitHub. The check is enabled by default and can be disabled in `/__config/conf.php`:
 
@@ -494,7 +494,7 @@ Rich editor body:   <a href="[@contact]">Contact</a>
 Footer in all modes: [[@contact]] or <a href="[@contact]">Contact</a>
 ```
 
-Footer text is configured in `/__config/conf.php`, but `/__config/conf.php` must not depend on runtime function calls. Therefore footer links use the token syntax `[@page]` and `[[@page]]`, not direct `zlink()` or `zhref()` calls.
+Footer text is configured in `/__config/conf.php`, but `/__config/conf.php` must not depend on runtime function calls. Therefore footer links use the token syntax `[@page]` and `[[@page]]`, not direct `zlink()` or `zhref()` calls. Simple text variables such as `[footertext]` are read from `$GLOBALS['zlangs'][language]['vars']` before link tokens are resolved.
 
 ## Page variables
 
@@ -537,7 +537,7 @@ For complete details, including all parameters of `zlink()`, `zhref()`, `ztokenh
 This glossary explains common terms used in the ZANACMS documentation.
 
 **admin file**  
-An administration file below `/admin/`, for example the editor, navigation editor, media gallery or update tools.
+An administration file below `/admin/`, for example the editor, sidebar editor, navigation editor, media gallery or update tools.
 
 **configuration directory**  
 The project directory `/__config/`. It contains configuration examples, the active `conf.php`, `hash.php` when needed and `EDITACCESS_ENABLE.php`.
@@ -558,7 +558,7 @@ The local setup file `/__config/EDITACCESS_ENABLE.php`. It opens a short setup w
 The optional language from `fallbacklg` in `/__config/conf.php`. It can be used when a requested page language is missing.
 
 **footer tokens**  
-ZTOKENS used in footer configuration, for example `[[@contact]]`, `[@contact]` or `[footertext]`.
+ZTOKENS and simple text variables used in footer and layout text, for example `[[@contact]]`, `[@contact]` or `[footertext]`.
 
 **generator**  
 A PHP file that turns the prepared page data into final HTML output. Most users only select layouts; generator details are for layout and theme work.
@@ -620,6 +620,9 @@ A documented file, array, function or directory intended for normal customisatio
 **Rich editor**  
 The admin visual editor used for Rich mode pages.
 
+**Sidebar editor**  
+The admin editor for file-based `~~ZCOL2~~` content. It is available when `zconf['col2']` is not set.
+
 **Rich mode**  
 A mode where page content is stored in `.data.php` files below `/pages/` and is normally edited through the Rich editor.
 
@@ -636,7 +639,7 @@ The generated Markdown cache directory used by MD mode.
 An internal link that keeps `[@page]` as a token until final output, for example an anchor created with `ztokenhref('contact', 'Contact')`.
 
 **ZTOKENS**  
-ZANACMS replacement tokens in text content. Some ZTOKENS work in shared places such as footer configuration, for example `[[@contact]]`, `[@contact]` or `[footertext]`. Other tokens are used in MD or Rich content, for example `[VAR:name]` for page variables. PHP pages can create token links with `ztokenhref()`.
+ZANACMS replacement tokens in text content. Some ZTOKENS and simple text variables work in shared places such as footer and layout text, for example `[[@contact]]`, `[@contact]` or `[footertext]`. Other tokens are used in MD or Rich content, for example `[VAR:name]` for page variables. PHP pages can create token links with `ztokenhref()`.
 
 **ZVARS**  
 The page variable system in `/pages/zvars.php`. ZVARS can provide simple values such as `price_per_hour_1`, or complex prepared output such as generated tables. They are meant to let normal editors use prepared values without writing PHP.

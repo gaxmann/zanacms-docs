@@ -21,9 +21,9 @@ layout/html/<design>/design.html
 layout/html/<design>/zp.css
 ```
 
-`design.html` is the HTML shell of the design. ZP placeholders are inserted there. The full central placeholder list is in [HTML cache: standard](#html-cache-standard).
+`design.html` is the HTML shell of the design. ZP placeholders are inserted there. The full central placeholder list is in [HTML cache: standard](#html-cache-standard). If `~~ZCOL2~~` includes a selected sidebar image, it is output before the sidebar text as `.col2img`. A design that should accept editable sidebar content must add `design.ini` with `columns=2`; missing `design.ini` means `columns=1`.
 
-`zp.css` is included through the normal ZP CSS order if the file exists. Framework CSS, JavaScript, images, fonts and other files are referenced directly in `design.html`. The `html` generator does not automatically load `design.css` or `design.js`. `~~ZNAVI~~` outputs the complete neutral navigation. `~~ZNAVI_LI~~` outputs only the `<li>` elements so that `design.html` can provide its own navigation wrapper. `~~ZHOMEURL~~` is the language-dependent home page URL.
+`zp.css` is included through the normal ZP CSS order if the file exists. Framework CSS, JavaScript, images, fonts and other files are referenced directly in `design.html`. The `html` generator does not automatically load `design.css` or `design.js`. `~~ZNAVI~~` outputs the complete neutral navigation. `~~ZNAVI_LI~~` outputs only the `<li>` elements so that `design.html` can provide its own navigation wrapper. `~~ZHOMEURL~~` is the language-dependent home page URL. `~~ZCOL2~~` outputs the config-based or editor-based sidebar.
 
 The usual process is:
 
@@ -224,6 +224,7 @@ const ZP_HTML_CACHE_VARS = [
 	'menutx'=>'~~ZMENUTX~~',
 	'h1'=>'~~ZH1~~',
 	'body'=>'~~ZBODY~~',
+	'col2'=>'~~ZCOL2~~', // sidebar from zconf['col2'] or file-based editor data
 	'layoutimg'=>'~~ZLAYOUTIMG~~',
 	'pageimg'=>'~~ZPAGEIMG~~',
 	'foot'=>'~~ZFOOT~~',
@@ -421,6 +422,7 @@ $GLOBALS['zdata']['body']
 $GLOBALS['zdata']['head']
 $GLOBALS['zconf']['navi']
 $GLOBALS['zconf']['foot']
+$GLOBALS['zconf']['col2']
 ```
 
 In MD mode, `zp/md.php` prepares the data. Do not call internal MD helper functions directly in the generator.

@@ -19,6 +19,7 @@ A minimal Rich mode website has this structure:
 ├── index.php
 ├── pages/
 │   ├── __navi.data.php
+│   ├── __col2.data.php        optional sidebar
 │   ├── index.data.php
 │   ├── contact.data.php
 │   └── zvars.php              optional
@@ -35,6 +36,7 @@ Important files:
 index.php                 entry point, calls out_page()
 pages/<page>.data.php     page data, grouped by language
 pages/__navi.data.php     navigation data for Rich mode
+pages/__col2.data.php     optional sidebar data
 pages/zvars.php           optional PHP variables for [VAR:...]
 img/                      images used by the editor and layouts
 layout/                   layouts and shared ZP CSS
@@ -71,6 +73,7 @@ $GLOBALS['zconf']=[
 	'layout'=>'html/water',
 	// 'urlrewrite'=>['/', true],
 	'stdlang'=>'en',
+	// 'col2'=>'<p>[col2]</p>',
 	'foot'=>[
 		"[[@legalnotice]] • [[@privacypolicy]]",
 		"<span style='font-size:0.65em'>[footertext]</span>",
@@ -82,19 +85,21 @@ $GLOBALS['zlangs']=[
 	'en'=>[
 		'sitetitle'=>'ZANACMS Example',
 		'sitesub'=>'Minimal Rich website',
-		'foot'=>[
+		'vars'=>[
 			'legalnotice'=>'Legal notice',
 			'privacypolicy'=>'Privacy policy',
 			'footertext'=>'Powered by ZANACMS',
+			'col2'=>'Optional sidebar.',
 		],
 	],
 	'de'=>[
 		'sitetitle'=>'ZANACMS Beispiel',
 		'sitesub'=>'Minimale Rich-Webpräsenz',
-		'foot'=>[
+		'vars'=>[
 			'legalnotice'=>'Impressum',
 			'privacypolicy'=>'Datenschutz',
 			'footertext'=>'Erzeugt mit ZANACMS',
+			'col2'=>'Optionale Seitenleiste.',
 		],
 	],
 ];
@@ -181,6 +186,17 @@ The Rich editor shows `h1` as a visible heading while editing. On save, the head
 ## Page image
 
 The Rich editor can store one page image in `pageimg.src`. If the active layout contains `~~ZPAGEIMG~~`, the image is inserted there. Otherwise ZP inserts it inside the page body directly after the first opening `<p>` tag. The generated image uses the standard class `alignpageimg`.
+
+
+## Sidebar in Rich mode
+
+If the active HTML layout contains `~~ZCOL2~~`, the active design must define `columns=2` in `design.ini`, and `$GLOBALS['zconf']['col2']` is not set, the sidebar editor stores its content in:
+
+```text
+/pages/__col2.data.php
+```
+
+The file contains language entries for the global sidebar. It is not a normal page file and does not store title or H1 data. The optional `col2img.src` image is stored once for all languages and rendered before the sidebar text with class `col2img`.
 
 ## 5. Rich page with PHP fragment
 

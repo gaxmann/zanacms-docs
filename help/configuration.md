@@ -28,7 +28,14 @@ conf.example-rich.php
 
 ## Common settings
 
-Typical settings in `conf.php` include the website mode, languages, layout, URL mode, footer lines and admin exposure level.
+Typical settings in `conf.php` include the website mode, languages, layout, URL mode, footer lines, optional config-based sidebar text and admin exposure level.
+
+
+## Sidebar
+
+Layouts can output a sidebar with `~~ZCOL2~~`. If `$GLOBALS['zconf']['col2']` is set in `/__config/conf.php`, that configuration text is used and the sidebar editor is locked.
+
+If `col2` is not set in `/__config/conf.php`, and the active design opts in with `design.ini` / `columns=2`, the admin tool **Sidebar editor** can write file-based sidebar content: `/pages/__col2.<lg>.md` in MD mode and `/pages/__col2.data.php` in Rich/PHP mode. Without `design.ini`, the design is treated as `columns=1` and the admin menu does not show the sidebar editor.
 
 ## Optional local files
 
@@ -48,5 +55,6 @@ Do not place local configuration into `/zp/` or `/admin/`. `/zp/` contains runti
 
 - [Modes]({{ '/help/modes/' | relative_url }})
 - [Footer]({{ '/help/footer/' | relative_url }})
+- [Sidebar editor]({{ '/help/sidebar-editor/' | relative_url }})
 - [Intro guide]({{ '/guide/' | relative_url }}#example-files)
 - [Configuration interface]({{ '/guide/interfaces/' | relative_url }}#3-configuration-in-confconfphp)

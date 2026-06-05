@@ -25,7 +25,7 @@ A minimal PHP mode website has this structure:
 └── zp/
 ```
 
-`/__config/conf.php` is the website configuration. The PHP page files are in the website root. `layout` contains the visual layouts. `img` contains your images. `zp` contains the ZP runtime files. PHP mode does not need a `pages` directory and does not need `zpcache`. PHP mode does not need `/admin/` for runtime; it needs `/admin/` only if image upload through the optional media gallery or device access tools are used. Otherwise `/admin/` can be removed.
+`/__config/conf.php` is the website configuration. The PHP page files are in the website root. `layout` contains the visual layouts. `img` contains your images. `zp` contains the ZP runtime files. PHP mode does not need a `pages` directory and does not need `zpcache` for normal page output. If the optional sidebar editor is used, it stores `/pages/__col2.data.php`. PHP mode does not need `/admin/` for runtime; it needs `/admin/` only if image upload through the optional media gallery or device access tools are used. Otherwise `/admin/` can be removed.
 
 ## 2. Minimal index.php
 
@@ -94,6 +94,7 @@ $GLOBALS['zconf']=[
 	// 'urlrewrite'=>['/', true],
 	// 'layoutimg'=>['src'=>'img/example.jpg', 'pos'=>'center'],
 	'stdlang'=>'en',
+	// 'col2'=>'<p>[col2]</p>',
 	'foot'=>[
 		"[[@legalnotice]] • [[@privacypolicy]]",
 		"<span style='font-size:0.65em'>[footertext]</span>",
@@ -116,10 +117,11 @@ $GLOBALS['zlangs']=[
 			'contact'=>'Contact',
 			'legalnotice'=>['Legal notice', 'Legal'],
 		],
-		'foot'=>[
+		'vars'=>[
 			'legalnotice'=>'Legal notice',
 			'privacypolicy'=>'Privacy policy',
 			'footertext'=>'Powered by ZANACMS',
+			'col2'=>'Optional sidebar.',
 		],
 	],
 	'de'=>[
@@ -130,10 +132,11 @@ $GLOBALS['zlangs']=[
 			'contact'=>'Kontakt',
 			'legalnotice'=>['Impressum'],
 		],
-		'foot'=>[
+		'vars'=>[
 			'legalnotice'=>'Impressum',
 			'privacypolicy'=>'Datenschutz',
 			'footertext'=>'Erzeugt mit ZANACMS',
+			'col2'=>'Optionale Seitenleiste.',
 		],
 	],
 ];
@@ -172,6 +175,19 @@ selects the standard language.
 
 is optional. It controls which PHP files in the website root are shown in the PHP page overview in `/admin/p.php`. The value is a regular expression body without delimiters. By default, page files must use lowercase letters, numbers, `_` and `-`, must not start with `_`, and must not contain `__`.
 
+
+
+## Sidebar in PHP mode
+
+PHP mode can either define the sidebar directly in `/__config/conf.php` with `$GLOBALS['zconf']['col2']`, or use the file-based sidebar editor.
+
+If `$GLOBALS['zconf']['col2']` is set, it has priority and the editor is locked. If it is not set, the admin tool **Sidebar editor** uses the Rich editor and stores its content in:
+
+```text
+/pages/__col2.data.php
+```
+
+This file is only used for `~~ZCOL2~~`. Normal PHP pages still live in the website root.
 
 ## 4. Page content
 
@@ -389,10 +405,10 @@ Footer lines are configured in `$GLOBALS['zconf']['foot']`. Example:
 ],
 ```
 
-`[[@page]]` creates a complete internal footer link. `[@page]` creates only the URL and can be used inside a custom `<a href="[@page]">Text</a>` tag. `[@page?]extra=3` keeps extra query parameters. `[footertext]` is replaced with text from `$GLOBALS['zlangs']`. Example:
+`[[@page]]` creates a complete internal footer link. `[@page]` creates only the URL and can be used inside a custom `<a href="[@page]">Text</a>` tag. `[@page?]extra=3` keeps extra query parameters. `[footertext]` is replaced with text from `$GLOBALS['zlangs'][language]['vars']`. Example:
 
 ```php
-'foot'=>[
+'vars'=>[
 	'legalnotice'=>'Legal notice',
 	'privacypolicy'=>'Privacy policy',
 	'footertext'=>'Powered by ZANACMS',

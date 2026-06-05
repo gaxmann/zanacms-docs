@@ -36,6 +36,7 @@ A minimal MD mode website has this structure:
 ├── index.php
 ├── pages/
 │   ├── __NAVIGATION.txt
+│   ├── __col2.en.md          optional sidebar
 │   ├── index.en.md
 │   ├── index.de.md
 │   ├── contact.en.md
@@ -49,7 +50,7 @@ A minimal MD mode website has this structure:
 └── zpcache/
 ```
 
-`pages` contains Markdown files and the navigation source file. The bundled starter files are in `/pages/example/md/`; copy the contents of that directory into `/pages/`, not the directory itself. After copying, the files should be placed directly as `/pages/index.en.md`, `/pages/contact.en.md` and `/pages/__NAVIGATION.txt`. `zpcache` contains generated MD cache files and should not be edited manually. `/admin/` is only needed when the built-in editor or media tools are used; it can be removed when Markdown files are edited directly, for example via FTP.
+`pages` contains Markdown files, the navigation source file and optional sidebar files such as `/pages/__col2.en.md`. The bundled starter files are in `/pages/example/md/`; copy the contents of that directory into `/pages/`, not the directory itself. After copying, the files should be placed directly as `/pages/index.en.md`, `/pages/contact.en.md` and `/pages/__NAVIGATION.txt`. `zpcache` contains generated MD cache files and should not be edited manually. `/admin/` is only needed when the built-in editor or media tools are used; it can be removed when Markdown files are edited directly, for example via FTP.
 
 ## 2. Minimal index.php
 
@@ -72,6 +73,7 @@ $GLOBALS['zconf']=[
 	'layout'=>'html/water',
 	// 'urlrewrite'=>['/', true],
 	'stdlang'=>'en',
+	// 'col2'=>'<p>[col2]</p>',
 	'foot'=>[
 		"[[@legalnotice]] • [[@privacypolicy]]",
 		"<span style='font-size:0.65em'>[footertext]</span>",
@@ -83,19 +85,21 @@ $GLOBALS['zlangs']=[
 	'en'=>[
 		'sitetitle'=>'ZANACMS Example',
 		'sitesub'=>'Minimal Markdown website',
-		'foot'=>[
+		'vars'=>[
 			'legalnotice'=>'Legal notice',
 			'privacypolicy'=>'Privacy policy',
 			'footertext'=>'Powered by ZANACMS',
+			'col2'=>'Optional sidebar.',
 		],
 	],
 	'de'=>[
 		'sitetitle'=>'ZANACMS Beispiel',
 		'sitesub'=>'Minimale md-Webpräsenz',
-		'foot'=>[
+		'vars'=>[
 			'legalnotice'=>'Impressum',
 			'privacypolicy'=>'Datenschutz',
 			'footertext'=>'Erzeugt mit ZANACMS',
+			'col2'=>'Optionale Seitenleiste.',
 		],
 	],
 ];
@@ -189,6 +193,18 @@ mode
 
 `mode: php` loads `/pages/PAGEID.php` as a page data fragment while the website itself remains in MD mode. The PHP fragment must only set page data; it must not call `out_page()`.
 
+
+## Sidebar in MD mode
+
+If the active HTML layout contains `~~ZCOL2~~`, the active design must define `columns=2` in `design.ini`, and `$GLOBALS['zconf']['col2']` is not set, the sidebar editor stores one Markdown file per language:
+
+```text
+/pages/__col2.en.md
+/pages/__col2.de.md
+```
+
+These files contain only sidebar content. They do not support a page title or page H1. The optional sidebar image is edited once as `col2img.src`, written consistently to the sidebar files, and rendered before the text as `.col2img` in all languages.
+
 ## 7. Navigation file
 
 MD navigation is stored in:
@@ -280,7 +296,7 @@ Footer lines are configured in `/__config/conf.php`:
 ],
 ```
 
-Footer labels are stored in `$GLOBALS['zlangs'][language]['foot']`. Footer text is resolved by the common footer-token logic, not by Markdown link syntax. Use `[[@page]]` for a complete footer link, or `<a href="[@page]">Text</a>` when the footer text should provide its own link label.
+Footer text variables are stored in `$GLOBALS['zlangs'][language]['vars']`. Footer text is resolved by the common footer-token logic, not by Markdown link syntax. Use `[[@page]]` for a complete footer link, or `<a href="[@page]">Text</a>` when the footer text should provide its own link label.
 
 ## 11. URL rewrite
 

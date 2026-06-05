@@ -12,7 +12,7 @@ The welcome line shows the current site host and base path, for example `example
 
 The status table lists the installed ZANACMS version, the active website mode, configured languages, URL mode, selected layout, PHP version and server time. It can also show a cached GitHub version status. This is only an information display and does not install updates automatically. To disable the check, set `autoupdcheck` to `false` in `/__config/conf.php`.
 
-The tool list links to the available admin tools. Some tools are only visible in the modes where they apply.
+Below the status table, the dashboard links to the device manager. Pages, Navigation, Sidebar, Media and Backup/Update are available from the top admin navigation where applicable.
 
 ## When to check this page
 
@@ -20,6 +20,7 @@ Check this page after the initial setup, after an update, and whenever something
 
 ## More details
 
+- [Sidebar editor]({{ '/help/sidebar-editor/' | relative_url }})
 - [Backup/Update]({{ '/help/backup/' | relative_url }})
 - [Configuration]({{ '/help/configuration/' | relative_url }})
 - [Intro guide]({{ '/guide/' | relative_url }}#optional-editor-media-gallery-and-device-manager)

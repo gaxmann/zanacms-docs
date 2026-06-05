@@ -10,7 +10,7 @@ ZANACMS has three content modes. A website uses one mode, selected in `/__config
 
 Use PHP mode when pages are written as PHP files. Each page prepares its own data and calls the output function directly. This is the most flexible mode and is aimed at developers who want full control over page structure and content.
 
-PHP mode does not use the visual editor workflow.
+PHP mode does not use the visual editor workflow for normal pages. The sidebar editor can still use the Rich editor for `/pages/__col2.data.php` when the active design defines `columns=2` in `design.ini` and `$GLOBALS['zconf']['col2']` is not defined.
 
 ## MD mode
 
@@ -24,7 +24,7 @@ Use Rich mode when page content should be edited visually in the admin area. The
 
 ## Shared parts
 
-All three modes share the same runtime, layout system, configuration directory, footer handling and URL generation. Switching mode requires only a change in `conf.php` and the appropriate page files.
+All three modes share the same runtime, layout system, configuration directory, footer handling, sidebar handling and URL generation. Switching mode requires only a change in `conf.php` and the appropriate page files.
 
 ## More details
 
@@ -34,3 +34,4 @@ All three modes share the same runtime, layout system, configuration directory, 
 - [PHP mode]({{ '/guide/php-mode/' | relative_url }})
 - [MD mode]({{ '/guide/markdown-mode/' | relative_url }})
 - [Rich mode]({{ '/guide/rich-mode/' | relative_url }})
+- [Sidebar editor]({{ '/help/sidebar-editor/' | relative_url }})

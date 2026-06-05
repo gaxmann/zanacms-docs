@@ -41,6 +41,8 @@ $GLOBALS['zconf']
 $GLOBALS['zlangs']
 $GLOBALS['zdata']
 /pages/zvars.php
+/pages/__col2.<lg>.md
+/pages/__col2.data.php
 /layout/supercustom.css
 /layout/<family>/<design>/custom.css
 /layout/html/<design>/design.html
@@ -54,11 +56,12 @@ $GLOBALS['zdata']
 | Area | Interface | Main use |
 | --- | --- | --- |
 | Site configuration | `/__config/conf.php`, `$GLOBALS['zconf']` | mode, layout, footer, language defaults and site options |
-| Site texts | `$GLOBALS['zlangs']` | site title, subtitle, navigation labels and footer labels |
+| Site texts | `$GLOBALS['zlangs']` | site title, subtitle, navigation labels and layout text variables |
 | Current page | `$GLOBALS['zdata']` | title, heading, body, page language and page image/layout data |
 | PHP page helpers | `out_page()`, `zlink()`, `zhref()`, `ztokenhref()`, `zautop()`, `zsetlangs()`, `zautolg()`, `zquote()`, `zoutimg()` | normal PHP page output and internal links |
 | MD/Rich variables | `/pages/zvars.php` | prepared values or generated output for normal editors |
-| ZTOKENS / footer tokens | `[@page]`, `[[@page]]`, `[footertext]`, `[VAR:name]` | replacement tokens for footer configuration and editor content |
+| Sidebar files | `/pages/__col2.<lg>.md`, `/pages/__col2.data.php` | file-based content for `~~ZCOL2~~` when `zconf['col2']` is not set |
+| ZTOKENS / text tokens | `[@page]`, `[[@page]]`, `[footertext]`, `[VAR:name]` | replacement tokens for footer, col2 and editor content |
 | CSS | `/layout/supercustom.css`, `/layout/<family>/<design>/custom.css` | update-safe visual changes |
 | Own HTML design | `/layout/html/<design>/design.html`, `/layout/html/<design>/zp.css` | local HTML design without a PHP generator |
 | Layout family generator | `/layout/<family>/_generator/zpgen.php` | project-specific layout family support |
@@ -92,6 +95,7 @@ urlrewrite      optional URL base and rewrite setting
 stdlang         standard language of the website
 fallbacklg      optional fallback language
 foot            footer lines
+col2            optional config-based sidebar HTML for layouts with `~~ZCOL2~~`; if set, the sidebar editor is locked
 headlast        optional HTML directly before </head>
 bodylast        optional HTML directly before </body>
 adminexposure   optional admin surface level, default 2; /zp/isdev.txt acts as 99
@@ -113,7 +117,7 @@ The status check reads the latest version from GitHub and stable/warning policy 
 
 Footer lines are configured in `$GLOBALS['zconf']['foot']`.
 
-Footer syntax is mode-independent. It works in PHP mode, MD mode and Rich mode because footer text is resolved by the common runtime footer logic. Footer tokens are part of ZTOKENS.
+Footer syntax is mode-independent. It works in PHP mode, MD mode and Rich mode because footer text is resolved by the common runtime text logic. Footer tokens are part of ZTOKENS.
 
 Use:
 
@@ -137,7 +141,7 @@ Use:
 [footertext]
 ```
 
-for translated footer text from `$GLOBALS['zlangs'][language]['foot']`.
+for translated text from `$GLOBALS['zlangs'][language]['vars']`. These simple variables are replaced before link tokens, so a variable value may itself contain `[@page]` or `[[@page]]`.
 
 Use:
 
@@ -148,6 +152,8 @@ Use:
 when extra query parameters have to be appended.
 
 Do not use `zlink()` or `zhref()` directly inside footer configuration in `/__config/conf.php`.
+
+`$GLOBALS['zconf']['col2']` uses the same text logic as footer lines. A layout can output it with `~~ZCOL2~~`; text variables are read from `$GLOBALS['zlangs'][language]['vars']` first, then link tokens are resolved. If `$GLOBALS['zconf']['col2']` is set, it has priority and the sidebar editor is locked. If it is not set, the editor can store file-based sidebar content in `/pages/__col2.<lg>.md` for MD mode or `/pages/__col2.data.php` for Rich/PHP mode.
 
 ## 5. Internal links by context
 
@@ -428,7 +434,7 @@ The file name is reduced to its basename. Directory paths are not part of this i
 
 `$GLOBALS['zconf']` contains site configuration.
 
-`$GLOBALS['zlangs']` contains translated site texts.
+`$GLOBALS['zlangs']` contains translated site texts. Simple layout text variables for footer and `col2` are stored under `$GLOBALS['zlangs'][language]['vars']`.
 
 `$GLOBALS['zdata']` contains the currently rendered page data:
 
@@ -443,6 +449,8 @@ pageimg         optional page image value used by supported layouts
 ```
 
 Generators and layouts read these values when building the final HTML output.
+
+Sidebar editor files store only sidebar data, not normal page data. MD mode uses `/pages/__col2.<lg>.md`. Rich mode and PHP mode use `/pages/__col2.data.php`. The optional sidebar image is stored once as `col2img.src` and rendered with class `col2img` before the sidebar text in all languages.
 
 ## 8. Page variables
 
@@ -506,7 +514,7 @@ Common ZTOKENS are:
 [VAR:contact_note]
 ```
 
-Footer tokens are the ZTOKENS used in footer configuration. They work in all three modes because the footer is handled by shared runtime logic. Page variable tokens such as `[VAR:name]` are used in MD and Rich content and are resolved from `/pages/zvars.php`.
+Footer and config-based sidebar tokens are the ZTOKENS used in footer and `zconf['col2']` configuration. They work in all three modes because the footer is handled by shared runtime logic. Simple text variables such as `[footertext]` are read from `$GLOBALS['zlangs'][language]['vars']`. Page variable tokens such as `[VAR:name]` are used in MD and Rich content and are resolved from `/pages/zvars.php`.
 
 MD additions/extensions for ZANACMS are the MD-mode additions to normal Markdown. They include internal `@page` links and compact image syntax for relative `/img` images. They are documented in [`guide/markdown-mode.md`]({{ '/guide/markdown-mode/' | relative_url }}).
 
@@ -532,7 +540,7 @@ Use `custom.css` when adjusting an existing supplied design. Use `supercustom.cs
 
 ## 11. HTML layouts
 
-The `html` layout family allows simple layouts without PHP generator development. Supplied HTML designs currently include `html/water` and `html/just-the-docs`.
+The `html` layout family allows simple layouts without PHP generator development. Supplied HTML designs currently include `html/water`, `html/just-the-docs`, `html/z-airy` and `html/z-airy.blue`.
 
 A design can be placed in:
 
@@ -555,7 +563,7 @@ zp.css
 
 `custom.css` is not needed when the design itself is yours. Use `custom.css` mainly when you adjust an existing supplied design and want to keep those local adjustments separate from supplied CSS.
 
-The HTML layout generator replaces documented placeholders in `design.html`. These HTML template replacement variables are called HVARS. Common HVARS are `~~ZHEAD~~`, `~~ZTITLE~~`, `~~ZH1~~`, `~~ZBODY~~`, `~~ZNAVI~~`, `~~ZFOOT~~` and `~~ZBASEURL~~`. The full list is documented in [`layout/html/README.md`](https://github.com/gaxmann/zanacms/blob/master/layout/html/README.md). Framework CSS, JavaScript, fonts and images are referenced directly from `design.html` with `~~ZBASEURL~~`.
+The HTML layout generator replaces documented placeholders in `design.html`. These HTML template replacement variables are called HVARS. Common HVARS are `~~ZHEAD~~`, `~~ZTITLE~~`, `~~ZH1~~`, `~~ZBODY~~`, `~~ZCOL2~~`, `~~ZNAVI~~`, `~~ZFOOT~~` and `~~ZBASEURL~~`. `~~ZCOL2~~` may come from `$GLOBALS['zconf']['col2']` or from the sidebar editor files if the config value is absent. To show the sidebar editor in the admin menu, the active design must define `columns=2` in `design.ini`; otherwise the default is `columns=1`. The full list is documented in [`layout/html/README.md`](https://github.com/gaxmann/zanacms/blob/master/layout/html/README.md). Framework CSS, JavaScript, fonts and images are referenced directly from `design.html` with `~~ZBASEURL~~`.
 
 ## 12. Layout families and generators
 

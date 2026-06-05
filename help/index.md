@@ -14,6 +14,7 @@ For the full technical documentation, start with the [Guide overview]({{ '/guide
 - ⚙ [Device management]({{ '/help/access-management/' | relative_url }}) — activate a browser or device for admin access.
 - @ [Pages]({{ '/help/page-overview/' | relative_url }}) — edit pages in MD mode or Rich mode.
 - ➔ [Navigation]({{ '/help/navigation-editor/' | relative_url }}) — edit the website menu.
+- ◫ [Sidebar editor]({{ '/help/sidebar-editor/' | relative_url }}) — edit the global sidebar content.
 - ⚃ [Media]({{ '/help/media/' | relative_url }}) — upload images and copy ready-to-use image code.
 - ⧉ [Backup/Update]({{ '/help/backup/' | relative_url }}) — create backups (run updates).
 
@@ -23,6 +24,7 @@ For the full technical documentation, start with the [Guide overview]({{ '/guide
 - [Modes]({{ '/help/modes/' | relative_url }}) — choose PHP mode, MD mode or Rich mode.
 - [Links]({{ '/help/links/' | relative_url }}) — add internal and external links.
 - [Footer]({{ '/help/footer/' | relative_url }}) — add footer links and translated footer text.
+- [Sidebar editor]({{ '/help/sidebar-editor/' | relative_url }}) — add content for layouts with `~~ZCOL2~~`.
 - [Images and media]({{ '/help/images-and-media/' | relative_url }}) — use uploaded images in pages.
 - [Page variables]({{ '/help/page-variables/' | relative_url }}) — insert prepared values into MD or Rich pages.
 - [Design and CSS]({{ '/help/design-and-css/' | relative_url }}) — adjust the site design safely.

@@ -6,9 +6,9 @@ permalink: /help/footer/
 
 Footer lines are configured in `/__config/conf.php`. Footer handling is shared by all three modes: PHP mode, MD mode and Rich mode.
 
-## Footer tokens are required
+## Footer tokens and text variables
 
-Footer configuration must use footer tokens. Do not use PHP function calls such as `zlink()` or `zhref()` directly inside footer configuration.
+Footer configuration must use footer tokens and simple text variables. Do not use PHP function calls such as `zlink()` or `zhref()` directly inside footer configuration.
 
 Use a complete internal page link (renders as a full `<a>` tag):
 
@@ -28,7 +28,7 @@ Use translated footer text defined in the language configuration:
 [footertext]
 ```
 
-Footer tokens are ZTOKENS. They are written as plain text and resolved by ZANACMS at render time.
+Footer tokens are ZTOKENS. Simple text variables such as `[footertext]` are read from `$GLOBALS['zlangs'][language]['vars']`. Variables are replaced before link tokens, so a variable value may contain `[@page]` or `[[@page]]`.
 
 ## Why footer works this way
 

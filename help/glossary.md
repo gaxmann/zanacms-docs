@@ -10,7 +10,7 @@ The directory `/__config/`. It contains the active configuration file `conf.php`
 
 ## footer tokens
 
-ZTOKENS used in footer configuration: `[[@contact]]` renders a full link, `[@contact]` gives the URL only, and `[footertext]` inserts translated footer text.
+ZTOKENS and simple text variables used in footer/layout text: `[[@contact]]` renders a full link, `[@contact]` gives the URL only, and `[footertext]` inserts translated text from `$GLOBALS['zlangs'][language]['vars']`.
 
 ## HTML layout
 
@@ -59,3 +59,12 @@ The page variable system based on `/pages/zvars.php`. ZVARS let a PHP developer 
 ## More details
 
 - [Intro glossary]({{ '/guide/intro/#5-glossary' | relative_url }})
+
+
+## sidebar editor
+
+The admin tool `/admin/c.php`. It edits the file-based content for `~~ZCOL2~~` when `$GLOBALS['zconf']['col2']` is not set.
+
+## col2img
+
+The optional image slot for the sidebar. It is stored once for all languages and rendered before the `~~ZCOL2~~` text with CSS class `col2img`. It is separate from `pageimg`.
