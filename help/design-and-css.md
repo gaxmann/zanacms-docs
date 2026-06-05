@@ -22,6 +22,10 @@ Layout-specific custom CSS can be placed in:
 
 Both files are loaded after the supplied layout CSS and are not overwritten by updates. Do not change core CSS files such as `zp.css` or `zpsuper.css` directly, as they can be overwritten during an update.
 
+## Supplied HTML designs
+
+Supplied HTML designs currently include `html/water` and `html/just-the-docs`. They use the generic HTML layout generator and a `design.html` template under `/layout/html/<design>/`.
+
 ## Own HTML design
 
 To create a completely custom design, add a new design folder, for example:

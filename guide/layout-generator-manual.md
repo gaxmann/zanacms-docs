@@ -549,8 +549,8 @@ In `gen2026.php`, take block navigation only once as `~~ZNAVI~~`. Do not output 
 `zp/zpgen.php` remains without HTML cache because it is fast and the cache is practically already the HTML template. Known approximate scale:
 
 ```text
-pico < 1 ms
 water ca. 1.2 ms
+just-the-docs ca. 1.2 ms
 ```
 
 Do not change this for uniformity.

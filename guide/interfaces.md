@@ -532,7 +532,7 @@ Use `custom.css` when adjusting an existing supplied design. Use `supercustom.cs
 
 ## 11. HTML layouts
 
-The `html` layout family allows simple layouts without PHP generator development.
+The `html` layout family allows simple layouts without PHP generator development. Supplied HTML designs currently include `html/water` and `html/just-the-docs`.
 
 A design can be placed in:
 

@@ -58,15 +58,15 @@ Typical layout directories:
 
 ```text
 /layout/html/water
+/layout/html/just-the-docs
 /layout/wondercms/sky
 /layout/editorial/editorial
 /layout/paradigm-shift/paradigm-shift
 /layout/wordpress/graphy
 /layout/wordpress/syntax
-/layout/html/pico
 ```
 
-`water` is a water.css based layout. `pico` is a Pico CSS based layout. `graphy` and `syntax` are older WordPress-based layouts. `editorial` is the html5up Editorial layout. `paradigm-shift` is a reduced HTML5 UP Paradigm Shift content-page layout. 
+`water` is a water.css based layout. `just-the-docs` is a Just the Docs based HTML layout. `graphy` and `syntax` are older WordPress-based layouts. `editorial` is the html5up Editorial layout. `paradigm-shift` is a reduced HTML5 UP Paradigm Shift content-page layout. 
 
 Directories whose names start with `_`, such as `_generator` or `_zpgen`, are internal and are not selectable designs. _(In the `/layout/_zpgen` directory the supplied generators for the design families are stored. Don't touch this directory.)_ 
 
@@ -80,8 +80,8 @@ The first part is the layout family. The second part is the design. A layout nam
 
 ```php
 'layout'=>'html/water',
+'layout'=>'html/just-the-docs',
 'layout'=>'wondercms/sky',
-'layout'=>'html/pico',
 'layout'=>'editorial/editorial',
 'layout'=>'paradigm-shift/paradigm-shift',
 'layout'=>'wordpress/graphy',
@@ -419,7 +419,7 @@ ZANACMS separates layout support into a layout family and a design:
 
 The design directory contains the layout or original theme files under `layout/<family>/<design>/`. ZANACMS first looks for a local family generator under `layout/<family>/_generator/zpgen.php`. If that file is missing, it uses the supplied ZP generator under `layout/_zpgen/<family>/zpgen.php`.
 
-This makes it possible to support very different kinds of layouts without changing the page content itself. Some layout families are simple and mostly load a classless CSS file, for example `html/water` or `html/pico`. Other layout families adapt complete theme structures, for example WordPress themes or WonderCMS themes.
+This makes it possible to support very different kinds of layouts without changing the page content itself. Some layout families are simple and mostly load a classless CSS file, for example `html/water` or `html/just-the-docs`. Other layout families adapt complete theme structures, for example WordPress themes or WonderCMS themes.
 
 Many older WordPress themes work well because their HTML structure is still relatively simple. Some newer WordPress themes may also work, but modern block themes or themes with heavy JavaScript, complex PHP logic or build pipelines may need extra adjustments.
 
