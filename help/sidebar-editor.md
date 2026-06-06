@@ -1,10 +1,10 @@
 ---
-title: "◫ Sidebar editor"
+title: "◫ Sidebar"
 permalink: /help/sidebar-editor/
 ---
-# ◫ Sidebar editor
+# ◫ Sidebar
 
-The sidebar editor edits the global content for the HTML placeholder `~~ZCOL2~~`. It is useful for layouts with a sidebar, for example `html/z-airy` and `html/z-airy.blue`.
+The sidebar tool edits the global content for the HTML placeholder `~~ZCOL2~~`. It is useful for layouts with a sidebar, for example `html/z-airy` and `html/z-airy.blue`.
 
 ## When the editor is available
 
@@ -45,13 +45,17 @@ In MD mode, the editor writes one Markdown file per language:
 /pages/__col2.en.md
 ```
 
-In Rich mode and PHP mode, the editor writes one shared data file:
+In Rich mode, the editor writes one shared data file:
 
 ```text
 /pages/__col2.data.php
 ```
 
-PHP mode uses the Rich editor for the file-based sidebar.
+In PHP mode, the editor uses the Rich editor but writes the data file next to the PHP configuration:
+
+```text
+/__config/col2.php
+```
 
 ## Text and image
 
@@ -59,7 +63,7 @@ The editor stores only sidebar content. It does not store a page title or a page
 
 The optional sidebar image is stored once as `col2img.src` for all language versions. At runtime, ZANACMS renders this image before the sidebar text with the CSS class `col2img`.
 
-`pageimg` is separate. The normal page image is not changed by the sidebar editor.
+`pageimg` is separate. The normal page image is not changed by the sidebar tool.
 
 ## More details
 

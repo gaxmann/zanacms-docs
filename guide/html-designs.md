@@ -82,6 +82,36 @@ The HTML generator replaces placeholders in `design.html`. Common placeholders a
 
 `~~ZCOL2~~` outputs sidebar content. The content can come from `$GLOBALS['zconf']['col2']` or from the sidebar editor files. A selected `col2img` is output before the sidebar text with the CSS class `col2img`.
 
+## Layout image in HTML designs
+
+HTML designs can use the `layoutimg` value from the configuration as a CSS background image. ZANACMS provides the following CSS variables for this:
+
+```css
+--z-layoutimg
+--z-layoutimg-pos
+```
+
+Example in `__config/conf.php`:
+
+```php
+'layoutimg'=>['src'=>'img/header.jpg', 'pos'=>'center'],
+```
+
+An HTML design can use these values in its CSS file:
+
+```css
+#header {
+	background-image:var(--z-layoutimg, url(default-header.jpg));
+	background-position:var(--z-layoutimg-pos, center);
+}
+```
+
+The second value in `var(...)` is the design default. It is used when no `layoutimg` is set in the configuration.
+
+A design's default image should still be defined in the design CSS file. This allows each CSS variant to define its own default image, for example `zp.css` for the default variant and `zpblue.css` for the blue variant.
+
+These CSS variables do not change the meaning of `~~ZLAYOUTIMG~~`. `~~ZLAYOUTIMG~~` remains an HTML image fragment for designs or generators that need to output an actual image in the HTML. The CSS variables are intended for HTML designs that use the layout image as a background image.
+
 ## Referencing files
 
 In `design.html`, use `~~ZBASEURL~~` for local files:
@@ -101,14 +131,11 @@ header {
 
 Keep filesystem paths and URL paths separate. PHP code uses filesystem paths. HTML and CSS output use URL paths.
 
-## Supplied z-airy design
+## Supplied Z-Airy design
 
-The package includes the preview design `html/z-airy` with a blue CSS variant `html/z-airy.blue`.
-
-This design is included for preview and evaluation purposes. Use on a public or private website requires a valid design license.
+The package includes the preview design `html/z-airy` with a blue CSS variant `html/z-airy.blue`. This design is included for preview and evaluation purposes. Use on a public or private website requires a valid design license.
 
 ## Related files
 
-- [/layout/html/README.md](https://github.com/gaxmann/zanacms/blob/master/layout/html/README.md)
 - [Design and CSS]({{ '/help/design-and-css/' | relative_url }})
 - [Sidebar editor]({{ '/help/sidebar-editor/' | relative_url }})

@@ -25,7 +25,7 @@ A minimal PHP mode website has this structure:
 └── zp/
 ```
 
-`/__config/conf.php` is the website configuration. The PHP page files are in the website root. `layout` contains the visual layouts. `img` contains your images. `zp` contains the ZP runtime files. PHP mode does not need a `pages` directory and does not need `zpcache` for normal page output. If the optional sidebar editor is used, it stores `/pages/__col2.data.php`. PHP mode does not need `/admin/` for runtime; it needs `/admin/` only if image upload through the optional media gallery or device access tools are used. Otherwise `/admin/` can be removed.
+`/__config/conf.php` is the website configuration. The PHP page files are in the website root. `layout` contains the visual layouts. `img` contains your images. `zp` contains the ZP runtime files. PHP mode does not need a `pages` directory and does not need `zpcache` for normal page output. If the optional sidebar tool is used, it stores `/__config/col2.php`. PHP mode does not need `/admin/` for runtime; it needs `/admin/` only if image upload through the optional media gallery or device access tools are used. Otherwise `/admin/` can be removed.
 
 ## 2. Minimal index.php
 
@@ -179,12 +179,12 @@ is optional. It controls which PHP files in the website root are shown in the PH
 
 ## Sidebar in PHP mode
 
-PHP mode can either define the sidebar directly in `/__config/conf.php` with `$GLOBALS['zconf']['col2']`, or use the file-based sidebar editor.
+PHP mode can either define the sidebar directly in `/__config/conf.php` with `$GLOBALS['zconf']['col2']`, or use the file-based sidebar tool.
 
-If `$GLOBALS['zconf']['col2']` is set, it has priority and the editor is locked. If it is not set, the admin tool **Sidebar editor** uses the Rich editor and stores its content in:
+If `$GLOBALS['zconf']['col2']` is set, it has priority and the editor is locked. If it is not set, the admin tool **Sidebar** uses the Rich editor and stores its content in:
 
 ```text
-/pages/__col2.data.php
+/__config/col2.php
 ```
 
 This file is only used for `~~ZCOL2~~`. Normal PHP pages still live in the website root.
