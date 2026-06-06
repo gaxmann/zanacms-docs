@@ -101,7 +101,6 @@ headlast        optional HTML directly before </head>
 bodylast        optional HTML directly before </body>
 adminexposure   optional admin surface level, default 2; /zp/isdev.txt acts as 99
 autoupdcheck   optional; false disables the cached GitHub status check in /admin/
-favicon         optional favicon/head markup
 ```
 
 Configuration values must be plain data. They must not depend on functions from `/zp/zana.php`. The device manager setup window is controlled by `/__config/EDITACCESS_ENABLE.php`.

@@ -78,7 +78,6 @@ $GLOBALS['zconf']=[
 		"[[@legalnotice]] • [[@privacypolicy]]",
 		"<span style='font-size:0.65em'>[footertext]</span>",
 	],
-	'favicon'=>'',
 ];
 
 $GLOBALS['zlangs']=[
@@ -196,7 +195,7 @@ mode
 
 ## Sidebar in MD mode
 
-If the active HTML layout contains `~~ZCOL2~~`, the active design must define `columns=2` in `design.ini`, and `$GLOBALS['zconf']['col2']` is not set, the sidebar editor stores one Markdown file per language:
+If the active HTML layout contains `~~ZCOL2~~`, the active design must define `columns=2` in `design.ini`, and `$GLOBALS['zconf']['col2']` is not set, the sidebar tool stores one Markdown file per language:
 
 ```text
 /pages/__col2.en.md

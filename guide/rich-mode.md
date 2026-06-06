@@ -78,7 +78,6 @@ $GLOBALS['zconf']=[
 		"[[@legalnotice]] • [[@privacypolicy]]",
 		"<span style='font-size:0.65em'>[footertext]</span>",
 	],
-	'favicon'=>'',
 ];
 
 $GLOBALS['zlangs']=[
@@ -190,7 +189,7 @@ The Rich editor can store one page image in `pageimg.src`. If the active layout 
 
 ## Sidebar in Rich mode
 
-If the active HTML layout contains `~~ZCOL2~~`, the active design must define `columns=2` in `design.ini`, and `$GLOBALS['zconf']['col2']` is not set, the sidebar editor stores its content in:
+If the active HTML layout contains `~~ZCOL2~~`, the active design must define `columns=2` in `design.ini`, and `$GLOBALS['zconf']['col2']` is not set, the sidebar tool stores its content in:
 
 ```text
 /pages/__col2.data.php

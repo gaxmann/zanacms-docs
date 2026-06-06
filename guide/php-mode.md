@@ -99,7 +99,6 @@ $GLOBALS['zconf']=[
 		"[[@legalnotice]] • [[@privacypolicy]]",
 		"<span style='font-size:0.65em'>[footertext]</span>",
 	],
-	'favicon'=>'',
 	'navi'=>[
 		'index'=>['index',[
 			'legalnotice'=>['legalnotice'],
