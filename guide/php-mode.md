@@ -178,9 +178,15 @@ is optional. It controls which PHP files in the website root are shown in the PH
 
 ## Sidebar in PHP mode
 
-PHP mode can either define the sidebar directly in `/__config/conf.php` with `$GLOBALS['zconf']['col2']`, or use the file-based sidebar tool.
+PHP mode can define a global sidebar directly in `/__config/conf.php` with `$GLOBALS['zconf']['col2']`, override it per page with `$GLOBALS['zdata']['col2']`, or use the file-based sidebar tool.
 
-If `$GLOBALS['zconf']['col2']` is set, it has priority and the editor is locked. If it is not set, the admin tool **Sidebar** uses the Rich editor and stores its content in:
+For a page-specific sidebar in a PHP page, set:
+
+```php
+$GLOBALS['zdata']['col2']='<p>Sidebar for this page.</p>';
+```
+
+`$GLOBALS['zdata']['col2']` is read through `zgetconf('col2')` and overrides the global `$GLOBALS['zconf']['col2']` for that page. If `$GLOBALS['zconf']['col2']` is set, the editor is locked. If neither page data nor config provides `col2`, the admin tool **Sidebar** uses the Rich editor and stores its content in:
 
 ```text
 /__config/col2.php

@@ -24,7 +24,7 @@ columns=2
 
 Only set `columns=2` when the design can accept editable sidebar content. The default is `columns=1`, which also applies when `design.ini` is missing.
 
-If `/__config/conf.php` contains `$GLOBALS['zconf']['col2']`, the configuration value has priority and the editor is locked. Remove the `col2` entry from `/__config/conf.php` when the sidebar should be edited from files.
+If `/__config/conf.php` contains `$GLOBALS['zconf']['col2']`, the editor is locked. Runtime output reads the sidebar through `zgetconf('col2')`, so page data can still override the global config value for the current page. Remove the `col2` entry from `/__config/conf.php` when the sidebar should be edited from files.
 
 ## Language tabs
 

@@ -195,6 +195,8 @@ mode
 
 ## Sidebar in MD mode
 
+`~~ZCOL2~~` first reads `col2` through `zgetconf('col2')`, so page data can override the global sidebar before the file-based sidebar is used.
+
 If the active HTML layout contains `~~ZCOL2~~`, the active design must define `columns=2` in `design.ini`, and `$GLOBALS['zconf']['col2']` is not set, the sidebar tool stores one Markdown file per language:
 
 ```text

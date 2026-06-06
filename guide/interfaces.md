@@ -61,7 +61,7 @@ $GLOBALS['zdata']
 | Current page | `$GLOBALS['zdata']` | title, heading, body, page language and page image/layout data |
 | PHP page helpers | `out_page()`, `zlink()`, `zhref()`, `ztokenhref()`, `zautop()`, `zsetlangs()`, `zautolg()`, `zquote()`, `zoutimg()` | normal PHP page output and internal links |
 | MD/Rich variables | `/pages/zvars.php` | prepared values or generated output for normal editors |
-| Sidebar files | `/pages/__col2.<lg>.md`, `/pages/__col2.data.php`, `/__config/col2.php` | file-based content for `~~ZCOL2~~` when `zconf['col2']` is not set |
+| Sidebar files | `/pages/__col2.<lg>.md`, `/pages/__col2.data.php`, `/__config/col2.php` | file-based content for `~~ZCOL2~~` when page data and `zconf['col2']` are not set |
 | ZTOKENS / text tokens | `[@page]`, `[[@page]]`, `[footertext]`, `[VAR:name]` | replacement tokens for footer, col2 and editor content |
 | CSS | `/layout/supercustom.css`, `/layout/<family>/<design>/custom.css` | update-safe visual changes |
 | Own HTML design | `/layout/html/<design>/design.html`, `/layout/html/<design>/zp.css` | local HTML design without a PHP generator |
@@ -96,7 +96,7 @@ urlrewrite      optional URL base and rewrite setting
 stdlang         standard language of the website
 fallbacklg      optional fallback language
 foot            footer lines
-col2            optional config-based sidebar HTML for layouts with `~~ZCOL2~~`; if set, the sidebar is locked
+col2            optional sidebar HTML for layouts with `~~ZCOL2~~`; page data can override the config value through `zgetconf('col2')`; if set in config, the sidebar editor is locked
 headlast        optional HTML directly before </head>
 bodylast        optional HTML directly before </body>
 adminexposure   optional admin surface level, default 2; /zp/isdev.txt acts as 99
@@ -153,7 +153,7 @@ when extra query parameters have to be appended.
 
 Do not use `zlink()` or `zhref()` directly inside footer configuration in `/__config/conf.php`.
 
-`$GLOBALS['zconf']['col2']` uses the same text logic as footer lines. A layout can output it with `~~ZCOL2~~`; text variables are read from `$GLOBALS['zlangs'][language]['vars']` first, then link tokens are resolved. If `$GLOBALS['zconf']['col2']` is set, it has priority and the sidebar is locked. If it is not set, the editor can store file-based sidebar content in `/pages/__col2.<lg>.md` for MD mode, `/pages/__col2.data.php` for Rich mode or `/__config/col2.php` for PHP mode.
+`~~ZCOL2~~` reads sidebar text through `zgetconf('col2')`. This means `$GLOBALS['zdata']['col2']` can override `$GLOBALS['zconf']['col2']` for the current page. Text variables are read from `$GLOBALS['zlangs'][language]['vars']` first, then link tokens are resolved. If `$GLOBALS['zconf']['col2']` is set, the sidebar editor is locked. If neither page data nor config provides `col2`, the editor can store file-based sidebar content in `/pages/__col2.<lg>.md` for MD mode, `/pages/__col2.data.php` for Rich mode or `/__config/col2.php` for PHP mode.
 
 ## 5. Internal links by context
 
@@ -563,7 +563,7 @@ zp.css
 
 `custom.css` is not needed when the design itself is yours. Use `custom.css` mainly when you adjust an existing supplied design and want to keep those local adjustments separate from supplied CSS.
 
-The HTML layout generator replaces documented placeholders in `design.html`. These HTML template replacement variables are called HVARS. Common HVARS are `~~ZHEAD~~`, `~~ZTITLE~~`, `~~ZH1~~`, `~~ZBODY~~`, `~~ZCOL2~~`, `~~ZNAVI~~`, `~~ZFOOT~~` and `~~ZBASEURL~~`. `~~ZCOL2~~` may come from `$GLOBALS['zconf']['col2']` or from the sidebar files if the config value is absent. To show the sidebar tool in the admin menu, the active design must define `columns=2` in `design.ini`; otherwise the default is `columns=1`. The full list is documented in [`layout/html/README.md`](https://github.com/gaxmann/zanacms/blob/master/layout/html/README.md). Framework CSS, JavaScript, fonts and images are referenced directly from `design.html` with `~~ZBASEURL~~`.
+The HTML layout generator replaces documented placeholders in `design.html`. These HTML template replacement variables are called HVARS. Common HVARS are `~~ZHEAD~~`, `~~ZTITLE~~`, `~~ZH1~~`, `~~ZBODY~~`, `~~ZCOL2~~`, `~~ZNAVI~~`, `~~ZFOOT~~` and `~~ZBASEURL~~`. `~~ZCOL2~~` may come from `$GLOBALS['zdata']['col2']`, `$GLOBALS['zconf']['col2']` or from the sidebar files if no page or config value is present. To show the sidebar tool in the admin menu, the active design must define `columns=2` in `design.ini`; otherwise the default is `columns=1`. The full list is documented in [`layout/html/README.md`](https://github.com/gaxmann/zanacms/blob/master/layout/html/README.md). Framework CSS, JavaScript, fonts and images are referenced directly from `design.html` with `~~ZBASEURL~~`.
 
 ## 12. Layout families and generators
 

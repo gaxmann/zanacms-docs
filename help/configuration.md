@@ -33,9 +33,9 @@ Typical settings in `conf.php` include the website mode, languages, layout, URL 
 
 ## Sidebar
 
-Layouts can output a sidebar with `~~ZCOL2~~`. If `$GLOBALS['zconf']['col2']` is set in `/__config/conf.php`, that configuration text is used and the sidebar is locked.
+Layouts can output a sidebar with `~~ZCOL2~~`. The sidebar is read through `zgetconf('col2')`, so page data can override the global `$GLOBALS['zconf']['col2']`. If `$GLOBALS['zconf']['col2']` is set in `/__config/conf.php`, that configuration text is used as the global value and the sidebar editor is locked.
 
-If `col2` is not set in `/__config/conf.php`, and the active design opts in with `design.ini` / `columns=2`, the admin tool **Sidebar** can write file-based sidebar content: `/pages/__col2.<lg>.md` in MD mode, `/pages/__col2.data.php` in Rich mode and `/__config/col2.php` in PHP mode. Without `design.ini`, the design is treated as `columns=1` and the admin menu does not show the sidebar tool.
+If `col2` is not set in page data or `/__config/conf.php`, and the active design opts in with `design.ini` / `columns=2`, the admin tool **Sidebar** can write file-based sidebar content: `/pages/__col2.<lg>.md` in MD mode, `/pages/__col2.data.php` in Rich mode and `/__config/col2.php` in PHP mode. Without `design.ini`, the design is treated as `columns=1` and the admin menu does not show the sidebar tool.
 
 ## Optional local files
 
