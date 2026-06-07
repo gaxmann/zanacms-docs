@@ -115,7 +115,7 @@ code and distribution files.
 No. Bundled third-party components, libraries, fonts and assets remain under
 their own original licenses. External design packages that you download and
 install separately, for example HTML5 UP or WordPress-based designs, also
-remain under their own upstream licenses. See [`third-party-notices.md`]({{ '/guide/third-party-notices/' | relative_url }}).
+remain under their own upstream licenses. See [`THIRD-PARTY-NOTICES.md`](https://github.com/gaxmann/zanacms/blob/master/layout/THIRD-PARTY-NOTICES.md).
 
 ## What if I am unsure whether my use case is commercial?
 

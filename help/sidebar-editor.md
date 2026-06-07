@@ -44,7 +44,7 @@ The editor writes the global sidebar to one admin configuration file:
 /__config/_admconf.php
 ```
 
-MD mode stores Markdown below `mode.md.col2` and ZANACMS caches the rendered HTML in `/zpcache/_meta.php`. Rich mode stores HTML below `mode.rich.col2`. PHP mode stores HTML below `mode.php.col2`.
+MD mode stores Markdown below `['mode']['md']['col2']` and ZANACMS caches the rendered HTML in `/zpcache/_meta.php`. Rich mode stores HTML below `['mode']['rich']['col2']`. PHP mode stores HTML below `['mode']['php']['col2']`.
 
 ## Text and image
 

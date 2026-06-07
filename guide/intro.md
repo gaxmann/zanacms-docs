@@ -3,9 +3,9 @@ title: "ZANACMS Quick Start"
 permalink: /guide/intro/
 ---
 # ZANACMS Quick Start
-# 1. General information
+## 1. General information
 
-This guide explains the basic file structure and setup of ZANACMS. For license terms, see [ZANACMS license](https://github.com/gaxmann/zanacms/blob/master/LICENSE) and [`license-faq.md`]({{ '/guide/license-faq/' | relative_url }}). Bundled third-party components and notes about supported external design packages are listed in [`third-party-notices.md`]({{ '/guide/third-party-notices/' | relative_url }}).
+This guide explains the basic file structure and setup of ZANACMS. For license terms, see [ZANACMS license](https://github.com/gaxmann/zanacms/blob/master/LICENSE) and [`license-faq.md`]({{ '/guide/license-faq/' | relative_url }}). Bundled third-party components and notes about supported external design packages are listed in [`THIRD-PARTY-NOTICES.md`](https://github.com/gaxmann/zanacms/blob/master/layout/THIRD-PARTY-NOTICES.md).
 
 ZANACMS supports three operating modes:
 
@@ -54,19 +54,25 @@ The available layouts are stored in:
 /layout
 ```
 
-Typical layout directories:
+Bundled layout directories in the core ZIP include for example:
 
 ```text
 /layout/html/water
 /layout/html/just-the-docs
+/layout/html/z-airy
 /layout/wondercms/sky
+```
+
+Additional tested design snapshots can be downloaded separately from `https://github.com/gaxmann/zp-cms-designs` and copied into `/layout`. Examples are:
+
+```text
 /layout/editorial/editorial
 /layout/paradigm-shift/paradigm-shift
 /layout/wordpress/graphy
 /layout/wordpress/syntax
 ```
 
-`water` is a water.css based layout. `just-the-docs` is a Just the Docs based HTML layout. `graphy` and `syntax` are older WordPress-based layouts. `editorial` is the html5up Editorial layout. `paradigm-shift` is a reduced HTML5 UP Paradigm Shift content-page layout. 
+`water` is a water.css based layout. `just-the-docs` is a Just the Docs based HTML layout. `z-airy` is a bundled ZANACMS HTML layout. `sky` is the bundled WonderCMS Sky layout. `graphy` and `syntax` are older WordPress-based layouts available as tested external design snapshots. `editorial` is the HTML5 UP Editorial layout. `paradigm-shift` is a reduced HTML5 UP Paradigm Shift content-page layout.
 
 Directories whose names start with `_`, such as `_generator` or `_zpgen`, are internal and are not selectable designs. _(In the `/layout/_zpgen` directory the supplied generators for the design families are stored. Don't touch this directory.)_ 
 
@@ -88,6 +94,8 @@ The first part is the layout family. The second part is the design. A layout nam
 'layout'=>'wordpress/syntax',
 'layout'=>'wordpress/twentytwentyfive',
 ```
+
+The examples from `editorial`, `paradigm-shift` and `wordpress` are additional tested designs. They are not necessarily included in the core ZIP. Download tested design snapshots separately from `https://github.com/gaxmann/zp-cms-designs` when needed.
 
 Some layouts can use optional design values. `paradigm-shift/paradigm-shift` uses `layoutimg` for its large intro image:
 
@@ -182,7 +190,7 @@ The admin status table can also show a cached GitHub version check. This is only
 
 The update status, update policy, warnings and breaking update boundaries are documented in [guide/update.md]({{ '/guide/update/' | relative_url }}).
 
-The media gallery uses the ZP admin layout. It lists supported images from `/img`, allows uploads, creates resized files used by ZANACMS, and copies the matching image code when an image is clicked. In PHP mode this is a PHP image snippet. In MD mode this is HTML image code. Rich mode normally inserts images directly through the rich text editor.
+The media gallery uses the ZP admin layout. It lists supported images from `/img`, allows uploads, creates resized files used by ZANACMS, and copies the matching image code when an image is clicked. In PHP mode this is a PHP image snippet. In MD mode this is Markdown image code. Rich mode normally inserts images directly through the rich text editor.
 
 ### Admin interface language
 
@@ -230,7 +238,7 @@ In PHP mode, `zautolg($tx)` registers the page languages from `array_keys($tx)` 
 ---
 ---
 
-# 2. Selecting the mode
+## 2. Selecting the mode
 
 The mode is selected in `/__config/conf.php`.
 
@@ -377,7 +385,7 @@ After the basic setup, continue with the mode-specific guide:
 
 ---
 
-# 3. More Detailed Information
+## 3. More Detailed Information
 
 ## Editor access details
 
@@ -454,7 +462,7 @@ The WordPress variants (`layout/_zpgen/wordpress/gen2015.php` and `layout/_zpgen
 - `1.12.4/jquery.min.js`
 - `jquery-migrate-1.4.1.min.js`
 
-These files are required for classic WordPress themes that expect WordPress to provide jQuery. See [`third-party-notices.md`]({{ '/guide/third-party-notices/' | relative_url }}) for license information about the bundled script files and notes about external design packages.
+These files are required for classic WordPress themes that expect WordPress to provide jQuery. See [`THIRD-PARTY-NOTICES.md`](https://github.com/gaxmann/zanacms/blob/master/layout/THIRD-PARTY-NOTICES.md) for license information about the bundled script files and notes about external design packages.
 
 ## Historical info
 
@@ -462,7 +470,7 @@ ZP originally stood for ZANAPRESS, from when the project started as a WordPress 
 
 ---
 
-# 4. Customisation and public interfaces
+## 4. Customisation and public interfaces
 
 ZANACMS should be customised through documented interfaces, not by changing core files. The detailed reference is [`guide/interfaces.md`]({{ '/guide/interfaces/' | relative_url }}). The most important points are kept here because they affect normal setup work.
 
@@ -532,7 +540,7 @@ For complete details, including all parameters of `zlink()`, `zhref()`, `ztokenh
 
 ---
 
-# 5. Glossary
+## 5. Glossary
 
 This glossary explains common terms used in the ZANACMS documentation.
 

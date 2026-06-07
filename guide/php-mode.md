@@ -167,7 +167,7 @@ is optional. It controls which PHP files in the website root are shown in the PH
 
 ## Sidebar in PHP mode
 
-PHP mode can define a global sidebar directly in `/__config/conf.php` with `$GLOBALS['zconf']['col2']`, override it per page with allowed `$GLOBALS['zdata']['col2']`, or use the admin sidebar tool. The admin tool stores its fallback value in `/__config/_admconf.php`, below `mode.php.col2`.
+PHP mode can define a global sidebar directly in `/__config/conf.php` with `$GLOBALS['zconf']['col2']`, override it per page with allowed `$GLOBALS['zdata']['col2']`, or use the admin sidebar tool. The admin tool stores its fallback value in `/__config/_admconf.php`, below `['mode']['php']['col2']`.
 
 For a page-specific sidebar in a PHP page, set:
 
