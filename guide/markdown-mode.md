@@ -32,17 +32,14 @@ A minimal MD mode website has this structure:
 ```text
 /
 ├── __config/
-│   └── conf.php
+│   ├── conf.php
+│   └── _admconf.php          optional admin-written navigation/sidebar data
 ├── index.php
 ├── pages/
-│   ├── __NAVIGATION.txt
-│   ├── __col2.en.md          optional sidebar
 │   ├── index.en.md
 │   ├── index.de.md
 │   ├── contact.en.md
-│   ├── contact.de.md
-│   ├── legalnotice.en.md
-│   └── privacypolicy.en.md
+│   └── contact.de.md
 ├── img/
 ├── layout/
 ├── zp/
@@ -50,7 +47,7 @@ A minimal MD mode website has this structure:
 └── zpcache/
 ```
 
-`pages` contains Markdown files, the navigation source file and optional sidebar files such as `/pages/__col2.en.md`. The bundled starter files are in `/pages/example/md/`; copy the contents of that directory into `/pages/`, not the directory itself. After copying, the files should be placed directly as `/pages/index.en.md`, `/pages/contact.en.md` and `/pages/__NAVIGATION.txt`. `zpcache` contains generated MD cache files and should not be edited manually. `/admin/` is only needed when the built-in editor or media tools are used; it can be removed when Markdown files are edited directly, for example via FTP.
+`pages` contains Markdown page files. Navigation and global sidebar data come from `/__config/conf.php` or, if the matching key is not set there, from `/__config/_admconf.php`. The bundled starter files are in `/pages/example/md/`; copy the contents of that directory into `/pages/`, not the directory itself. After copying, the page files should be placed directly as `/pages/index.en.md` and `/pages/contact.en.md`. `zpcache` contains generated MD cache files and should not be edited manually. `/admin/` is only needed when the built-in editor or media tools are used; MD mode can run without `/admin/` when Markdown files are edited directly, for example via FTP.
 
 ## 2. Minimal index.php
 
@@ -75,7 +72,6 @@ $GLOBALS['zconf']=[
 	'stdlang'=>'en',
 	// 'col2'=>'<p>[col2]</p>',
 	'foot'=>[
-		"[[@legalnotice]] • [[@privacypolicy]]",
 		"<span style='font-size:0.65em'>[footertext]</span>",
 	],
 ];
@@ -85,8 +81,6 @@ $GLOBALS['zlangs']=[
 		'sitetitle'=>'ZANACMS Example',
 		'sitesub'=>'Minimal Markdown website',
 		'vars'=>[
-			'legalnotice'=>'Legal notice',
-			'privacypolicy'=>'Privacy policy',
 			'footertext'=>'Powered by ZANACMS',
 			'col2'=>'Optional sidebar.',
 		],
@@ -95,8 +89,6 @@ $GLOBALS['zlangs']=[
 		'sitetitle'=>'ZANACMS Beispiel',
 		'sitesub'=>'Minimale md-Webpräsenz',
 		'vars'=>[
-			'legalnotice'=>'Impressum',
-			'privacypolicy'=>'Datenschutz',
 			'footertext'=>'Erzeugt mit ZANACMS',
 			'col2'=>'Optionale Seitenleiste.',
 		],
@@ -120,8 +112,6 @@ Examples:
 /pages/index.de.md
 /pages/contact.en.md
 /pages/contact.de.md
-/pages/legalnotice.en.md
-/pages/privacypolicy.en.md
 ```
 
 A simple page:
@@ -132,7 +122,6 @@ A simple page:
 This is a Markdown page.
 
 [Contact page](@contact)
-[Legal notice](@legalnotice)
 ```
 
 The first level-one heading is used as the main heading if no header field overrides it. The language code in the filename is the page language. These files also define the local languages of that page.
@@ -195,40 +184,38 @@ mode
 
 ## Sidebar in MD mode
 
-`~~ZCOL2~~` first reads `col2` through `zgetconf('col2')`, so page data can override the global sidebar before the file-based sidebar is used.
+`~~ZCOL2~~` first reads `col2` through `zgetconf('col2')`, so allowed page data can override the global sidebar.
 
-If the active HTML layout contains `~~ZCOL2~~`, the active design must define `columns=2` in `design.ini`, and `$GLOBALS['zconf']['col2']` is not set, the sidebar tool stores one Markdown file per language:
-
-```text
-/pages/__col2.en.md
-/pages/__col2.de.md
-```
-
-These files contain only sidebar content. They do not support a page title or page H1. The optional sidebar image is edited once as `col2img.src`, written consistently to the sidebar files, and rendered before the text as `.col2img` in all languages.
-
-## 7. Navigation file
-
-MD navigation is stored in:
+If the active HTML layout contains `~~ZCOL2~~`, the active design must define `columns=2` in `design.ini`, and `$GLOBALS['zconf']['col2']` is not set, the sidebar tool stores Markdown sidebar content in:
 
 ```text
-/pages/__NAVIGATION.txt
+/__config/_admconf.php
 ```
 
-Example:
+The MD sidebar data lives below `_admconf.php['mode']['md']['col2']`. ZANACMS renders that Markdown once and caches the resulting HTML in `/zpcache/_meta.php`. The optional sidebar image is edited once as `col2img.src` and rendered before the text as `.col2img` in all languages.
+
+## 7. Navigation
+
+MD navigation can be set manually in `/__config/conf.php` with `$GLOBALS['zconf']['navi']`. If `navi` is not set there, the admin navigation editor stores the parsed navigation for MD mode in:
+
+```text
+/__config/_admconf.php['mode']['md']['navi']
+```
+
+The matching labels are stored below `_admconf.php['mode']['md']['langs'][lang]['navi']`.
+
+The editor text format is:
 
 ```text
 # ZANACMS navigation
 # @pagename | langcode:text (*:Text --> Text is valid for all languages)
 
 @index | de:Start | en:Home
-> @legalnotice | de:Impressum | en:Legal notice
-> @privacypolicy | de:Datenschutz | en:Privacy policy
+
 @contact | de:Kontakt | en:Contact
 ```
 
 Lines starting with `#` are comments. `>` creates a sub level. `*:` can be used for shared text according to the navigation parser rules.
-
-The navigation editor uses this text format in MD and Rich mode. MD mode keeps `/pages/__NAVIGATION.txt` as its source file. Rich mode stores the parsed result in `/pages/__navi.data.php`.
 
 ## 8. Internal links
 
@@ -292,7 +279,6 @@ Footer lines are configured in `/__config/conf.php`:
 
 ```php
 'foot'=>[
-	"[[@legalnotice]] • [[@privacypolicy]]",
 	"<span style='font-size:0.65em'>[footertext]</span>",
 ],
 ```
@@ -313,7 +299,7 @@ MD mode uses generated cache files in:
 
 ZANACMS tracks which languages exist for each MD page. Official website languages come from `$GLOBALS['zlangs']`. Additional MD files outside the official website languages add their language only on that page. If a non-official language is requested and the page does not have that language, MD delivers `fallbacklg` or `stdlang`; canonical and further internal links use that delivered language. If an official language is requested but the current page is missing in that language, MD still keeps further internal links in the requested official language, while canonical points to the delivered fallback language.
 
-The cache exists so Markdown files do not need to be parsed on every page request. ZP rebuilds cache files when the Markdown source file, `__NAVIGATION.txt` or `/__config/conf.php` has changed, or when a required cache file is missing. This also applies when Markdown files are uploaded or edited by FTP. The language scan is refreshed after 3600 seconds / 60 minutes by default. You can override this with `mdlangcachetime`, for example `// 'mdlangcachetime'=>900, // 15 min MD langs cache time`. If a direct language URL such as `/fr/contact` is requested and `contact.fr.md` exists but is not yet known to the cache, ZP updates the cache before delivering the page. If generated output looks stale or broken, delete the files in `/zpcache`; ZP can rebuild them.
+The cache exists so Markdown files and the MD sidebar do not need to be parsed on every page request. ZP rebuilds cache files when the Markdown source file, `/__config/conf.php` or `/__config/_admconf.php` has changed, or when a required cache file is missing. This also applies when Markdown files are uploaded or edited by FTP. The language scan is refreshed after 3600 seconds / 60 minutes by default. You can override this with `mdlangcachetime`, for example `// 'mdlangcachetime'=>900, // 15 min MD langs cache time`. If a direct language URL such as `/fr/contact` is requested and `contact.fr.md` exists but is not yet known to the cache, ZP updates the cache before delivering the page. If generated output looks stale or broken, delete the files in `/zpcache`; ZP can rebuild them.
 
 `[VAR:...]` tokens are not cached as final output. Variables are evaluated after the cached page HTML was loaded.
 

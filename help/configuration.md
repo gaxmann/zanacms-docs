@@ -28,14 +28,14 @@ conf.example-rich.php
 
 ## Common settings
 
-Typical settings in `conf.php` include the website mode, languages, layout, URL mode, footer lines, optional config-based sidebar text and admin exposure level.
+Typical settings in `conf.php` include the website mode, languages, layout, URL mode, footer lines, optional manual navigation/sidebar text and admin exposure level. Values set in `conf.php` have priority over admin-written fallback values from `/__config/_admconf.php`.
 
 
 ## Sidebar
 
 Layouts can output a sidebar with `~~ZCOL2~~`. The sidebar is read through `zgetconf('col2')`, so page data can override the global `$GLOBALS['zconf']['col2']`. If `$GLOBALS['zconf']['col2']` is set in `/__config/conf.php`, that configuration text is used as the global value and the sidebar editor is locked.
 
-If `col2` is not set in page data or `/__config/conf.php`, and the active design opts in with `design.ini` / `columns=2`, the admin tool **Sidebar** can write file-based sidebar content: `/pages/__col2.<lg>.md` in MD mode, `/pages/__col2.data.php` in Rich mode and `/__config/col2.php` in PHP mode. Without `design.ini`, the design is treated as `columns=1` and the admin menu does not show the sidebar tool.
+If `col2` is not set in page data or `/__config/conf.php`, and the active design opts in with `design.ini` / `columns=2`, the admin tool **Sidebar** writes fallback sidebar content to `/__config/_admconf.php`. MD mode stores Markdown there and caches rendered HTML in `/zpcache/_meta.php`; Rich and PHP mode store HTML there, in separate mode branches. Without `design.ini`, the design is treated as `columns=1` and the admin menu does not show the sidebar tool.
 
 ## Optional local files
 

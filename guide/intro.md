@@ -38,7 +38,7 @@ Use [**PHP mode**]({{ '/guide/php-mode/' | relative_url }}) if you want to write
 
 ## Basic terms
 
-A **page ID** is the internal name of a page, for example `index`, `contact` or `legalnotice`. Internal links use the page ID, not a full file path.
+A **page ID** is the internal name of a page, for example `index` or `contact`. Internal links use the page ID, not a full file path.
 
 A **language code** is the short language code used by the website, normally two lowercase letters such as `en` or `de`. It is used in `$GLOBALS['zlangs']`, in MD filenames such as `index.en.md`, in Rich page language arrays and in URLs with `lg=en` when needed.
 
@@ -281,10 +281,10 @@ A minimal MD mode website has this structure:
 ```text
 /
 ├── __config/
-│   └── conf.php
+│   ├── conf.php
+│   └── _admconf.php          optional admin-written navigation/sidebar data
 ├── index.php
 ├── pages/
-│   ├── __NAVIGATION.txt
 │   ├── index.en.md
 │   └── index.de.md
 ├── layout/
@@ -306,17 +306,17 @@ A minimal Rich mode website has this structure:
 ```text
 /
 ├── __config/
-│   └── conf.php
+│   ├── conf.php
+│   └── _admconf.php          optional admin-written navigation/sidebar data
 ├── index.php
 ├── pages/
-│   ├── __navi.data.php
 │   └── index.data.php
 ├── layout/
 ├── zp/
 └── admin/
 ```
 
-`pages` contains `.data.php` files. Each page file returns page-wide values such as `mode` and `noindex`, plus the language data below `langs`. `__navi.data.php` contains Rich navigation data in the existing `znavi()` format. Navigation targets should use internal page IDs. Rich mode does not use `/zpcache/`. Rich mode needs `/admin/`; without the Rich editor, the Rich mode concept is not useful.
+`pages` contains `.data.php` files. Each page file returns page-wide values such as `mode` and `noindex`, plus the language data below `langs`. Admin-written navigation and sidebar data are stored in `/__config/_admconf.php` unless the matching key is set in `/__config/conf.php`. Navigation targets should use internal page IDs. Rich mode does not use `/zpcache/`. Rich mode needs `/admin/`; without the Rich editor, the Rich mode concept is not useful.
 
 Read the Rich mode guide for details: [`guide/rich-mode.md`]({{ '/guide/rich-mode/' | relative_url }})
 
@@ -540,10 +540,10 @@ This glossary explains common terms used in the ZANACMS documentation.
 An administration file below `/admin/`, for example the editor, sidebar editor, navigation editor, media gallery or update tools.
 
 **configuration directory**  
-The project directory `/__config/`. It contains configuration examples, the active `conf.php`, `hash.php` when needed and `EDITACCESS_ENABLE.php`.
+The project directory `/__config/`. It contains configuration examples, the active `conf.php`, optional admin-written `_admconf.php`, `hash.php` when needed and `EDITACCESS_ENABLE.php`.
 
 **configuration file**  
-The project file `/__config/conf.php`. It contains website configuration such as mode, layout, languages, navigation and footer text. It should contain plain configuration data and should not depend on runtime function calls.
+The project file `/__config/conf.php`. It contains manual website configuration such as mode, layout, languages, navigation and footer text. Values set here have priority over admin-written values from `_admconf.php`. It should contain plain configuration data and should not depend on runtime function calls.
 
 **core file**  
 A runtime file below `/zp/`. Core files are not normal website customisation files.
@@ -600,10 +600,10 @@ A mode where page content is stored in Markdown files below `/pages/`. ZANACMS b
 The content mode selected in `/__config/conf.php`: `php`, `md` or `rich`. The mode decides where page content is stored and how it is loaded.
 
 **navigation**  
-The page menu structure of the website. In PHP mode it is configured in `/__config/conf.php`; in MD and Rich mode it is stored in mode-specific page/navigation files.
+The page menu structure of the website. It is configured manually in `/__config/conf.php` or, when `navi` is not set there, by the admin editor in `/__config/_admconf.php`.
 
 **page ID**  
-The internal name of a page, for example `index`, `contact` or `legalnotice`. Internal links use the page ID, not a full file path.
+The internal name of a page, for example `index` or `contact`. Internal links use the page ID, not a full file path.
 
 **page image**  
 An optional image attached to the current page through `pageimg`. Supported layouts or output helpers can place it into the page body.

@@ -6,7 +6,7 @@ permalink: /help/glossary/
 
 ## configuration directory
 
-The directory `/__config/`. It contains the active configuration file `conf.php`, the file to enable access to the Device manager (or Editing cookie setter) `EDITACCESS_ENABLE.php`, and the example configuration files.
+The directory `/__config/`. It contains the active manual configuration file `conf.php`, optional admin-written `_admconf.php`, the file to enable access to the Device manager (or Editing cookie setter) `EDITACCESS_ENABLE.php`, and the example configuration files.
 
 ## footer tokens
 
@@ -34,7 +34,7 @@ The content mode of the website: PHP mode, MD mode or Rich mode. The mode is set
 
 ## page ID
 
-The internal page name used by ZANACMS links and navigation, for example `contact` or `legalnotice`. Internal links use page IDs, not file paths or full URLs.
+The internal page name used by ZANACMS links and navigation, for example `index` or `contact`. Internal links use page IDs, not file paths or full URLs.
 
 ## page variables
 

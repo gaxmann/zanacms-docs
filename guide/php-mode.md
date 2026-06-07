@@ -18,14 +18,12 @@ A minimal PHP mode website has this structure:
 │   └── conf.php
 ├── index.php
 ├── contact.php
-├── legalnotice.php
-├── privacypolicy.php
 ├── img/
 ├── layout/
 └── zp/
 ```
 
-`/__config/conf.php` is the website configuration. The PHP page files are in the website root. `layout` contains the visual layouts. `img` contains your images. `zp` contains the ZP runtime files. PHP mode does not need a `pages` directory and does not need `zpcache` for normal page output. If the optional sidebar tool is used, it stores `/__config/col2.php`. PHP mode does not need `/admin/` for runtime; it needs `/admin/` only if image upload through the optional media gallery or device access tools are used. Otherwise `/admin/` can be removed.
+`/__config/conf.php` is the website configuration. The PHP page files are in the website root. `layout` contains the visual layouts. `img` contains your images. `zp` contains the ZP runtime files. PHP mode does not need a `pages` directory and does not need `zpcache` for normal page output. If the optional admin navigation or sidebar tools are used, they store fallback data in `/__config/_admconf.php`. PHP mode does not need `/admin/` for runtime; it needs `/admin/` only if admin tools such as media upload, navigation or sidebar editing are used. Otherwise `/admin/` can be removed.
 
 ## 2. Minimal index.php
 
@@ -96,13 +94,10 @@ $GLOBALS['zconf']=[
 	'stdlang'=>'en',
 	// 'col2'=>'<p>[col2]</p>',
 	'foot'=>[
-		"[[@legalnotice]] • [[@privacypolicy]]",
 		"<span style='font-size:0.65em'>[footertext]</span>",
 	],
 	'navi'=>[
-		'index'=>['index',[
-			'legalnotice'=>['legalnotice'],
-		]],
+		'index'=>['index'],
 		'contact'=>['contact'],
 	],
 ];
@@ -114,11 +109,8 @@ $GLOBALS['zlangs']=[
 		'navi'=>[
 			'index'=>'Home',
 			'contact'=>'Contact',
-			'legalnotice'=>['Legal notice', 'Legal'],
 		],
 		'vars'=>[
-			'legalnotice'=>'Legal notice',
-			'privacypolicy'=>'Privacy policy',
 			'footertext'=>'Powered by ZANACMS',
 			'col2'=>'Optional sidebar.',
 		],
@@ -129,11 +121,8 @@ $GLOBALS['zlangs']=[
 		'navi'=>[
 			'index'=>'Start',
 			'contact'=>'Kontakt',
-			'legalnotice'=>['Impressum'],
 		],
 		'vars'=>[
-			'legalnotice'=>'Impressum',
-			'privacypolicy'=>'Datenschutz',
 			'footertext'=>'Erzeugt mit ZANACMS',
 			'col2'=>'Optionale Seitenleiste.',
 		],
@@ -178,7 +167,7 @@ is optional. It controls which PHP files in the website root are shown in the PH
 
 ## Sidebar in PHP mode
 
-PHP mode can define a global sidebar directly in `/__config/conf.php` with `$GLOBALS['zconf']['col2']`, override it per page with `$GLOBALS['zdata']['col2']`, or use the file-based sidebar tool.
+PHP mode can define a global sidebar directly in `/__config/conf.php` with `$GLOBALS['zconf']['col2']`, override it per page with allowed `$GLOBALS['zdata']['col2']`, or use the admin sidebar tool. The admin tool stores its fallback value in `/__config/_admconf.php`, below `mode.php.col2`.
 
 For a page-specific sidebar in a PHP page, set:
 
@@ -186,13 +175,13 @@ For a page-specific sidebar in a PHP page, set:
 $GLOBALS['zdata']['col2']='<p>Sidebar for this page.</p>';
 ```
 
-`$GLOBALS['zdata']['col2']` is read through `zgetconf('col2')` and overrides the global `$GLOBALS['zconf']['col2']` for that page. If `$GLOBALS['zconf']['col2']` is set, the editor is locked. If neither page data nor config provides `col2`, the admin tool **Sidebar** uses the Rich editor and stores its content in:
+`$GLOBALS['zdata']['col2']` is read through `zgetconf('col2')` and overrides the global `$GLOBALS['zconf']['col2']` for that page. If `$GLOBALS['zconf']['col2']` is set, the editor is locked. If neither page data nor config provides `col2`, the admin tool **Sidebar** uses the Rich editor and stores its fallback content in:
 
 ```text
-/__config/col2.php
+/__config/_admconf.php
 ```
 
-This file is only used for `~~ZCOL2~~`. Normal PHP pages still live in the website root.
+That value is only used for `~~ZCOL2~~`. Normal PHP pages still live in the website root.
 
 ## 4. Page content
 
@@ -359,45 +348,55 @@ The generated snippet can be pasted into a PHP page body string.
 
 ## 9. Navigation
 
-In PHP mode, the navigation structure is defined in `$GLOBALS['zconf']['navi']`. Example:
+PHP mode can define navigation manually in `$GLOBALS['zconf']['navi']`. PHP mode is the primary developer mode, and this compact form is the normal manual configuration:
 
 ```php
 'navi'=>[
-	'index'=>['index',[
-		'legalnotice'=>['legalnotice'],
+	'suhr'=>['sunclock', [
+		'setup'=>['suhr3'],
+		'manual'=>['suhr2'],
+		'overview'=>['suhr'],
+		'support'=>['che7'],
 	]],
-	'contact'=>['contact'],
+	'lsea'=>['lichtz'],
+	'kontakt'=>['kontakt'],
 ],
 ```
 
-The keys are internal page names. The first value is the navigation target. For internal pages, use the page ID without `.php`; `.php` is accepted only as a tolerated old habit. URLs containing `//`, URLs beginning with `/`, and special schemes such as `mailto:` are left unchanged. Subnavigation can be added as a nested array. The visible navigation texts are stored in `$GLOBALS['zlangs']`. Example:
+The array key is the navigation key. The first value is the target page ID or URL. The optional second value is subnavigation using the same structure.
+
+Visible navigation labels are stored in `$GLOBALS['zlangs'][language]['navi']`:
 
 ```php
 $GLOBALS['zlangs']=[
 	'en'=>[
 		'navi'=>[
-			'index'=>'Home',
-			'contact'=>'Contact',
-			'legalnotice'=>['Legal notice', 'Legal'],
+			'suhr'=>['Sun Clock'],
+			'setup'=>'Setup',
+			'manual'=>'Manual',
+			'overview'=>'Overview',
+			'support'=>'Support',
+			'lsea'=>['Light season','Season'],
+			'kontakt'=>'Contact',
 		],
 	],
 	'de'=>[
 		'navi'=>[
-			'index'=>'Start',
-			'contact'=>'Kontakt',
-			'legalnotice'=>['Impressum'],
+			'suhr'=>['Sonnenuhr'],
+			'setup'=>'Einrichtung',
+			'manual'=>'Anleitung',
+			'overview'=>'Übersicht',
+			'support'=>'Unterstützen',
+			'lsea'=>'Lichtzeit',
+			'kontakt'=>'Kontakt',
 		],
 	],
 ];
 ```
 
-If a navigation text is an array, ZP can use different texts for different navigation levels. Example:
+A label may be a string or an array. When it is an array, ZANACMS chooses the text through the existing navigation-label logic for the current navigation level.
 
-```php
-'legalnotice'=>['Legal notice', 'Legal'],
-```
-
-The second array value is used at the first level of the navigation (main), where there is not much space. The first array value is used at the sub levels of navigation and as fallback.
+If `navi` is not set in `conf.php`, the admin navigation editor stores fallback navigation in `_admconf.php['mode']['php']['navi']` and matching labels below `_admconf.php['mode']['php']['langs'][language]['navi']`.
 
 ## 10. Footer
 
@@ -405,7 +404,6 @@ Footer lines are configured in `$GLOBALS['zconf']['foot']`. Example:
 
 ```php
 'foot'=>[
-	"[[@legalnotice]] • [[@privacypolicy]]",
 	"<span style='font-size:0.65em'>[footertext]</span>",
 ],
 ```
@@ -414,8 +412,6 @@ Footer lines are configured in `$GLOBALS['zconf']['foot']`. Example:
 
 ```php
 'vars'=>[
-	'legalnotice'=>'Legal notice',
-	'privacypolicy'=>'Privacy policy',
 	'footertext'=>'Powered by ZANACMS',
 ],
 ```

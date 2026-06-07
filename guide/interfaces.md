@@ -36,14 +36,13 @@ Public interfaces are:
 
 ```text
 /__config/conf.php
+/__config/_admconf.php
 /__config/EDITACCESS_ENABLE.php
 $GLOBALS['zconf']
+$GLOBALS['zadmconf']
 $GLOBALS['zlangs']
 $GLOBALS['zdata']
 /pages/zvars.php
-/pages/__col2.<lg>.md
-/pages/__col2.data.php
-/__config/col2.php
 /layout/supercustom.css
 /layout/<family>/<design>/custom.css
 /layout/html/<design>/design.html
@@ -56,12 +55,13 @@ $GLOBALS['zdata']
 
 | Area | Interface | Main use |
 | --- | --- | --- |
-| Site configuration | `/__config/conf.php`, `$GLOBALS['zconf']` | mode, layout, footer, language defaults and site options |
+| Site configuration | `/__config/conf.php`, `$GLOBALS['zconf']` | manual mode, layout, footer, language defaults and site options |
+| Admin fallback configuration | `/__config/_admconf.php`, `$GLOBALS['zadmconf']` | admin-written navigation and sidebar fallback values when the matching key is not set in `conf.php` |
 | Site texts | `$GLOBALS['zlangs']` | site title, subtitle, navigation labels and layout text variables |
 | Current page | `$GLOBALS['zdata']` | title, heading, body, page language and page image/layout data |
 | PHP page helpers | `out_page()`, `zlink()`, `zhref()`, `ztokenhref()`, `zautop()`, `zsetlangs()`, `zautolg()`, `zquote()`, `zoutimg()` | normal PHP page output and internal links |
 | MD/Rich variables | `/pages/zvars.php` | prepared values or generated output for normal editors |
-| Sidebar files | `/pages/__col2.<lg>.md`, `/pages/__col2.data.php`, `/__config/col2.php` | file-based content for `~~ZCOL2~~` when page data and `zconf['col2']` are not set |
+| Sidebar admin data | `/__config/_admconf.php` | admin-written sidebar content for `~~ZCOL2~~` when page data and `zconf['col2']` are not set |
 | ZTOKENS / text tokens | `[@page]`, `[[@page]]`, `[footertext]`, `[VAR:name]` | replacement tokens for footer, col2 and editor content |
 | CSS | `/layout/supercustom.css`, `/layout/<family>/<design>/custom.css` | update-safe visual changes |
 | Own HTML design | `/layout/html/<design>/design.html`, `/layout/html/<design>/zp.css` | local HTML design without a PHP generator |
@@ -153,7 +153,7 @@ when extra query parameters have to be appended.
 
 Do not use `zlink()` or `zhref()` directly inside footer configuration in `/__config/conf.php`.
 
-`~~ZCOL2~~` reads sidebar text through `zgetconf('col2')`. This means `$GLOBALS['zdata']['col2']` can override `$GLOBALS['zconf']['col2']` for the current page. Text variables are read from `$GLOBALS['zlangs'][language]['vars']` first, then link tokens are resolved. If `$GLOBALS['zconf']['col2']` is set, the sidebar editor is locked. If neither page data nor config provides `col2`, the editor can store file-based sidebar content in `/pages/__col2.<lg>.md` for MD mode, `/pages/__col2.data.php` for Rich mode or `/__config/col2.php` for PHP mode.
+`~~ZCOL2~~` reads sidebar text through `zgetconf('col2')`. This means allowed `$GLOBALS['zdata']['col2']` can override the global sidebar for the current page. Text variables are read from `$GLOBALS['zlangs'][language]['vars']` first, then link tokens are resolved. If `$GLOBALS['zconf']['col2']` is set, the sidebar editor is locked and the matching admin value is ignored. If neither page data nor manual config provides `col2`, the editor stores sidebar content in `/__config/_admconf.php`. MD mode stores Markdown there and caches the rendered sidebar HTML in `/zpcache/_meta.php`; Rich and PHP mode store HTML there, in separate mode branches.
 
 ## 5. Internal links by context
 
@@ -450,7 +450,9 @@ pageimg         optional page image value used by supported layouts
 
 Generators and layouts read these values when building the final HTML output.
 
-Sidebar files store only sidebar data, not normal page data. MD mode uses `/pages/__col2.<lg>.md`. Rich mode uses `/pages/__col2.data.php`. PHP mode uses `/__config/col2.php`. The optional sidebar image is stored once as `col2img.src` and rendered with class `col2img` before the sidebar text in all languages.
+Sidebar admin data is stored in `/__config/_admconf.php`, not in normal page files. MD mode uses `_admconf.php['mode']['md']['col2']`; Rich mode uses `_admconf.php['mode']['rich']['col2']`; PHP mode uses `_admconf.php['mode']['php']['col2']`. The optional sidebar image is stored once as `col2img.src` and rendered with class `col2img` before the sidebar text in all languages.
+
+Admin navigation data is also mode-specific in `/__config/_admconf.php`. PHP mode uses `_admconf.php['mode']['php']['navi']`, MD mode uses `_admconf.php['mode']['md']['navi']` and Rich mode uses `_admconf.php['mode']['rich']['navi']`. Manual `$GLOBALS['zconf']['navi']` in `/__config/conf.php` has priority and remains the main PHP developer configuration. Its standard form is `navikey=>['pageid']`, with optional nested subnavigation as the second array value. Labels belong in `$GLOBALS['zlangs'][language]['navi']`.
 
 ## 8. Page variables
 

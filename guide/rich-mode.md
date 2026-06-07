@@ -15,11 +15,10 @@ A minimal Rich mode website has this structure:
 ```text
 /
 ├── __config/
-│   └── conf.php
+│   ├── conf.php
+│   └── _admconf.php          optional admin-written navigation/sidebar data
 ├── index.php
 ├── pages/
-│   ├── __navi.data.php
-│   ├── __col2.data.php        optional sidebar
 │   ├── index.data.php
 │   ├── contact.data.php
 │   └── zvars.php              optional
@@ -35,8 +34,7 @@ Important files:
 /__config/conf.php                website configuration
 index.php                 entry point, calls out_page()
 pages/<page>.data.php     page data, grouped by language
-pages/__navi.data.php     navigation data for Rich mode
-pages/__col2.data.php     optional sidebar data
+__config/_admconf.php     optional admin-written navigation/sidebar data
 pages/zvars.php           optional PHP variables for [VAR:...]
 img/                      images used by the editor and layouts
 layout/                   layouts and shared ZP CSS
@@ -44,7 +42,7 @@ zp/                       ZANACMS runtime files
 admin/                    Rich editor and admin tools
 ```
 
-Rich mode does not need `/zpcache/`. The bundled starter files are in `/pages/example/rich/`; copy the contents of that directory into `/pages/`, not the directory itself. After copying, the files should be placed directly as `/pages/index.data.php`, `/pages/contact.data.php` and `/pages/__navi.data.php`. The files under `/pages` are the editable content files. Rich mode needs `/admin/`; without the Rich editor, the Rich mode concept is not useful.
+Rich mode does not need `/zpcache/`. The bundled starter files are in `/pages/example/rich/`; copy the contents of that directory into `/pages/`, not the directory itself. After copying, the page files should be placed directly as `/pages/index.data.php` and `/pages/contact.data.php`. Navigation and global sidebar data come from `/__config/conf.php` or, if the matching key is not set there, from `/__config/_admconf.php`. The files under `/pages` are the editable content files. Rich mode needs `/admin/`; without the Rich editor, the Rich mode concept is not useful.
 
 ## 2. Minimal index.php
 
@@ -75,7 +73,6 @@ $GLOBALS['zconf']=[
 	'stdlang'=>'en',
 	// 'col2'=>'<p>[col2]</p>',
 	'foot'=>[
-		"[[@legalnotice]] • [[@privacypolicy]]",
 		"<span style='font-size:0.65em'>[footertext]</span>",
 	],
 ];
@@ -85,8 +82,6 @@ $GLOBALS['zlangs']=[
 		'sitetitle'=>'ZANACMS Example',
 		'sitesub'=>'Minimal Rich website',
 		'vars'=>[
-			'legalnotice'=>'Legal notice',
-			'privacypolicy'=>'Privacy policy',
 			'footertext'=>'Powered by ZANACMS',
 			'col2'=>'Optional sidebar.',
 		],
@@ -95,8 +90,6 @@ $GLOBALS['zlangs']=[
 		'sitetitle'=>'ZANACMS Beispiel',
 		'sitesub'=>'Minimale Rich-Webpräsenz',
 		'vars'=>[
-			'legalnotice'=>'Impressum',
-			'privacypolicy'=>'Datenschutz',
 			'footertext'=>'Erzeugt mit ZANACMS',
 			'col2'=>'Optionale Seitenleiste.',
 		],
@@ -113,11 +106,7 @@ $GLOBALS['zlangs']=[
 
 `stdlang` is the standard language. The language selector normally uses the languages defined in `$GLOBALS['zlangs']`. A Rich page may also contain local extra languages in its `.data.php` file.
 
-`foot` is configured in `/__config/conf.php`. Footer links use the same internal link target as Rich page content:
-
-```php
-"[[@legalnotice]] • [[@privacypolicy]]"
-```
+`foot` is configured in `/__config/conf.php`. Footer links can use the same internal link syntax as Rich page content.
 
 ## 4. Page data files
 
@@ -126,8 +115,6 @@ Rich pages are stored as PHP array files:
 ```text
 /pages/index.data.php
 /pages/contact.data.php
-/pages/legalnotice.data.php
-/pages/privacypolicy.data.php
 ```
 
 A simple page file:
@@ -189,15 +176,15 @@ The Rich editor can store one page image in `pageimg.src`. If the active layout 
 
 ## Sidebar in Rich mode
 
-`~~ZCOL2~~` first reads `col2` through `zgetconf('col2')`, so page data can override the global sidebar before the file-based sidebar is used.
+`~~ZCOL2~~` first reads `col2` through `zgetconf('col2')`, so allowed page data can override the global sidebar.
 
-If the active HTML layout contains `~~ZCOL2~~`, the active design must define `columns=2` in `design.ini`, and `$GLOBALS['zconf']['col2']` is not set, the sidebar tool stores its content in:
+If the active HTML layout contains `~~ZCOL2~~`, the active design must define `columns=2` in `design.ini`, and `$GLOBALS['zconf']['col2']` is not set, the sidebar tool stores its HTML content in:
 
 ```text
-/pages/__col2.data.php
+/__config/_admconf.php
 ```
 
-The file contains language entries for the global sidebar. It is not a normal page file and does not store title or H1 data. The optional `col2img.src` image is stored once for all languages and rendered before the sidebar text with class `col2img`.
+The Rich sidebar data lives below `_admconf.php['mode']['rich']['col2']`. PHP mode uses `_admconf.php['mode']['php']['col2']`. The optional `col2img.src` image is stored once for all languages and rendered before the sidebar text with class `col2img`.
 
 ## 5. Rich page with PHP fragment
 
@@ -245,46 +232,40 @@ The Rich editor shows a notice when the page is in `mode: php`. The body cannot 
 
 ## 6. Navigation data
 
-Rich mode uses:
+Rich mode can set navigation manually in `/__config/conf.php` with `$GLOBALS['zconf']['navi']`. If `navi` is not set there, the admin navigation editor stores the parsed navigation for Rich mode in:
 
 ```text
-/pages/__navi.data.php
+/__config/_admconf.php['mode']['rich']['navi']
 ```
 
-This file is not a cache. It is the machine-readable Rich navigation file. It uses the existing `znavi()` format. Internal navigation targets should use page IDs, parallel to the PHP mode navigation config:
+The matching labels are stored below `_admconf.php['mode']['rich']['langs'][lang]['navi']`.
+
+The stored navigation uses the existing `znavi()` format. Internal navigation targets should use page IDs from the active mode:
 
 ```php
 <?php
-return array(
-	'navi'=>array(
-		'index'=>array('index', array(
-			'legalnotice'=>array('legalnotice'),
-			'privacypolicy'=>array('privacypolicy'),
-		)),
-		'contact'=>array('contact'),
-	),
-	'langs'=>array(
-		'en'=>array(
-			'navi'=>array(
-				'index'=>'Home',
-				'contact'=>'Contact',
-				'legalnotice'=>array('Legal notice', 'Legal'),
-				'privacypolicy'=>array('Privacy policy', 'Privacy'),
-			),
-		),
-		'de'=>array(
-			'navi'=>array(
-				'index'=>'Start',
-				'contact'=>'Kontakt',
-				'legalnotice'=>array('Impressum'),
-				'privacypolicy'=>array('Datenschutz'),
-			),
-		),
-	),
-);
+return [
+	'mode'=>[
+		'rich'=>[
+			'navi'=>[
+				'index'=>['index', [
+				]],
+				'contact'=>['contact'],
+			],
+			'langs'=>[
+				'en'=>[
+					'navi'=>[
+						'index'=>'Home',
+						'contact'=>'Contact',
+					],
+				],
+			],
+		],
+	],
+];
 ```
 
-Only `langs[lang]['navi']` belongs into this file. Other site-wide language data such as `sitetitle`, `sitesub` and `foot` belong in `/__config/conf.php`.
+Navigation labels are stored below `_admconf.php['mode'][mode]['langs'][lang]['navi']`, unless they are configured manually in `$GLOBALS['zlangs']`. Other site-wide language data such as `sitetitle`, `sitesub` and `foot` normally belongs in `/__config/conf.php`.
 
 Use the page ID for internal navigation targets, for example `contact`. `contact.php` and `[@contact]` are tolerated, but the recommended stored form is the plain page ID. The output is resolved through `zlink()`, so the same navigation data works with query URLs and with optional URL rewrite.
 
@@ -296,21 +277,20 @@ The navigation editor for Rich mode is available at:
 /admin/n.php
 ```
 
-It is only active in Rich mode.
+It is active when `navi` is not set in `/__config/conf.php`.
 
-The editor does not show the PHP array directly. It shows the existing `__NAVIGATION.txt` text format:
+The editor does not show the PHP array directly. It shows a compact text format:
 
 ```text
 # ZANACMS navigation
 # @pagename | langcode:text (*:Text --> Text is valid for all languages)
 
 @index | de:Start | en:Home
-> @legalnotice | de:Impressum | en:Legal notice
-> @privacypolicy | de:Datenschutz | en:Privacy policy
+
 @contact | de:Kontakt | en:Contact
 ```
 
-On load, `/pages/__navi.data.php` is converted to this text form. On save, the text form is parsed and `/pages/__navi.data.php` is written.
+On load, the current mode's navigation from `/__config/_admconf.php` is converted to this text form. On save, the text form is parsed and the current mode branch in `/__config/_admconf.php` is written.
 
 If a line cannot be parsed, the file is not saved. The editor shows the text again with an error message. The editor does not reject duplicate page IDs; the historic navigation array format decides what happens on the same level.
 
@@ -460,7 +440,7 @@ return array(
 );
 ```
 
-Then add it to the navigation through `/admin/n.php`, or manually in `/pages/__navi.data.php`:
+Then add it to the navigation through `/admin/n.php`, or manually in `/__config/conf.php` / `/__config/_admconf.php`:
 
 ```php
 'about'=>array('about'),

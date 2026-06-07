@@ -24,7 +24,7 @@ columns=2
 
 Only set `columns=2` when the design can accept editable sidebar content. The default is `columns=1`, which also applies when `design.ini` is missing.
 
-If `/__config/conf.php` contains `$GLOBALS['zconf']['col2']`, the editor is locked. Runtime output reads the sidebar through `zgetconf('col2')`, so page data can still override the global config value for the current page. Remove the `col2` entry from `/__config/conf.php` when the sidebar should be edited from files.
+If `/__config/conf.php` contains `$GLOBALS['zconf']['col2']`, the editor is locked. Runtime output reads the sidebar through `zgetconf('col2')`, so page data can still override the global config value for the current page. Remove the `col2` entry from `/__config/conf.php` when the sidebar should be edited by the admin tool.
 
 ## Language tabs
 
@@ -36,26 +36,15 @@ The editor shows one tab for each website language, for example:
 
 Only the active tab is visible as an editor, but all language tabs belong to the same form. Press Save to write the current contents for all tabs. JavaScript is required in the admin area.
 
-## Stored files
+## Stored file
 
-In MD mode, the editor writes one Markdown file per language:
-
-```text
-/pages/__col2.de.md
-/pages/__col2.en.md
-```
-
-In Rich mode, the editor writes one shared data file:
+The editor writes the global sidebar to one admin configuration file:
 
 ```text
-/pages/__col2.data.php
+/__config/_admconf.php
 ```
 
-In PHP mode, the editor uses the Rich editor but writes the data file next to the PHP configuration:
-
-```text
-/__config/col2.php
-```
+MD mode stores Markdown below `mode.md.col2` and ZANACMS caches the rendered HTML in `/zpcache/_meta.php`. Rich mode stores HTML below `mode.rich.col2`. PHP mode stores HTML below `mode.php.col2`.
 
 ## Text and image
 
