@@ -4,6 +4,8 @@ permalink: /help/media/
 ---
 # ⚃ Media
 
+<p><img class="help-screenshot" src="{{ '/assets/help/a5.jpg' | relative_url }}" alt="Media tool screenshot"></p>
+
 The Media tool uploads images to the website and copies ready-to-use image code for the current mode.
 
 ## Main folder

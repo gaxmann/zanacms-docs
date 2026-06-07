@@ -4,6 +4,8 @@ permalink: /help/navigation-editor/
 ---
 # ➔ Navigation
 
+<p><img class="help-screenshot" src="{{ '/assets/help/a3.jpg' | relative_url }}" alt="Navigation editor screenshot"></p>
+
 The navigation editor changes the website menu for the active mode when `navi` is not set manually in `/__config/conf.php`.
 
 ## What you edit

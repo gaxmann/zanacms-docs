@@ -72,3 +72,10 @@ blockquote {
 	.top { display: block; }
 	nav { margin-top: .5rem; }
 }
+.help-screenshot {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	margin: 1rem 0 2rem;
+	border: 1px solid #333;
+}

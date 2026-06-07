@@ -4,6 +4,8 @@ permalink: /help/backup/
 ---
 # ⧉ Backup
 
+<p><img class="help-screenshot" src="{{ '/assets/help/a6.jpg' | relative_url }}" alt="Backup tool screenshot"></p>
+
 The Backup tool creates backups of the current ZANACMS website. – The Update tool updates ZANACMS system files; it is only shown when the admin exposure level permits it.
 
 ## Backup 

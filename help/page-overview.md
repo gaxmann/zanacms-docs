@@ -4,6 +4,8 @@ permalink: /help/page-overview/
 ---
 # @ Pages
 
+<p><img class="help-screenshot" src="{{ '/assets/help/a4.jpg' | relative_url }}" alt="Pages overview screenshot"></p>
+
 The Pages tool gives an overview of all website pages and opens the editor workflow for the current mode.
 
 ## PHP mode

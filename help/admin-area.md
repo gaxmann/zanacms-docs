@@ -4,6 +4,8 @@ permalink: /help/admin-area/
 ---
 # ☷ Admin dashboard
 
+<p><img class="help-screenshot" src="{{ '/assets/help/a1.jpg' | relative_url }}" alt="Admin dashboard screenshot"></p>
+
 The admin dashboard is the start page of the ZANACMS admin area. It shows which installation you are looking at and gives a quick overview of whether the system needs attention.
 
 ## What you see here

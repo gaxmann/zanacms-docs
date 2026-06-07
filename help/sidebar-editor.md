@@ -4,6 +4,8 @@ permalink: /help/sidebar-editor/
 ---
 # ◫ Sidebar
 
+<p><img class="help-screenshot" src="{{ '/assets/help/a2.jpg' | relative_url }}" alt="Sidebar editor screenshot"></p>
+
 The sidebar tool edits the global content for the HTML placeholder `~~ZCOL2~~`. It is useful for layouts with a sidebar, for example `html/z-airy` and `html/z-airy.blue`.
 
 ## When the editor is available
