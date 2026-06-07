@@ -4,6 +4,8 @@ permalink: /help/access-management/
 ---
 # ⚙ Device management
 
+<p><img class="help-screenshot" src="{{ '/assets/help/a0.jpg' | relative_url }}" alt="Device management screenshot"></p>
+
 Device management controls which browsers or devices are allowed to access the ZANACMS admin area. Access is granted per device through an editing cookie, not through a shared login.
 
 ## When to use it
