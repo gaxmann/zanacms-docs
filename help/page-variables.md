@@ -33,7 +33,7 @@ Page variables are defined by a developer in:
 /pages/zvars.php
 ```
 
-A variable can return a simple text value or complex generated HTML. Editors only use the prepared variable names; they do not need to know the PHP behind them.
+A variable can return a simple text value or complex generated HTML. Editors only use the prepared variable names; they do not need to know the PHP behind them. For translated helper strings inside `/pages/zvars.php`, developers can use `zvarlg($tx)` to read the matching array value without changing the page language.
 
 ## More details
 

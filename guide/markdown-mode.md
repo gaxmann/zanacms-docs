@@ -271,7 +271,7 @@ function zvar_get($key, $lg) {
 }
 ```
 
-See [`guide/rich-mode.md`]({{ '/guide/rich-mode/' | relative_url }}#9-variables) for the common variable rules.
+For translated helper strings inside `zvar_get()`, `zvarlg($tx)` reads the matching array value without setting the page language. See [`guide/rich-mode.md`]({{ '/guide/rich-mode/' | relative_url }}#9-variables) for the common variable rules.
 
 ## 10. Footer
 

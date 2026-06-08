@@ -59,7 +59,7 @@ $GLOBALS['zdata']
 | Admin fallback configuration | `/__config/_admconf.php`, `$GLOBALS['zadmconf']` | admin-written navigation and sidebar fallback values when the matching key is not set in `conf.php` |
 | Site texts | `$GLOBALS['zlangs']` | site title, subtitle, navigation labels and layout text variables |
 | Current page | `$GLOBALS['zdata']` | title, heading, body, page language and page image/layout data |
-| PHP page helpers | `out_page()`, `zlink()`, `zhref()`, `ztokenhref()`, `zautop()`, `zsetlangs()`, `zautolg()`, `zquote()`, `zoutimg()` | normal PHP page output and internal links |
+| PHP page helpers | `out_page()`, `zlink()`, `zhref()`, `ztokenhref()`, `zautop()`, `zsetlangs()`, `zautolg()`, `zvarlg()`, `zquote()`, `zoutimg()` | normal PHP page output and internal links |
 | MD/Rich variables | `/pages/zvars.php` | prepared values or generated output for normal editors |
 | Sidebar admin data | `/__config/_admconf.php` | admin-written sidebar content for `~~ZCOL2~~` when page data and `zconf['col2']` are not set |
 | ZTOKENS / text tokens | `[@page]`, `[[@page]]`, `[footertext]`, `[VAR:name]` | replacement tokens for footer, col2 and editor content |
@@ -202,6 +202,7 @@ These functions are intended for PHP page code after `/zp/zana.php` has been loa
 | `zautop($tx)` | convert plain text paragraphs to simple HTML | text block |
 | `zsetlangs($langs)` | register available page languages | flat language-code array |
 | `zautolg($tx)` | select delivered language for a PHP page | language array |
+| `zvarlg($tx)` | read the matching language value from an array without setting page language | language array |
 | `zquote($tx, $lg=null)` | add language-dependent quotation marks | text, optional language code |
 | `zoutimg($file, $md=[])` | output a local image from `/img` | image file, options array |
 
@@ -385,6 +386,34 @@ The function returns the delivered language key. It also sets the internal page 
 
 Alternative PHP body strings can use ZTOKENS through `ztokenhref()` and let ZANACMS resolve the link during final output.
 
+### `zvarlg($tx)`
+
+Returns the value from a language array that best matches the current language candidate order. It does not register page languages and does not set the delivered content language.
+
+Parameters:
+
+```text
+$tx             array with language codes as keys
+```
+
+Example for `/pages/zvars.php`:
+
+```php
+function zvar_get($key, $lg) {
+	switch ($key) {
+		case 'example_box':
+			$tx=[
+				'en'=>'Current server time: %s.',
+				'de'=>'Aktuelle Serverzeit: %s.',
+			];
+			return '<div class="greenbox">'.sprintf(zvarlg($tx), date('Y-m-d H:i')).'</div>';
+	}
+	return '';
+}
+```
+
+Use `zvarlg()` for translated helper arrays inside page variables or similar runtime output where only the matching value is needed. Use `zautolg()` for PHP pages that also need to register their page languages and set the delivered content language.
+
 ### `zquote($tx, $lg=null)`
 
 Wraps text in language-dependent quotation marks.
@@ -481,7 +510,7 @@ $ZVARS_PAGES=[
 ];
 ```
 
-The output is provided by `zvar_get($key, $lg)`:
+The output is provided by `zvar_get($key, $lg)`. For translated local text arrays inside this function, use `zvarlg($tx)` when the helper should only read a matching value and must not change page language state:
 
 ```php
 function zvar_get($key, $lg) {
@@ -489,7 +518,11 @@ function zvar_get($key, $lg) {
 		case 'hourly_rate_1':
 			return '120 EUR';
 		case 'price_table':
-			return '<table><tr><td>Example</td><td>120 EUR</td></tr></table>';
+			$tx=[
+				'en'=>'Example',
+				'de'=>'Beispiel',
+			];
+			return '<table><tr><td>'.zvarlg($tx).'</td><td>120 EUR</td></tr></table>';
 	}
 	return '';
 }

@@ -512,7 +512,7 @@ MD mode and Rich mode can use variables from `/pages/zvars.php`:
 [VAR:price_table]
 ```
 
-This is mainly intended for normal users. A PHP developer can prepare variables that output simple values such as an hourly rate or complex generated HTML such as database-backed tables. The website owner can then insert the prepared variable through the editor without writing PHP.
+This is mainly intended for normal users. A PHP developer can prepare variables that output simple values such as an hourly rate or complex generated HTML such as database-backed tables. The website owner can then insert the prepared variable through the editor without writing PHP. Inside `/pages/zvars.php`, `zvarlg($tx)` can be used to read the matching value from a translated array without changing the current page language state.
 
 ## CSS and own designs
 
@@ -536,7 +536,7 @@ For an own HTML design, use a local design directory, preferably with a leading 
 
 ## Advanced interface reference
 
-For complete details, including all parameters of `zlink()`, `zhref()`, `ztokenhref()`, `zautop()`, `zsetlangs()`, `zautolg()`, `zquote()`, `zoutimg()` and `out_page()`, see [`guide/interfaces.md`]({{ '/guide/interfaces/' | relative_url }}).
+For complete details, including all parameters of `zlink()`, `zhref()`, `ztokenhref()`, `zautop()`, `zsetlangs()`, `zautolg()`, `zvarlg()`, `zquote()`, `zoutimg()` and `out_page()`, see [`guide/interfaces.md`]({{ '/guide/interfaces/' | relative_url }}).
 
 ---
 

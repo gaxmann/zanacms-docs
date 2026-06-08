@@ -355,7 +355,7 @@ The Rich editor shows the variable select only if `/pages/zvars.php` exists and 
 [VAR:contact_note]
 ```
 
-ZP replaces allowed variable tokens at runtime. Unknown tokens remain visible. Variables are intended for prepared reusable values or generated output: a PHP developer can provide them, and a normal editor user can insert them without writing PHP. More detail is in [`guide/interfaces.md`]({{ '/guide/interfaces/' | relative_url }}#8-page-variables).
+ZP replaces allowed variable tokens at runtime. Unknown tokens remain visible. Variables are intended for prepared reusable values or generated output: a PHP developer can provide them, and a normal editor user can insert them without writing PHP. For translated helper strings inside `zvar_get()`, `zvarlg($tx)` reads the matching array value without setting the page language. More detail is in [`guide/interfaces.md`]({{ '/guide/interfaces/' | relative_url }}#8-page-variables).
 
 ## 10. Rich editor
 
