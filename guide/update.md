@@ -15,13 +15,13 @@ The admin dashboard shows the locally installed ZANACMS version from `zp/version
 If the cached GitHub check says that the local version is current, the ZANACMS status line can show:
 
 ```text
-ZANACMS    V2.0.5.18 · 2026-06-02 · aktuell [+]
+GitHub     same version [+]
 ```
 
 If a newer safe target is known, the dashboard can show a separate GitHub line:
 
 ```text
-GitHub     V2.0.5.19 · verfügbar [+]
+GitHub     V2.0.5.19 · available [+]
 ```
 
 The `[+]` link opens the GitHub changelog. It is always shown on the dashboard. If no separate GitHub line is shown, the link is placed in the ZANACMS line.
