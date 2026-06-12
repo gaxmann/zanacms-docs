@@ -162,7 +162,7 @@ local >= breakingversion and target < breakingversion
 Breaking updates are not shown as normal safe updates on the admin dashboard. If no update target without manual adjustments is available, the dashboard shows:
 
 ```text
-Keine Updates ohne manuelle Anpassungen verfügbar
+No updates are available without manual adjustments
 ```
 
 On the update page, breaking targets are marked in the select with: 💥. The relevant breaking warnings are listed above the dry run button.
