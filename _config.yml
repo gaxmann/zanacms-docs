@@ -1,0 +1,25 @@
+title: ZANACMS Docs
+url: https://gaxmann.github.io
+baseurl: /zanacms-docs
+remote_theme: just-the-docs/just-the-docs
+color_scheme: zanadark
+search_enabled: true
+heading_anchors: true
+
+nav_external_links:
+  - title: ZANACMS on GitHub
+    url: https://github.com/gaxmann/zanacms
+markdown: kramdown
+permalink: pretty
+plugins:
+  - jekyll-remote-theme
+
+exclude:
+  - README.md
+  - guide/todo.txt
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: default

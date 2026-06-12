@@ -1,0 +1,13 @@
+<footer class="zp-doc-footer">
+	<span id="zana-docs-version"></span>
+</footer>
+<script>
+fetch('{{ "/version" | relative_url }}')
+	.then(function(response) { return response.text(); })
+	.then(function(text) {
+		var version=text.split(';');
+		var html='ZANACMS Docs '+version[0];
+		if (version[1]) html+=' · '+version[1];
+		document.getElementById('zana-docs-version').textContent=html;
+	});
+</script>
