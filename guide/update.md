@@ -216,7 +216,7 @@ Rollback files are temporary update data and are not part of normal site backups
 
 ## Admin exposure
 
-The update system separates visibility from write access. With `adminexposure` level 1, the admin area is reduced; deleting pages, languages and images is blocked, and Settings, the GitHub status and the updater are not shown. Level 2 can show the broader admin tools, but still cannot use Settings. Level 3 is the default and can show Settings plus the cached GitHub status. Level 4 can show the update page and update actions. Level 5 currently remains unused for the public admin surface; internal service access uses level 8.
+The update system separates visibility from write access. With `adminexposure` level 1, the admin area is reduced; deleting pages, languages and images is blocked, and Backup, Settings, the GitHub status and the updater are not shown. Level 2 can show the broader admin tools, but still cannot use Settings. Level 3 is the default and can show Settings plus the cached GitHub status. Level 4 can show the update page and update actions. Level 5 currently remains unused for the public admin surface; internal service access uses level 8.
 
 ## Files
 
