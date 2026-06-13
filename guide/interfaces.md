@@ -140,7 +140,7 @@ No example file is shipped.
 
 Service keys shorter than 64 characters are rejected before the bcrypt hash is checked.
 
-Generate a service key with 72 characters on a Unix-like shell and create the bcrypt hash with cost 14:
+Generate a service key with 72 ASCII characters on a Unix-like shell and create the bcrypt hash with cost 14 (Bcrypt uses at most 72 bytes):
 
 ```sh
 key=$(LC_ALL=C tr -dc '!-~' </dev/urandom | head -c 72)
@@ -152,7 +152,7 @@ printf '%s' "$key" | php -r '$key=stream_get_contents(STDIN); echo password_hash
 For longer service keys use Argon2id, however PASSWORD_ARGON2ID requires PHP with Argon2id support:
 
 ```sh
-key=$(LC_ALL=C tr -dc '!-~' </dev/urandom | head -c 128)
+key=$(LC_ALL=C tr -dc '!-~' </dev/urandom | head -c 160)
 printf '\nKEY:\n%s\n' "$key"
 printf 'HASH:\n'
 printf '%s' "$key" | php -r '$key=stream_get_contents(STDIN); echo password_hash($key, PASSWORD_ARGON2ID, ["memory_cost"=>131072, "time_cost"=>8, "threads"=>1])."\n", PHP_EOL;'
