@@ -206,7 +206,7 @@ Not all tools are visible at every admin exposure level. The `adminexposure` set
 
 | Level | Description |
 | --- | --- |
-| 1 | Redakteur — cannot delete pages, languages or images; no Settings |
+| 1 | Editor — cannot delete pages, languages or images; no Settings |
 | 2 | Foolproof — broader tools, but no Settings |
 | 3 | Default — Settings and cached GitHub status visible |
 | 4 | Technically proficient — update page and update actions available |

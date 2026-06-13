@@ -141,7 +141,7 @@ The cookie data is stored in `/admin/_zdata.php`. The editor and media tools are
 
 | Level | Surface |
 | --- | --- |
-| 1 | Redakteur — cannot delete pages, languages or images; no Settings, no GitHub status, no updater |
+| 1 | Editor — cannot delete pages, languages or images; no Settings, no GitHub status, no updater |
 | 2 | Foolproof — broader tools, but no Settings |
 | 3 | Default — Settings visible, cached GitHub status visible |
 | 4 | Technically proficient — update page and update actions available |
