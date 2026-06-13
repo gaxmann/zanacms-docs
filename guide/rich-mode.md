@@ -46,6 +46,13 @@ admin/                    Rich editor and admin tools
 
 Rich mode does not need `/zpcache/`. The bundled starter files are in `/pages/example/rich/`; copy the contents of that directory into `/pages/`, not the directory itself. After copying, the page files should be placed directly as `/pages/index.data.php` and `/pages/contact.data.php`. Navigation and global sidebar data come from `/__config/conf.php` or, if the matching key is not set there, from `/__config/_admconf.php`. The files under `/pages` are the editable content files. Rich mode needs `/admin/`; without the Rich editor, the Rich mode concept is not useful.
 
+
+### Editor class cleaning
+
+The Rich editor cleans stored HTML. It keeps ZANACMS editor classes, configured custom editor classes, `alignleft`, `alignright`, `aligncenter`, and class names beginning with `zp`. Other class names from pasted Office or website HTML are removed.
+
+Optional custom editor classes are configured in `/__config/customadmin.php`; see [CSS customisation]({{ '/guide/interfaces/' | relative_url }}#10-css-customisation).
+
 ## 2. Minimal index.php
 
 For Rich mode, `index.php` is only the entry point:

@@ -24,6 +24,26 @@ Layout-specific custom CSS can be placed in:
 
 Both files are loaded after the supplied layout CSS and are not overwritten by updates. Do not change core CSS files such as `zp.css` or `zpsuper.css` directly, as they can be overwritten during an update. `zp.css` is not required for every layout family; generator-based layouts may use their own stylesheet files.
 
+## Editor classes and editor CSS
+
+Optional editor classes can be configured in `/__config/customadmin.php`:
+
+```php
+<?php
+
+return [
+	'editorclasses'=>[
+		'lead'=>'Lead',
+		'small'=>['en'=>'Small', 'de'=>'Klein'],
+	],
+	'editor_layout_css'=>'supercustom.css',
+];
+```
+
+When `editorclasses` is set, these classes replace the visible class entries in the editor toolbar; the remove option remains. In Rich mode, the cleaner still removes unknown pasted classes, but keeps the configured classes, built-in ZANACMS classes, alignment classes and classes beginning with `zp`.
+
+`editor_layout_css` is optional and relative to `/layout/`. Use it when the editor should load extra CSS for previewing those classes in the admin area.
+
 ## Supplied HTML designs
 
 Supplied HTML designs and selectable CSS variants currently include `html/water`, `html/just-the-docs`, `html/just-the-docs.dark`, `html/z-airy` and `html/z-airy.blue`. They use the generic HTML layout generator and a `design.html` template under `/layout/html/<design>/`.

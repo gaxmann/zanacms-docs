@@ -15,13 +15,13 @@ The admin dashboard shows the locally installed ZANACMS version from `zp/version
 If the cached GitHub check says that the local version is current, the ZANACMS status line can show:
 
 ```text
-GitHub     same version [+]
+ZANACMS    V2.0.5.18 · 2026-06-02 · aktuell [+]
 ```
 
 If a newer safe target is known, the dashboard can show a separate GitHub line:
 
 ```text
-GitHub     V2.0.5.19 · available [+]
+GitHub     V2.0.5.19 · verfügbar [+]
 ```
 
 The `[+]` link opens the GitHub changelog. It is always shown on the dashboard. If no separate GitHub line is shown, the link is placed in the ZANACMS line.
@@ -162,7 +162,7 @@ local >= breakingversion and target < breakingversion
 Breaking updates are not shown as normal safe updates on the admin dashboard. If no update target without manual adjustments is available, the dashboard shows:
 
 ```text
-No updates are available without manual adjustments
+Keine Updates ohne manuelle Anpassungen verfügbar
 ```
 
 On the update page, breaking targets are marked in the select with: 💥. The relevant breaking warnings are listed above the dry run button.
@@ -216,7 +216,7 @@ Rollback files are temporary update data and are not part of normal site backups
 
 ## Admin exposure
 
-The update system separates visibility from write access. With `adminexposure` level 1, the admin area is reduced; deleting pages, languages and images is blocked, and Backup, Settings, the GitHub status and the updater are not shown. Level 2 can show the broader admin tools, but still cannot use Settings. Level 3 is the default and can show Settings plus the cached GitHub status. Level 4 can show the update page and update actions. Level 5 currently remains unused for the public admin surface; internal service access uses level 8.
+The update system separates visibility from write access. With `adminexposure` level 1, the admin area is reduced; deleting pages, languages and images is blocked, and Settings, the GitHub status and the updater are not shown. Level 2 can show the broader admin tools, but still cannot use Settings. Level 3 is the default and can show Settings plus the cached GitHub status. Level 4 can show the update page and update actions. Level 5 currently remains unused for the public admin surface; internal service/dev access uses level 8.
 
 ## Files
 

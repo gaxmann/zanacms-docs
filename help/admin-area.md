@@ -16,7 +16,7 @@ The welcome line shows the current site host and base path, for example `example
 
 The status table lists the installed ZANACMS version, the active website mode, configured languages, URL mode, selected layout, PHP version and server time. It can also show a cached GitHub version status. This is only an information display and does not install updates automatically. To disable the check, set `autoupdcheck` to `false` in `/__config/conf.php`.
 
-Below the status table, the dashboard links to Settings when `adminexposure >= 3`, and then to the device manager. Pages, Navigation, Media and Backup/Update are available from the top admin navigation where applicable. Backup is hidden for Editor level 1.
+Below the status table, the dashboard links to Settings when `adminexposure >= 3`, and then to the device manager. Pages, Navigation, Media and Backup/Update are available from the top admin navigation where applicable. Backup is hidden for Redakteur level 1.
 
 ## When to check this page
 

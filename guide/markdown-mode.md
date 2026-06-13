@@ -130,6 +130,8 @@ The first level-one heading is used as the main heading if no header field overr
 
 ## 5. Markdown syntax
 
+The MD editor toolbar can insert simple HTML spans for configured editor classes. Unlike Rich mode, MD files remain editable Markdown text; the toolbar writes explicit markup into the text field.
+
 Normal Markdown can be used:
 
 ```md

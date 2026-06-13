@@ -22,26 +22,14 @@ For the initial setup, temporary access to the device manager can be enabled by 
 /__config/EDITACCESS_ENABLE.php
 ```
 
-Set the first value to the number of minutes the window should be open, the second value to the number of new device cookies that may be created, and the third value to the optional `adminexposure` written into those new cookies. Typical examples are `return [5,1,0];` and `return [5,1,1];`. After all allowed cookies have been set, temporary access disables itself automatically. See the [Intro guide]({{ '/guide/intro/' | relative_url }}#editor-access-details) for the exact syntax.
+Set the first value to the number of minutes the window should be open and the second value to the number of new device cookies that may be created. An optional third value can set `adminexposure` directly for the newly created cookies, for example a reduced editor cookie. After all allowed cookies have been set, temporary access disables itself automatically. See the [Intro guide]({{ '/guide/intro/' | relative_url }}#editor-access-details) for the exact syntax.
 
 ## Typical use
 
 You usually only need this page during the first setup, when adding a new device, or after browser cookies have been deleted. Day-to-day admin work does not require any interaction with this page.
 
-When `adminexposure < 3`, the page stays reachable but shows a reduced view: the activated-device table is hidden, and the HTML-cache and delete-all actions are not available. The current device can still be activated when the temporary access window allows it.
+When `adminexposure < 2`, the page stays reachable but shows a reduced view: the activated-device table is hidden, and the HTML-cache and delete-all actions are not available. The current device can still be activated when the temporary access window allows it.
 
-
-## Admin exposure levels
-
-`adminexposure` controls how much of the admin surface is shown:
-
-- `1` = Editor — cannot delete pages, languages or images and cannot use Backup or Settings
-- `2` = Foolproof — cannot use Settings
-- `3` = Standard — default level
-- `4` = Technically proficient — can use `update.php` and update actions
-- `5` = All options — currently unused in the normal public admin surface
-
-Internal service access uses level `8`.
 
 ## Service access
 

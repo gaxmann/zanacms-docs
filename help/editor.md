@@ -26,6 +26,12 @@ Many editor buttons work at the current cursor position, for example inserting i
 
 Undo and redo are handled by the browser or text field, for example with `Ctrl+Z` and `Ctrl+Y`.
 
+## Text classes
+
+The class select can apply a prepared text class or remove the selected prepared class with **Ohne**. Site owners can replace the visible class list through `/__config/customadmin.php`.
+
+In Rich mode, ZANACMS still cleans pasted HTML. It keeps built-in ZANACMS classes, configured editor classes, alignment classes and classes beginning with `zp`. Other pasted classes are removed.
+
 ## Images
 
 When you upload an image from the editor, ZANACMS resizes it in the browser before uploading it. It also creates a smaller copy for normal page display.

@@ -103,11 +103,11 @@ foot            footer lines
 col2            optional sidebar HTML for layouts with `~~ZCOL2~~`; page data can override the config value through `zgetconf('col2')`; if set in config, this manual value has runtime priority
 headlast        optional HTML directly before </head>
 bodylast        optional HTML directly before </body>
-adminexposure   optional admin surface level, 1..5, default 3; internal service access uses 8
+adminexposure   optional admin surface level, 1..5, default 3; /__config/isdev.txt acts as 8
 autoupdcheck   optional; false disables the cached GitHub status check in /admin/
 ```
 
-`adminexposure` controls how much of the admin surface is shown. Level 1 is the Editor level and cannot delete pages, languages or images and cannot use Backup or Settings. Level 2 is Foolproof and cannot use Settings. Level 3 is the default and shows Settings plus the cached GitHub status. Level 4 is technically proficient and can also use the update page and update actions. Level 5 currently keeps additional room for a fuller admin surface. Internal service access uses level 8.
+`adminexposure` controls how much of the admin surface is shown. Level 1 is the Redakteur level and cannot delete pages, languages or images and cannot use Settings. Level 2 is Foolproof and cannot use Settings. Level 3 is the default and shows Settings plus the cached GitHub status. Level 4 is technically proficient and can also use the update page and update actions. Level 5 currently keeps additional room for a fuller admin surface. `/__config/isdev.txt` acts as internal service level 8 for development.
 
 Configuration values must be plain data. They must not depend on functions from `/zp/zana.php`. The device manager setup window is controlled by `/__config/EDITACCESS_ENABLE.php`.
 
@@ -158,7 +158,7 @@ The normal device-manager URL is not changed by `service.php`. Without `/__confi
 
 and only while `/__config/service.php` exists. This mask contains only the access select with `--- Please choose ---` and `◇ Service access`, plus a text field labelled `Service:`.
 
-On success, the service password creates a normal `zeditcook` editing cookie. The browser receives no separate service cookie. `/admin/inc/zdata.php` stores no service password and no service hash. It stores a normal device entry and can mark it with:
+On success, the service password creates a normal `zeditcook` editing cookie. The browser receives no separate service cookie. `/admin/_zdata.php` stores no service password and no service hash. It stores a normal device entry and can mark it with:
 
 ```php
 'adminexposure'=>8,
@@ -635,6 +635,26 @@ MD additions/extensions for ZANACMS are the MD-mode additions to normal Markdown
 ## 10. CSS customisation
 
 Use CSS files for visual customisation whenever possible.
+
+### Editor classes
+
+Optional editor-specific class settings can be placed in `/__config/customadmin.php`:
+
+```php
+<?php
+
+return [
+	'editorclasses'=>[
+		'lead'=>'Lead',
+		'small'=>['en'=>'Small', 'de'=>'Klein'],
+	],
+	'editor_layout_css'=>'supercustom.css',
+];
+```
+
+When `editorclasses` is set, the editor class select shows those entries instead of the built-in visible class entries. The remove option remains. Rich mode still cleans HTML classes; it allows built-in ZANACMS classes, configured editor classes, alignment classes and class names beginning with `zp`.
+
+`editor_layout_css` is a file path below `/layout/`, for example `supercustom.css` or `html/own-design/editor.css`. It is loaded by the admin editors and is included by the built-in backup as that single configured file.
 
 Global custom CSS:
 

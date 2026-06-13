@@ -16,6 +16,9 @@ The built-in backup downloads system files, website data and the currently activ
 
 Note: only the currently used design together with its generator is included in the built-in backup. A separate hosting or FTP backup is still advisable.
 
+
+If `/__config/customadmin.php` defines an `editor_layout_css` file, the built-in backup also includes that single configured CSS file below `/layout/`.
+
 ## Update
 
 The update tool may not be displayed because ZANACMS cannot guarantee that a website will still work after an update. After an update manual adjustments may be required.
