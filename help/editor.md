@@ -28,7 +28,7 @@ Undo and redo are handled by the browser or text field, for example with `Ctrl+Z
 
 ## Text classes
 
-The class select can apply a prepared text class or remove the selected prepared class with **Ohne**. Site owners can replace the visible class list through `/__config/customadmin.php`.
+The class select can apply a prepared text class or remove the selected prepared class with the remove option. Site owners can replace the visible class list through `/__config/customadmin.php`.
 
 In Rich mode, ZANACMS still cleans pasted HTML. It keeps built-in ZANACMS classes, configured editor classes, alignment classes and classes beginning with `zp`. Other pasted classes are removed.
 
