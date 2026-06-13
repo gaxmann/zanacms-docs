@@ -1,14 +1,14 @@
 ---
-title: "⚙ Device management"
+title: "⚙ Get access"
 permalink: /help/access-management/
 parent: Help
 nav_order: 2
 ---
-# ⚙ Device management
+# ⚙ Get access
 
-<p><img class="help-screenshot" src="{{ '/assets/help/a0.jpg' | relative_url }}" alt="Device management screenshot"></p>
+<p><img class="help-screenshot" src="{{ '/assets/help/a0.jpg' | relative_url }}" alt="Get access screenshot"></p>
 
-Device management controls which browsers or devices are allowed to access the ZANACMS admin area. Access is granted per device through an editing cookie, not through a shared login.
+The access page controls which browsers or devices are allowed to access the ZANACMS admin area. Access is granted per device through an editing cookie, not through a shared login.
 
 ## When to use it
 
@@ -22,7 +22,7 @@ For the initial setup, temporary access to the device manager can be enabled by 
 /__config/EDITACCESS_ENABLE.php
 ```
 
-Set the first value to the number of minutes the setup window should be open, the second value to the number of new device cookies that may be created, and the third value to the `adminexposure` level for newly created cookies. Use `0` as the third value to use the normal configured level. After all allowed cookies have been set, the setup window is closed. See the [Intro guide]({{ '/guide/intro/' | relative_url }}#editor-access-details) for the exact syntax.
+Set the first value to the number of minutes the temporary access window should be open, the second value to the number of new device cookies that may be created, and the third value to the `adminexposure` level for newly created cookies. Use `0` as the third value to use the normal configured level. After all allowed cookies have been set, the temporary access window is closed. See the [Introduction guide]({{ '/guide/intro/' | relative_url }}#editor-access-details) for the exact syntax.
 
 ## Typical use
 
@@ -33,7 +33,7 @@ When `adminexposure < 2`, the page stays reachable but shows a reduced view: the
 
 ## Service access
 
-Service access is an optional agency/support access. The normal device manager stays locked as usual unless its normal setup window is open. A configured service access is opened explicitly with:
+Service access is an optional agency/support access. The normal device manager stays locked as usual unless its normal temporary access window is open. A configured service access is opened explicitly with:
 
 ```text
 /admin/d.php?isservice=1

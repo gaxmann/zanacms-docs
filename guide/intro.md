@@ -1,10 +1,10 @@
 ---
-title: "Quick Start"
+title: "Introduction"
 permalink: /guide/intro/
 parent: Guide
 nav_order: 2
 ---
-# ZANACMS Quick Start
+# ZANACMS Introduction
 ## 1. General information
 
 This guide explains the basic file structure and setup of ZANACMS. For license terms, see [ZANACMS license](https://github.com/gaxmann/zanacms/blob/master/LICENSE) and [`license-faq.md`]({{ '/guide/license-faq/' | relative_url }}). Bundled third-party components and notes about supported external design packages are listed in [`THIRD-PARTY-NOTICES.md`](https://github.com/gaxmann/zanacms/blob/master/layout/THIRD-PARTY-NOTICES.md).
@@ -394,7 +394,7 @@ After the basic setup, continue with the mode-specific guide:
 
 The device manager (setup helper) is `/admin/d.php`, and it is locked by `/__config/EDITACCESS_ENABLE.php`. You can use `/__config/EDITACCESS_ENABLE.php` to open a short setup period during which editing cookies can be created or deleted.
 
-The default values in `/__config/EDITACCESS_ENABLE.php` are `return [0,0,0];`. To open access to the device manager for a short setup step, edit the values in that file, for example to `return [5,0,0];`, `return [5,1,0];` or `return [5,1,1];`. The first number is the access time in minutes (capped at five minutes), the second number is the number of device cookies that may be created during this setup period, and the third number is the `adminexposure` level written into newly created cookies. When the third value is `0`, the new cookie uses the global config level later. After all allowed cookies are set, the setup window is closed.
+The default values in `/__config/EDITACCESS_ENABLE.php` are `return [0,0,0];`. To open access to the device manager for a short setup step, edit the values in that file, for example to `return [5,0,0];`, `return [5,1,0];` or `return [5,1,1];`. The first number is the access time in minutes (capped at five minutes), the second number is the number of device cookies that may be created during this setup period, and the third number is the `adminexposure` level written into newly created cookies. When the third value is `0`, the new cookie uses the global config level later. After all allowed cookies are set, the temporary access window is closed.
 
 If the second number is `0`, you can only view the device list and delete access cookies. - _On first access, the helper adds an internal UTC/GMT Unix expiry timestamp as fourth value, for example `return [5,1,0,1778681234];`. The timestamp is not extended by reloading. After the last allowed new device cookie, after deleting all access entries, or after expiry, the file is reset to `return [0,0,0];`._
 
@@ -563,7 +563,7 @@ A runtime file below `/zp/`. Core files are not normal website customisation fil
 The second part of a layout name, for example `water` in `html/water`.
 
 **edit access enable file**  
-The local setup file `/__config/EDITACCESS_ENABLE.php`. It opens a short setup window for creating or deleting editor access cookies.
+The local setup file `/__config/EDITACCESS_ENABLE.php`. It opens a short temporary access window for creating or deleting editor access cookies.
 
 **fallback language**  
 The optional language from `fallbacklg` in `/__config/conf.php`. It can be used when a requested page language is missing.

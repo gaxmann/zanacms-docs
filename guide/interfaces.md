@@ -109,7 +109,7 @@ autoupdcheck   optional; false disables the cached GitHub status check in /admin
 
 `adminexposure` controls how much of the admin surface is shown. Level 1 is the Redakteur level and cannot delete pages, languages or images and cannot use Settings. Level 2 is Foolproof and cannot use Settings. Level 3 is the default and shows Settings plus the cached GitHub status. Level 4 is technically proficient and can also use the update page and update actions. Level 5 currently keeps additional room for a fuller admin surface. `/__config/isdev.txt` acts as internal service level 8 for development.
 
-Configuration values must be plain data. They must not depend on functions from `/zp/zana.php`. The device manager setup window is controlled by `/__config/EDITACCESS_ENABLE.php`.
+Configuration values must be plain data. They must not depend on functions from `/zp/zana.php`. The device manager temporary access window is controlled by `/__config/EDITACCESS_ENABLE.php`.
 
 ### Cached GitHub status check
 

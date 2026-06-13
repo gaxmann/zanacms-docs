@@ -13,7 +13,7 @@ For the full technical documentation, start with the [Guide overview]({{ '/guide
 ## Admin tools
 
 - ☷ [Admin dashboard]({{ '/help/admin-area/' | relative_url }}) — site status, current mode and installed version.
-- ⚙ [Device management]({{ '/help/access-management/' | relative_url }}) — activate a browser or device for admin access.
+- ⚙ [Get access]({{ '/help/access-management/' | relative_url }}) — activate a browser or device for admin access.
 - ◫ [Settings]({{ '/help/settings/' | relative_url }}) — set the design and edit the global sidebar when available.
 - ➔ [Navigation]({{ '/help/navigation-editor/' | relative_url }}) — edit the website menu.
 - @ [Pages]({{ '/help/page-overview/' | relative_url }}) — edit pages in MD mode or Rich mode.
@@ -22,6 +22,7 @@ For the full technical documentation, start with the [Guide overview]({{ '/guide
 
 ## Website setup
 
+- [Installation]({{ '/guide/installation/' | relative_url }}) — download, upload, choose a mode and register the admin browser.
 - [Modes]({{ '/help/modes/' | relative_url }}) — choose PHP mode, MD mode or Rich mode.
 - [Configuration]({{ '/help/configuration/' | relative_url }}) — create and edit `/__config/conf.php`.
 - [Links]({{ '/help/links/' | relative_url }}) — add internal and external links.

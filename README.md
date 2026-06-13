@@ -21,7 +21,7 @@ The navigation footer is configured in `_includes/nav_footer_custom.html`; the p
 Main admin help pages:
 
 - [Admin dashboard](https://gaxmann.github.io/zanacms-docs/help/admin-area/)
-- [Device management](https://gaxmann.github.io/zanacms-docs/help/access-management/)
+- [Get access](https://gaxmann.github.io/zanacms-docs/help/access-management/)
 - [Settings](https://gaxmann.github.io/zanacms-docs/help/settings/)
 - [Page overview](https://gaxmann.github.io/zanacms-docs/help/page-overview/)
 - [Navigation editor](https://gaxmann.github.io/zanacms-docs/help/navigation-editor/)

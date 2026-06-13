@@ -27,4 +27,4 @@ Check this page after the initial setup, after an update, and whenever something
 - [Settings]({{ '/help/settings/' | relative_url }})
 - [Backup/Update]({{ '/help/backup/' | relative_url }})
 - [Configuration]({{ '/help/configuration/' | relative_url }})
-- [Intro guide]({{ '/guide/intro/' | relative_url }}#optional-editor-media-gallery-and-device-manager)
+- [Introduction guide]({{ '/guide/intro/' | relative_url }}#optional-editor-media-gallery-and-device-manager)

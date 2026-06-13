@@ -13,7 +13,7 @@ Short pages for the admin area and common editing tasks.
 
 - [Help overview]({{ '/help/' | relative_url }})
 - [Admin dashboard]({{ '/help/admin-area/' | relative_url }})
-- [Device management]({{ '/help/access-management/' | relative_url }})
+- [Get access]({{ '/help/access-management/' | relative_url }})
 - [Settings]({{ '/help/settings/' | relative_url }})
 - [Pages]({{ '/help/page-overview/' | relative_url }})
 - [Navigation editor]({{ '/help/navigation-editor/' | relative_url }})
