@@ -8,7 +8,7 @@ nav_order: 3
 
 MD mode is the Markdown-based content mode of ZANACMS. It is for users who want to edit page files as Markdown, either directly or through the optional built-in Markdown editor. Editor-oriented Rich sites should use Rich mode; see [`guide/rich-mode.md`]({{ '/guide/rich-mode/' | relative_url }}).
 
-Shared setup topics such as layouts, languages, footer syntax, CSS and media access are in [`guide/intro.md`]({{ '/guide/intro/' | relative_url }}). Public interface details, including ZTOKENS, page variables and footer tokens, are in [`guide/interfaces.md`]({{ '/guide/interfaces/' | relative_url }}).
+Shared setup topics such as layouts, languages, footer syntax, CSS and media access are in the [Introduction]({{ '/guide/intro/' | relative_url }}). Public interface details, including ZTOKENS, page variables and footer tokens, are in [Interfaces]({{ '/guide/interfaces/' | relative_url }}).
 
 
 ### MD additions/extensions for ZANACMS
@@ -336,7 +336,7 @@ The MD editor is available through `/admin/e.php` when editor access is enabled 
 
 `pageimg.src` stores the optional page image. See `guide/rich-mode.md` for the shared page image output rule.
 
-Editor access is described in [`guide/intro.md`]({{ '/guide/intro/' | relative_url }}#optional-editor-media-gallery-and-device-manager).
+Editor access is described in [Advanced topics]({{ '/guide/advanced-topics/' | relative_url }}#editor-access-details).
 
 The media gallery is available at:
 
@@ -353,9 +353,9 @@ The media gallery is available at:
 
 ## 15. See also
 
-- [`guide/intro.md`]({{ '/guide/intro/' | relative_url }}) for shared setup and all-modes topics
-- [`guide/interfaces.md`]({{ '/guide/interfaces/' | relative_url }}) for ZTOKENS, footer tokens, page variables and public interfaces
-- [`guide/rich-mode.md`]({{ '/guide/rich-mode/' | relative_url }}) for the visual Rich editor workflow
+- [Introduction]({{ '/guide/intro/' | relative_url }}) for shared concepts across all modes
+- [Interfaces]({{ '/guide/interfaces/' | relative_url }}) for ZTOKENS, footer tokens, page variables and public interfaces
+- [Rich mode]({{ '/guide/rich-mode/' | relative_url }}) for the visual Rich editor workflow
 
 
 ## Sitemap

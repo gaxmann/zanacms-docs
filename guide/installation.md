@@ -5,6 +5,10 @@ nav_order: 3
 ---
 # Installation
 
+## Requirements
+
+ZANACMS requires a web server with PHP 7.4 and file write access for the configuration directory, image uploads and cache files. No database is required.
+
 ## 1. Download and upload ZANACMS
 
 Download the ZANACMS archive.
@@ -21,9 +25,9 @@ The ZANACMS files must be placed directly in the website directory. Do not leave
 
 ZANACMS supports three operating modes:
 
-* **PHP mode** – uses PHP files
-* **MD mode** – uses Markdown files or editor
-* **Rich mode** – uses rich text editor
+* **PHP mode** – for developers who write pages as PHP files with full control over page structure and content.
+* **MD mode** – for users who prefer lightweight Markdown files, editable directly or through the built-in Markdown editor.
+* **Rich mode** – for website owners who maintain page content through a visual rich text editor without writing code.
 
 Use [**PHP mode**]({{ '/guide/php-mode/' | relative_url }}) if you want to write pages with PHP and arrays. Use [**MD mode**]({{ '/guide/markdown-mode/' | relative_url }}) if you want lightweight Markdown files with automatic cache building. Use [**Rich mode**]({{ '/guide/rich-mode/' | relative_url }}) if you want the normal visual editor workflow.
 
@@ -178,3 +182,5 @@ Click the **Admin** link in the navigation and enjoy your admin access.
 In MD and Rich mode, the `[e]` editor links are available in the footer of each web page.
 
 In PHP mode, you have to edit the files via FTP, but can access the admin area via the `[i]` link in the footer that helps you upload images and copy PHP image code for your pages.
+
+Continue with the [Introduction]({{ '/guide/intro/' | relative_url }}) to learn about the shared concepts — layouts, languages, navigation and footer — before starting with the mode-specific guide.

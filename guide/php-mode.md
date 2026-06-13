@@ -8,7 +8,7 @@ nav_order: 2
 
 PHP mode is the mode for advanced users that know PHP. In PHP mode, pages are PHP files. Each page includes ZP, prepares its page data, and calls `out_page()`.
 
-Shared setup topics such as layouts, languages, footer syntax, CSS and editor/media access are in [`guide/intro.md`]({{ '/guide/intro/' | relative_url }}). Full details for public helper functions such as `zlink()` and `zhref()` are in [`guide/interfaces.md`]({{ '/guide/interfaces/' | relative_url }}).
+Shared setup topics such as layouts, languages, footer syntax, CSS and editor/media access are in the [Introduction]({{ '/guide/intro/' | relative_url }}). Full details for public helper functions such as `zlink()` and `zhref()` are in [Interfaces]({{ '/guide/interfaces/' | relative_url }}).
 
 ## 1. File structure for PHP mode
 
@@ -335,7 +335,7 @@ Internal PHP links should still be written as `zlink('page')` or `zhref('page', 
 
 ## 8. Media gallery
 
-PHP mode does not use a page editor and does not need `/admin/` for runtime. It needs `/admin/` only if image upload through the optional media gallery or device access tools are used. Rich and Markdown page editing are disabled in PHP mode. Activation of the optional media gallery and device manager is handled centrally; see [`guide/intro.md`]({{ '/guide/intro/' | relative_url }}#optional-editor-media-gallery-and-device-manager).
+PHP mode does not use a page editor and does not need `/admin/` for runtime. It needs `/admin/` only if image upload through the optional media gallery or device access tools are used. Rich and Markdown page editing are disabled in PHP mode. Activation of the optional media gallery and device manager is handled centrally; see [Advanced topics]({{ '/guide/advanced-topics/' | relative_url }}#editor-access-details).
 
 When gallery access is active, in PHP mode ZANACMS adds a small `[i]` link to the footer. The link opens the media gallery:
 
@@ -483,8 +483,8 @@ Set this before `out_page()` if the current PHP page should not be indexed by se
 
 ## 14. See also
 
-- [`guide/intro.md`]({{ '/guide/intro/' | relative_url }}) for shared setup and all-modes topics
-- [`guide/interfaces.md`]({{ '/guide/interfaces/' | relative_url }}) for public PHP function parameters and customisation interfaces
+- [Introduction]({{ '/guide/intro/' | relative_url }}) for shared concepts across all modes
+- [Interfaces]({{ '/guide/interfaces/' | relative_url }}) for public PHP function parameters and customisation interfaces
 
 
 ## Sitemap

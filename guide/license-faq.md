@@ -2,7 +2,7 @@
 title: "License FAQ"
 permalink: /guide/license-faq/
 parent: Guide
-nav_order: 8
+nav_order: 9
 ---
 # ZANACMS License FAQ
 

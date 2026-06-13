@@ -13,15 +13,16 @@ If you know nothing about ZANACMS yet, start with the [README](https://github.co
 ## Start here
 
 - [Installation]({{ '/guide/installation/' | relative_url }}) — download, upload, choose a mode and register the admin browser.
-- [Introduction]({{ '/guide/intro/' | relative_url }}) — structure, modes and shared concepts.
+- [Introduction]({{ '/guide/intro/' | relative_url }}) — shared concepts: layouts, languages, navigation, footer and admin area.
 - [PHP mode]({{ '/guide/php-mode/' | relative_url }}) — developer-controlled PHP pages.
 - [Markdown mode]({{ '/guide/markdown-mode/' | relative_url }}) — Markdown files and the Markdown editor.
 - [Rich mode]({{ '/guide/rich-mode/' | relative_url }}) — page content maintained through the rich text editor.
 
 ## Reference
 
+- [Advanced topics]({{ '/guide/advanced-topics/' | relative_url }}) — CSS loading order, language fallback, URL rewrite, editor access details, layout families.
 - [Interfaces]({{ '/guide/interfaces/' | relative_url }}) — footer tokens, page variables, links, CSS and public helper interfaces.
-- [Update]({{ '/guide/update/' | relative_url }}) — Detailed information about the update tool.
+- [Update]({{ '/guide/update/' | relative_url }}) — detailed information about the update tool.
 - [HTML designs]({{ '/guide/html-designs/' | relative_url }}) — create a design with `design.html`, CSS variants and `design.ini`.
 - [Layout generator manual]({{ '/guide/layout-generator-manual/' | relative_url }}) — generator structure and implementation notes.
 - [Third-party notices](https://github.com/gaxmann/zanacms/blob/master/layout/THIRD-PARTY-NOTICES.md) — bundled components and external design notes.

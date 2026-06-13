@@ -30,4 +30,5 @@ Longer documentation, introduction and reference material.
 - [PHP mode]({{ '/guide/php-mode/' | relative_url }})
 - [Markdown mode]({{ '/guide/markdown-mode/' | relative_url }})
 - [Rich mode]({{ '/guide/rich-mode/' | relative_url }})
+- [Advanced topics]({{ '/guide/advanced-topics/' | relative_url }})
 - [Update]({{ '/guide/update/' | relative_url }})

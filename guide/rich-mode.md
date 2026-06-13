@@ -8,7 +8,7 @@ nav_order: 4
 
 Rich mode is the main editor-oriented content mode of ZANACMS. It stores ready-to-use page data as PHP arrays and uses the built-in rich text editor for page editing. The public page runtime stays small: it loads the page data file and lets the selected layout render the page.
 
-Shared setup topics such as layouts, languages, footer syntax, CSS and media access are in [`guide/intro.md`]({{ '/guide/intro/' | relative_url }}). Public interface details, including ZTOKENS, page variables and footer tokens, are in [`guide/interfaces.md`]({{ '/guide/interfaces/' | relative_url }}).
+Shared setup topics such as layouts, languages, footer syntax, CSS and media access are in the [Introduction]({{ '/guide/intro/' | relative_url }}). Public interface details, including ZTOKENS, page variables and footer tokens, are in [Interfaces]({{ '/guide/interfaces/' | relative_url }}).
 
 ## 1. File structure for Rich mode
 
@@ -475,9 +475,9 @@ For Markdown sites see [`guide/markdown-mode.md`]({{ '/guide/markdown-mode/' | r
 
 ## 15. See also
 
-- [`guide/intro.md`]({{ '/guide/intro/' | relative_url }}) for shared setup and all-modes topics
-- [`guide/interfaces.md`]({{ '/guide/interfaces/' | relative_url }}) for ZTOKENS, footer tokens, page variables and public interfaces
-- [`guide/markdown-mode.md`]({{ '/guide/markdown-mode/' | relative_url }}) for Markdown-based sites
+- [Introduction]({{ '/guide/intro/' | relative_url }}) for shared concepts across all modes
+- [Interfaces]({{ '/guide/interfaces/' | relative_url }}) for ZTOKENS, footer tokens, page variables and public interfaces
+- [Markdown mode]({{ '/guide/markdown-mode/' | relative_url }}) for Markdown-based sites
 
 
 ## Sitemap

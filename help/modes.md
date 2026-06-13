@@ -32,7 +32,7 @@ All three modes share the same runtime, layout system, configuration directory, 
 
 - [Pages]({{ '/help/page-overview/' | relative_url }})
 - [Configuration]({{ '/help/configuration/' | relative_url }})
-- [Mode selection]({{ '/guide/intro/' | relative_url }}#which-mode-should-i-choose)
+- [Introduction]({{ '/guide/intro/' | relative_url }})
 - [PHP mode]({{ '/guide/php-mode/' | relative_url }})
 - [MD mode]({{ '/guide/markdown-mode/' | relative_url }})
 - [Rich mode]({{ '/guide/rich-mode/' | relative_url }})

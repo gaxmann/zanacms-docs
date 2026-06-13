@@ -16,7 +16,7 @@ PHP mode does not use the admin page editor. PHP pages are `.php` files and are 
 
 ## MD and Rich mode
 
-MD mode stores pages as Markdown files in `/pages/`. Rich mode store it as PHP files inside the same directory. 
+MD mode stores pages as Markdown files in `/pages/`. Rich mode stores them as PHP data files in the same directory. 
 
 In the Pages tool you can delete and edit any language of your pages, and you can also add new languages to your pages. Click on the page ID to visit the page.
 

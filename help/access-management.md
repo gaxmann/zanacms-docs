@@ -22,7 +22,7 @@ For the initial setup, temporary access to the device manager can be enabled by 
 /__config/EDITACCESS_ENABLE.php
 ```
 
-Set the first value to the number of minutes the temporary access window should be open, the second value to the number of new device cookies that may be created, and the third value to the `adminexposure` level for newly created cookies. Use `0` as the third value to use the normal configured level. After all allowed cookies have been set, the temporary access window is closed. See the [Introduction guide]({{ '/guide/intro/' | relative_url }}#editor-access-details) for the exact syntax.
+Set the first value to the number of minutes the temporary access window should be open, the second value to the number of new device cookies that may be created, and the third value to the `adminexposure` level for newly created cookies. Use `0` as the third value to use the normal configured level. After all allowed cookies have been set, the temporary access window is closed. See [Advanced topics]({{ '/guide/advanced-topics/' | relative_url }}#editor-access-details) for the exact syntax.
 
 ## Typical use
 
@@ -45,4 +45,4 @@ The service key must have at least 64 characters. A successful service login cre
 
 - [Configuration]({{ '/help/configuration/' | relative_url }})
 - [Troubleshooting]({{ '/help/troubleshooting/' | relative_url }})
-- [Editor access details]({{ '/guide/intro/' | relative_url }}#editor-access-details)
+- [Editor access details]({{ '/guide/advanced-topics/' | relative_url }}#editor-access-details)

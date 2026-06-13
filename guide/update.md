@@ -2,7 +2,7 @@
 title: "Update system"
 permalink: /guide/update/
 parent: Guide
-nav_order: 7
+nav_order: 8
 ---
 # ZANACMS update system
 

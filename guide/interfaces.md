@@ -2,13 +2,13 @@
 title: "Interfaces"
 permalink: /guide/interfaces/
 parent: Guide
-nav_order: 5
+nav_order: 6
 ---
 # ZANACMS Interfaces
 
 This document describes the public customisation and extension interfaces of ZANACMS. It is intended for advanced users who build their own site structure, layout adjustments, local variables or small integrations. It is not a guide for changing ZANACMS core files.
 
-For the first setup, use [`guide/intro.md`]({{ '/guide/intro/' | relative_url }}). For mode-specific page formats, use [`guide/php-mode.md`]({{ '/guide/php-mode/' | relative_url }}), [`guide/markdown-mode.md`]({{ '/guide/markdown-mode/' | relative_url }}) and [`guide/rich-mode.md`]({{ '/guide/rich-mode/' | relative_url }}).
+For the first setup, use the [Introduction]({{ '/guide/intro/' | relative_url }}). For mode-specific page formats, use [PHP mode]({{ '/guide/php-mode/' | relative_url }}), [Markdown mode]({{ '/guide/markdown-mode/' | relative_url }}) and [Rich mode]({{ '/guide/rich-mode/' | relative_url }}).
 
 
 ## Contents

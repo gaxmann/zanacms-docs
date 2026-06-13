@@ -2,7 +2,7 @@
 title: "Layout Generator Manual"
 permalink: /guide/layout-generator-manual/
 parent: Guide
-nav_order: 9
+nav_order: 10
 ---
 # ZANACMS: Layout Generator Manual
 

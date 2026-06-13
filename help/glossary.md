@@ -60,7 +60,7 @@ The page variable system based on `/pages/zvars.php`. ZVARS let a PHP developer 
 
 ## More details
 
-- [Introduction glossary]({{ '/guide/intro/#5-glossary' | relative_url }})
+- [Introduction]({{ '/guide/intro/' | relative_url }})
 
 
 ## settings page
