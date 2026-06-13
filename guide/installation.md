@@ -39,7 +39,7 @@ Copy this file:
 /__config/conf.example-php.php
 ```
 
-to ––>:
+––> to:
 
 ```text
 /__config/conf.php
@@ -51,7 +51,7 @@ Copy this file:
 /index.example-php.php
 ```
 
-to ––>:
+––> to:
 
 ```text
 /index.php
@@ -69,7 +69,7 @@ Copy this file:
 /__config/conf.example-md.php
 ```
 
-to ––>:
+––> to:
 
 ```text
 /__config/conf.php
@@ -81,7 +81,7 @@ Copy this file:
 /index.example-rich-or-md.php
 ```
 
-to ––>:
+––> to:
 
 ```text
 /index.php
@@ -93,7 +93,7 @@ Copy the files from:
 /pages/example/md/
 ```
 
-to ––>:
+––> to:
 
 ```text
 /pages/
@@ -111,7 +111,7 @@ Copy this file:
 /__config/conf.example-rich.php
 ```
 
-to ––>:
+––> to:
 
 ```text
 /__config/conf.php
@@ -123,7 +123,7 @@ Copy this file:
 /index.example-rich-or-md.php
 ```
 
-to ––>:
+––> to:
 
 ```text
 /index.php
@@ -135,7 +135,7 @@ Copy the files from:
 /pages/example/rich/
 ```
 
-to ––>:
+––> to:
 
 ```text
 /pages/
