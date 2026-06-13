@@ -2,7 +2,7 @@
 title: "Interfaces"
 permalink: /guide/interfaces/
 parent: Guide
-nav_order: 6
+nav_order: 7
 ---
 # ZANACMS Interfaces
 

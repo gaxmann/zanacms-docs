@@ -2,7 +2,7 @@
 title: "Advanced topics"
 permalink: /guide/advanced-topics/
 parent: Guide
-nav_order: 5
+nav_order: 6
 ---
 # Advanced topics
 

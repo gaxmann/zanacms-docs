@@ -2,7 +2,7 @@
 title: "PHP Mode"
 permalink: /guide/php-mode/
 parent: Guide
-nav_order: 2
+nav_order: 3
 ---
 # ZANACMS Guide for PHP Mode
 

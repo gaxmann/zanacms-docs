@@ -2,7 +2,7 @@
 title: HTML designs
 permalink: /guide/html-designs/
 parent: Guide
-nav_order: 7
+nav_order: 8
 ---
 # HTML designs
 

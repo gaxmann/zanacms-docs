@@ -2,7 +2,7 @@
 title: "MD Mode"
 permalink: /guide/markdown-mode/
 parent: Guide
-nav_order: 3
+nav_order: 4
 ---
 # ZANACMS Guide for MD Mode
 

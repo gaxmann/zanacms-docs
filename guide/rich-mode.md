@@ -2,7 +2,7 @@
 title: "Rich Mode"
 permalink: /guide/rich-mode/
 parent: Guide
-nav_order: 4
+nav_order: 5
 ---
 # ZANACMS Guide for Rich Mode
 

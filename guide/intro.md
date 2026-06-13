@@ -226,7 +226,7 @@ If `adminexposure` is not set, the default level is 3.
 
 Admin access is granted per browser or device through an editing cookie. There is no shared login with username and password.
 
-Access is managed through the device manager at `/admin/d.php`. This page is locked by default and can only be opened through a temporary access window in `/__config/EDITACCESS_ENABLE.php`. After the allowed cookies are created, the window closes automatically.
+Access is managed through the device manager at `/admin/d.php`. This page is locked by default and can only be opened through a temporary access window in `/__config/EDITACCESS_ENABLE.php`. After the allowed cookies are created, the temporary access window is closed automatically.
 
 When access is active, Rich and MD mode show a small `[e]` link in the page footer to open the editor. PHP mode shows a `[i]` link to the media gallery.
 
