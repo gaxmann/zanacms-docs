@@ -129,7 +129,7 @@ Optional agency/support service access is enabled by:
 /__config/service.php
 ```
 
-This file contains only the bcrypt hash of a long service password:
+This file contains only the bcrypt hash of a service key with at least 64 characters:
 
 ```php
 <?php
@@ -138,7 +138,9 @@ return '$2y$14$...';
 
 No example file is shipped.
 
-Generate a long service password on a Unix-like shell:
+Service keys shorter than 64 characters are rejected before the bcrypt hash is checked.
+
+Generate a service key with at least 64 characters on a Unix-like shell:
 
 ```sh
 LC_ALL=C tr -dc 'A-Za-z0-9' </dev/urandom | head -c 128; echo
@@ -158,7 +160,7 @@ The normal device-manager URL is not changed by `service.php`. Without `/__confi
 
 and only while `/__config/service.php` exists. This mask contains only the access select with `--- Please choose ---` and `◇ Service access`, plus a text field labelled `Service:`.
 
-On success, the service password creates a normal `zeditcook` editing cookie. The browser receives no separate service cookie. `/admin/_zdata.php` stores no service password and no service hash. It stores a normal device entry and can mark it with:
+On success, the service key creates a normal `zeditcook` editing cookie. The browser receives no separate service cookie. `/admin/_zdata.php` stores no service key and no service hash. It stores a normal device entry and can mark it with:
 
 ```php
 'adminexposure'=>8,

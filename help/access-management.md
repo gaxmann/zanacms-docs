@@ -39,7 +39,7 @@ Service access is an optional agency/support access. The normal device manager s
 /admin/d.php?isservice=1
 ```
 
-A successful service login creates a normal editing cookie. It does not put the service password into the browser. For setup format, cookie behaviour and the temporary support level selector, see [Service access in the Interfaces guide]({{ '/guide/interfaces/' | relative_url }}#service-access).
+The service key must have at least 64 characters. A successful service login creates a normal editing cookie. It does not put the service key into the browser. For setup format, cookie behaviour and the temporary support level selector, see [Service access in the Interfaces guide]({{ '/guide/interfaces/' | relative_url }}#service-access).
 
 ## More details
 

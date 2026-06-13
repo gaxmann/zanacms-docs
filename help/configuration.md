@@ -73,7 +73,7 @@ Optional service access is controlled by:
 /__config/service.php
 ```
 
-This file contains only the bcrypt hash of the long service password. It is used only through `/admin/d.php?isservice=1`. No example file is shipped. See [Service access in the Interfaces guide]({{ '/guide/interfaces/' | relative_url }}#service-access).
+This file contains only the bcrypt hash of the service key. The service key must have at least 64 characters. It is used only through `/admin/d.php?isservice=1`. No example file is shipped. See [Service access in the Interfaces guide]({{ '/guide/interfaces/' | relative_url }}#service-access).
 
 ## Core and admin files
 
