@@ -206,16 +206,16 @@ Not all tools are visible at every admin exposure level. The `adminexposure` set
 
 | Level | Description |
 | --- | --- |
-| 1 | Editor — cannot delete pages, languages or images; no Settings |
-| 2 | Foolproof — broader tools, but no Settings |
-| 3 | Default — Settings and cached GitHub status visible |
+| 1 | Editor — cannot delete pages, languages or images; no Settings, no Backup |
+| 2 | Foolproof — broader tools, Backup, but no Settings |
+| 3 | Standard — Settings and GitHub status visible |
 | 4 | Technically proficient — update page and update actions available |
-| 5 | Reserved for future use |
+| 5 | All Options – Reserved for future use |
 
 Example:
 
 ```php
-'adminexposure'=>3,
+'adminexposure'=>4,
 ```
 
 If `adminexposure` is not set, the default level is 3.

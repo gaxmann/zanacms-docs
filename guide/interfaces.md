@@ -104,16 +104,16 @@ col2            optional sidebar HTML for layouts with `~~ZCOL2~~`; page data ca
 headlast        optional HTML directly before </head>
 bodylast        optional HTML directly before </body>
 adminexposure   optional admin surface level, 1..5, default 3; /__config/isdev.txt acts as 8
-autoupdcheck   optional; false disables the cached GitHub status check in /admin/
+autoupdcheck   optional; false disables the GitHub status check in /admin/
 ```
 
-`adminexposure` controls how much of the admin surface is shown. Level 1 is the Editor level and cannot delete pages, languages or images and cannot use Settings. Level 2 is Foolproof and cannot use Settings. Level 3 is the default and shows Settings plus the cached GitHub status. Level 4 is technically proficient and can also use the update page and update actions. Level 5 currently keeps additional room for a fuller admin surface. `/__config/isdev.txt` acts as internal service level 8 for development.
+`adminexposure` controls how much of the admin surface is shown. Level 1 is the Editor level and cannot delete pages, languages or images, cannot use Settings nor backup the site. Level 2 is Foolproof and still cannot use Settings. Level 3 is the Standard level and shows Settings plus the GitHub status. Level 4 is technically proficient and can also use the update page and update actions. Level 5 is "Give all options" and currently unused in the normal public admin surface. `/__config/isdev.txt` acts as internal service level 8 for development.
 
 Configuration values must be plain data. They must not depend on functions from `/zp/zana.php`. The device manager temporary access window is controlled by `/__config/EDITACCESS_ENABLE.php`.
 
-### Cached GitHub status check
+### GitHub status check
 
-The optional GitHub status check in the admin status table is enabled by default. It is only a cached information display. To disable it, set:
+The optional cached GitHub status check in the admin status table is enabled by default. It is only a cached information display. To disable it, set:
 
 ```php
 'autoupdcheck'=>false,

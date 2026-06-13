@@ -141,9 +141,9 @@ The cookie data is stored in `/admin/_zdata.php`. The editor and media tools are
 
 | Level | Surface |
 | --- | --- |
-| 1 | Editor — cannot delete pages, languages or images; no Settings, no GitHub status, no updater |
+| 1 | Editor — cannot delete pages, languages or images; no Settings, no Backup, no GitHub status, no updater |
 | 2 | Foolproof — broader tools, but no Settings |
-| 3 | Default — Settings visible, cached GitHub status visible |
+| 3 | Standard — Settings visible, GitHub status visible |
 | 4 | Technically proficient — update page and update actions available |
 | 5 | Reserved for a fuller admin surface |
 | 8 | Internal service/dev level (set through `/__config/isdev.txt` or service access) |

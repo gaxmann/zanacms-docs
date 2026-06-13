@@ -12,7 +12,7 @@ The ZANACMS update system is an admin tool for checking, inspecting and installi
 
 The admin dashboard shows the locally installed ZANACMS version from `zp/version.php`.
 
-If the cached GitHub check says that the local version is current, the ZANACMS status line can show:
+If the GitHub check says that the local version is current, the ZANACMS status line can show:
 
 ```text
 ZANACMS    V2.0.5.18 · 2026-06-02 · aktuell [+]
@@ -26,9 +26,9 @@ GitHub     V2.0.5.19 · verfügbar [+]
 
 The `[+]` link opens the GitHub changelog. It is always shown on the dashboard. If no separate GitHub line is shown, the link is placed in the ZANACMS line.
 
-If no valid cached GitHub result is available, the dashboard can show `unbekannt` together with the cached error message.
+If no valid GitHub result is available, the dashboard can show `unbekannt` together with the cached error message.
 
-The admin maintenance pixel can run on signed-in admin pages so general maintenance such as sitemap rebuilding can continue even in a reduced admin surface. The cached GitHub status is only shown when `adminexposure >= 3`. The actual update page is only available when the configured admin exposure level allows it.
+The admin maintenance pixel can run on signed-in admin pages so general maintenance such as sitemap rebuilding can continue even in a reduced admin surface. The GitHub status is only shown when `adminexposure >= 3`. The actual update page is only available when the configured admin exposure level allows it.
 
 ## Background check
 
@@ -216,7 +216,7 @@ Rollback files are temporary update data and are not part of normal site backups
 
 ## Admin exposure
 
-The update system separates visibility from write access. With `adminexposure` level 1, the admin area is reduced; deleting pages, languages and images is blocked, and Settings, the GitHub status and the updater are not shown. Level 2 can show the broader admin tools, but still cannot use Settings. Level 3 is the default and can show Settings plus the cached GitHub status. Level 4 can show the update page and update actions. Level 5 currently remains unused for the public admin surface; internal service/dev access uses level 8.
+The update system separates visibility from write access. With `adminexposure` level 1, the admin area is reduced; deleting pages, languages and images is blocked, and Settings, the GitHub status and the updater are not shown. Level 2 can show the broader admin tools, but still cannot use Settings. Level 3 is the default and can show Settings plus the GitHub status. Level 4 can show the update page and update actions. Level 5 currently remains unused for the public admin surface; internal service/dev access uses level 8.
 
 ## Files
 

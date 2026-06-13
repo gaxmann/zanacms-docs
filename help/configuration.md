@@ -32,7 +32,7 @@ conf.example-rich.php
 
 Typical settings in `conf.php` include the website mode, languages, layout, sitemap switch, URL mode, footer lines, optional manual navigation/sidebar text and admin exposure level. Values set in `conf.php` have priority over admin-written fallback values from `/__config/_admconf.php`.
 
-`adminexposure` controls how much of the admin surface is shown. Level 1 is the Editor level and cannot delete pages, languages or images and cannot use Settings. Level 2 is Foolproof and still cannot use Settings. Level 3 is the default and shows Settings plus the cached GitHub status. Level 4 is technically proficient and can also use the update page and update actions. Level 5 is currently unused in the normal public admin surface. Internal service/dev access uses level 8.
+`adminexposure` controls how much of the admin surface is shown. Level 1 is the Editor level and cannot delete pages, languages or images, cannot use Settings nor backup the site. Level 2 is Foolproof and still cannot use Settings. Level 3 is the Standard level and shows Settings plus the GitHub status. Level 4 is technically proficient and can also use the update page and update actions. Level 5 is "Give all options" and currently unused in the normal public admin surface. Internal service/dev access uses level 8.
 
 
 ## Settings, design and sidebar
