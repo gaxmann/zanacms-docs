@@ -140,16 +140,13 @@ No example file is shipped.
 
 Service keys shorter than 64 characters are rejected before the bcrypt hash is checked.
 
-Generate a service key with at least 64 characters on a Unix-like shell:
+Generate a service key with 72 characters on a Unix-like shell; create the bcrypt hash with cost 14. Copy both, hide and store them well:
 
 ```sh
-LC_ALL=C tr -dc 'A-Za-z0-9' </dev/urandom | head -c 128; echo
-```
-
-Create the bcrypt hash with cost 14:
-
-```sh
-php -r 'echo password_hash(trim(fgets(STDIN)), PASSWORD_BCRYPT, ["cost"=>14]), PHP_EOL;'
+key=$(LC_ALL=C tr -dc '!-~' </dev/urandom | head -c 72)
+printf '\nKEY:\n%s\n' "$key"
+printf 'HASH:\n'
+printf '%s' "$key" | php -r '$key=stream_get_contents(STDIN); echo password_hash($key, PASSWORD_BCRYPT, ["cost"=>14])."\n", PHP_EOL;'
 ```
 
 The normal device-manager URL is not changed by `service.php`. Without `/__config/EDITACCESS_ENABLE.php`, `/admin/d.php` stays locked as usual. The service-only mask is shown only through:
