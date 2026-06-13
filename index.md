@@ -24,6 +24,7 @@ Short pages for the admin area and common editing tasks.
 
 Longer documentation, introduction and reference material.
 
+- [Installation]({{ '/guide/installation/' | relative_url }})
 - [Guide overview]({{ '/guide/' | relative_url }})
 - [Introduction]({{ '/guide/intro/' | relative_url }})
 - [PHP mode]({{ '/guide/php-mode/' | relative_url }})

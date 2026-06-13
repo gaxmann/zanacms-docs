@@ -8,7 +8,7 @@ nav_order: 16
 
 ## The admin area is not accessible
 
-Check whether the device is activated for admin access. Access is controlled per device through an editing cookie. For the initial setup, temporary access is enabled via `/__config/EDITACCESS_ENABLE.php`. After the allowed number of device cookies has been created, temporary access disables itself automatically. See [Device management]({{ '/help/access-management/' | relative_url }}) for details.
+Check whether the device is activated for admin access. Access is controlled per device through an editing cookie. For the initial setup, temporary access is enabled via `/__config/EDITACCESS_ENABLE.php`. After the allowed number of device cookies has been created, the setup window is closed. See [Device management]({{ '/help/access-management/' | relative_url }}) for details.
 
 ## A page is missing in one language
 

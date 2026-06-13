@@ -22,7 +22,7 @@ For the initial setup, temporary access to the device manager can be enabled by 
 /__config/EDITACCESS_ENABLE.php
 ```
 
-Set the first value to the number of minutes the window should be open and the second value to the number of new device cookies that may be created. An optional third value can set `adminexposure` directly for the newly created cookies, for example a reduced editor cookie. After all allowed cookies have been set, temporary access disables itself automatically. See the [Intro guide]({{ '/guide/intro/' | relative_url }}#editor-access-details) for the exact syntax.
+Set the first value to the number of minutes the setup window should be open, the second value to the number of new device cookies that may be created, and the third value to the `adminexposure` level for newly created cookies. Use `0` as the third value to use the normal configured level. After all allowed cookies have been set, the setup window is closed. See the [Intro guide]({{ '/guide/intro/' | relative_url }}#editor-access-details) for the exact syntax.
 
 ## Typical use
 

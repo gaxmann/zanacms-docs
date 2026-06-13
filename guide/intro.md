@@ -2,7 +2,7 @@
 title: "Quick Start"
 permalink: /guide/intro/
 parent: Guide
-nav_order: 1
+nav_order: 2
 ---
 # ZANACMS Quick Start
 ## 1. General information
@@ -21,7 +21,7 @@ All modes use the same ZP system files, the same layout system and the same cent
 
 | Question | Document |
 | --- | --- |
-| I want to install ZANACMS | [Documentation start]({{ '/' | relative_url }}), then this file |
+| I want to install ZANACMS | [`guide/installation.md`]({{ '/guide/installation/' | relative_url }}) |
 | I want to choose the right mode | this file |
 | I write PHP pages | [`guide/php-mode.md`]({{ '/guide/php-mode/' | relative_url }}) |
 | I write Markdown pages | [`guide/markdown-mode.md`]({{ '/guide/markdown-mode/' | relative_url }}) |
@@ -394,11 +394,11 @@ After the basic setup, continue with the mode-specific guide:
 
 The device manager (setup helper) is `/admin/d.php`, and it is locked by `/__config/EDITACCESS_ENABLE.php`. You can use `/__config/EDITACCESS_ENABLE.php` to open a short setup period during which editing cookies can be created or deleted.
 
-The default values in `/__config/EDITACCESS_ENABLE.php` are `return [0,0];`. To open access to the device manager for a short setup step, edit the values in that file, for example to `return [5,0];`, `return [5,1];` or `return [5,1,1];`. The first number is the access time in minutes (capped at five minutes), the second number is the number of device cookies that may be created during this setup period, and the optional third number is the `adminexposure` level written into newly created cookies. When the third value is omitted or `0`, the new cookie uses the global config level later. After all allowed cookies are set, the access is immediately canceled.
+The default values in `/__config/EDITACCESS_ENABLE.php` are `return [0,0,0];`. To open access to the device manager for a short setup step, edit the values in that file, for example to `return [5,0,0];`, `return [5,1,0];` or `return [5,1,1];`. The first number is the access time in minutes (capped at five minutes), the second number is the number of device cookies that may be created during this setup period, and the third number is the `adminexposure` level written into newly created cookies. When the third value is `0`, the new cookie uses the global config level later. After all allowed cookies are set, the setup window is closed.
 
-If only one number is set, or if the second number is `0`, you can only view the device list and delete access cookies. - _On first access, the helper adds an internal UTC/GMT Unix expiry timestamp as fourth value, for example `return [5,1,0,1778681234];`. The timestamp is not extended by reloading. After the last allowed new device cookie, after deleting all access entries, or after expiry, the file is reset to `return [0,0];`._
+If the second number is `0`, you can only view the device list and delete access cookies. - _On first access, the helper adds an internal UTC/GMT Unix expiry timestamp as fourth value, for example `return [5,1,0,1778681234];`. The timestamp is not extended by reloading. After the last allowed new device cookie, after deleting all access entries, or after expiry, the file is reset to `return [0,0,0];`._
 
-On the helper page, choose `Add new device` to create an editing-cookie access entry for the current browser, or delete all access entries. Expired entries are removed automatically. The device manager also provides a “Clear all HTML cache” action. It recursively deletes generated `zpcache.html` files from the website tree. This is useful after layout or generator changes when cached template output didn't rebuild automatically.
+On the helper page, choose `Activate this device now` to create an editing-cookie access entry for the current browser, or delete all access entries. Expired entries are removed automatically. The device manager also provides a “Clear all HTML cache” action. It recursively deletes generated `zpcache.html` files from the website tree. This is useful after layout or generator changes when cached template output didn't rebuild automatically.
 
 The editor and gallery are not shown if the cookie data is missing, has no current access entry, or the matching entry has expired. The edit cookie data is stored in `/admin/_zdata.php`.
 
