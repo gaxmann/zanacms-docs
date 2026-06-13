@@ -195,7 +195,7 @@ The admin area is at `/admin/`. It provides these tools:
 | Tool | Purpose |
 | --- | --- |
 | Dashboard | Site status, version, mode overview |
-| Get access | Activate browsers/devices for admin access |
+| Device management | Activate browsers/devices for admin access |
 | Settings | Choose the design, edit the global sidebar |
 | Pages | Page overview, open the editor |
 | Navigation | Edit the website menu |

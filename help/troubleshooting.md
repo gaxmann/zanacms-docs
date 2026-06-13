@@ -8,7 +8,7 @@ nav_order: 16
 
 ## The admin area is not accessible
 
-Check whether the device is activated for admin access. Access is controlled per device through an editing cookie. For the initial setup, temporary access is enabled via `/__config/EDITACCESS_ENABLE.php`. After the allowed number of device cookies has been created, the temporary access window is closed. See [Get access]({{ '/help/access-management/' | relative_url }}) for details.
+Check whether the device is activated for admin access. Access is controlled per device through an editing cookie. For the initial setup, temporary access is enabled via `/__config/EDITACCESS_ENABLE.php`. After the allowed number of device cookies has been created, the temporary access window is closed. See [Device management]({{ '/help/access-management/' | relative_url }}) for details.
 
 ## A page is missing in one language
 
@@ -32,7 +32,7 @@ Create a backup before starting. Then open the Backup and update tool and, if yo
 
 ## More details
 
-- [Get access]({{ '/help/access-management/' | relative_url }})
+- [Device management]({{ '/help/access-management/' | relative_url }})
 - [Navigation]({{ '/help/navigation-editor/' | relative_url }})
 - [Links]({{ '/help/links/' | relative_url }})
 - [Design and CSS]({{ '/help/design-and-css/' | relative_url }})

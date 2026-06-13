@@ -65,7 +65,7 @@ Temporary device setup access is controlled by:
 /__config/EDITACCESS_ENABLE.php
 ```
 
-This file opens a short time window during which editing cookies can be created or deleted. See [Get access]({{ '/help/access-management/' | relative_url }}) for details.
+This file opens a short time window during which editing cookies can be created or deleted. See [Device management]({{ '/help/access-management/' | relative_url }}) for details.
 
 Optional service access is controlled by:
 
