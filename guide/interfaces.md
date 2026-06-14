@@ -103,6 +103,7 @@ foot            footer lines
 col2            optional sidebar HTML for layouts with `~~ZCOL2~~`; page data can override the config value through `zgetconf('col2')`; if set in config, this manual value has runtime priority
 headlast        optional HTML directly before </head>
 bodylast        optional HTML directly before </body>
+opengraph       optional; false disables Open Graph output, array img sets the fallback image
 adminexposure   optional admin surface level, 1..5, default 3; /__config/isdev.txt acts as 8
 autoupdcheck   optional; false disables the GitHub status check in /admin/
 ```
@@ -110,6 +111,8 @@ autoupdcheck   optional; false disables the GitHub status check in /admin/
 `adminexposure` controls how much of the admin surface is shown. Level 1 is the Editor level and cannot delete pages, languages or images, cannot use Settings nor backup the site. Level 2 is Foolproof and still cannot use Settings. Level 3 is the Standard level and shows Settings plus the GitHub status. Level 4 is technically proficient and can also use the update page and update actions. Level 5 is "Give all options" and currently unused in the normal public admin surface. `/__config/isdev.txt` acts as internal service level 8 for development.
 
 Configuration values must be plain data. They must not depend on functions from `/zp/zana.php`. The device manager temporary access window is controlled by `/__config/EDITACCESS_ENABLE.php`.
+
+Open Graph output is enabled by default. Set `opengraph=>false` in `$GLOBALS['zconf']` to disable it. Set `opengraph=>['img'=>'img/defaultimg.jpg']` to keep it enabled and define a fallback image for pages without `pageimg`. `og:description` is built from a normalised excerpt of about 128 characters from the current page body after HTML has been removed. If the page body is empty, the site subtitle is used as fallback. The image value is a URL path, not a file-system path.
 
 ### GitHub status check
 

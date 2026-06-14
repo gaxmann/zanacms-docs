@@ -57,6 +57,24 @@ If the key is missing, the preset is `true`. The value `false` disables `/sitema
 
 Current sitemap rebuilding depends on the admin maintenance pixel. This means `/admin/` must be present and admin pages must be used. If the admin area is removed or never opened, `/sitemap.xml` is not automatically rebuilt.
 
+## Open Graph
+
+Open Graph output is enabled by default. The central head block writes `og:title`, `og:description`, `og:image`, `og:url` and `twitter:card` from the current page and site data. `og:description` is built from a normalised excerpt of about 128 characters from the current page body after HTML has been removed. If the page body is empty, the site subtitle is used as fallback. `pageimg` is used as the image when the current page has one.
+
+To disable Open Graph output in `/__config/conf.php`, set:
+
+```php
+'opengraph'=>false,
+```
+
+To keep it enabled and define a fallback image for pages without `pageimg`, set:
+
+```php
+'opengraph'=>['img'=>'img/defaultimg.jpg'],
+```
+
+The image value is a URL path, not a file-system path.
+
 ## Maintenance mode
 
 Maintenance mode is controlled by:
