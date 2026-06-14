@@ -20,22 +20,22 @@ The admin area scans `/layout/<family>/<design>/` two levels deep and lists non-
 html/water
 html/just-the-docs
 html/just-the-docs.dark
-html/z-airy
-html/z-airy.blue
 wondercms/sky
 ```
 
-The normal design is the entry without a variant suffix. It does not have to contain `zp.css`; generator-based layouts can use their own CSS entry points. CSS variants use a suffix after the design name, for example `.dark` or `.blue`.
-
-Variants are found from existing CSS files such as `zpdark.css` and `zpblue.css`, and from `variant.<name>[]` entries in `design.ini`. This means a generated variant can still be listed after its generated CSS file has been deleted.
-
-If `/__config/conf.php` contains `$GLOBALS['zconf']['layout']`, the design is controlled manually and the design select is not shown.
+The normal design is the entry without a variant suffix. If `/__config/conf.php` contains `$GLOBALS['zconf']['layout']`, the design is controlled manually and the design select is not shown.
 
 ## Page tree checkbox
 
 The Page tree checkbox provides `sitemap.xml`. It is shown when `sitemap` is not set directly in `/__config/conf.php`. If it is enabled, ZANACMS writes `/sitemap.xml` from the current mode's sitemap buffer. If it is disabled, no sitemap is written. If the setting is missing, the preset is `true`.
 
 The current sitemap maintenance needs `/admin/` to be present and admin pages to be used, because the admin maintenance pixel keeps the sitemap buffer up to date. If `/admin/` is removed or never opened, automatic sitemap rebuilding does not run.
+
+## Maintenance
+
+If you enable the Maintenance option, only a maintenance message will be shown to the website visitor instead of the website. Admin can still view and edit the pages and the page contents, but will see an additional "Under maintenance" sign to remember.
+
+The Maintenance entry is only shown, if conf.php doesn't contain a `'maintenance'=>...` entry. 
 
 ## Sidebar field
 

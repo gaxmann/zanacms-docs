@@ -14,7 +14,7 @@ For the full technical documentation, start with the [Guide overview]({{ '/guide
 
 - ☷ [Admin dashboard]({{ '/help/admin-area/' | relative_url }}) — site status, current mode and installed version.
 - ⚙ [Device management]({{ '/help/access-management/' | relative_url }}) — activate a browser or device for admin access.
-- ◫ [Settings]({{ '/help/settings/' | relative_url }}) — set the design and edit the global sidebar when available.
+- ◫ [Settings]({{ '/help/settings/' | relative_url }}) — set the design, page tree, maintenance mode and global sidebar when available.
 - ➔ [Navigation]({{ '/help/navigation-editor/' | relative_url }}) — edit the website menu.
 - @ [Pages]({{ '/help/page-overview/' | relative_url }}) — edit pages in MD mode or Rich mode.
 - ⚃ [Media]({{ '/help/media/' | relative_url }}) — upload images and copy ready-to-use image code.

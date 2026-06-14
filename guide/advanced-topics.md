@@ -204,20 +204,6 @@ To hide it, set in `/__config/conf.php`:
 
 ---
 
-## Sitemap
-
-ZANACMS can write a static `/sitemap.xml`. The feature is enabled by default. To disable it:
-
-```php
-'sitemap'=>false,
-```
-
-If `sitemap` is not set in `/__config/conf.php`, the admin Settings page can enable it as a fallback value.
-
-Sitemap rebuilding depends on the admin area. The admin maintenance pixel in `/admin/maint.php` keeps the sitemap current. If `/admin/` is removed or never opened, automatic sitemap rebuilding does not run.
-
----
-
 ## Service access
 
 Optional service access for agencies or support is available through `/__config/service.php`. It creates a normal editing cookie with admin exposure level 8. See [Interfaces]({{ '/guide/interfaces/' | relative_url }}#service-access) for the setup procedure.

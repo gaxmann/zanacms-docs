@@ -57,6 +57,18 @@ If the key is missing, the preset is `true`. The value `false` disables `/sitema
 
 Current sitemap rebuilding depends on the admin maintenance pixel. This means `/admin/` must be present and admin pages must be used. If the admin area is removed or never opened, `/sitemap.xml` is not automatically rebuilt.
 
+## Maintenance mode
+
+Maintenance mode is controlled by:
+
+```php
+'maintenance'=>true,
+```
+
+If the key is missing, the preset is `false`. When maintenance mode is enabled, normal visitors see a simple maintenance page instead of the website. Admin devices can still view the website and get a red maintenance notice at the top of the page.
+
+When `maintenance` is not set in `/__config/conf.php`, the admin Settings page can store the fallback value in `/__config/_admconf.php`. If it is set in `conf.php`, the admin checkbox is not shown.
+
 ## Optional local files
 
 Temporary device setup access is controlled by:
