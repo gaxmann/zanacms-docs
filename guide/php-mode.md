@@ -95,7 +95,7 @@ $GLOBALS['zconf']=[
 	// 'adminexposure'=>3, // 1..5
 	'mode'=>'php',
 	'layout'=>'html/water',
-	// 'urlrewrite'=>['/', true],
+	// 'urlrewrite'=>['', true],
 	// 'layoutimg'=>['src'=>'img/example.jpg', 'pos'=>'center'],
 	'stdlang'=>'en',
 	// 'col2'=>'<p>[col2]</p>',
@@ -313,22 +313,22 @@ In PHP page code, layout PHP and generator PHP, use `zlink('page')` for internal
 
 ## 7. URL rewrite
 
-URL rewrite is optional and off by default. To prepare root-based URLs without rewrite, set only the base path:
+URL rewrite is optional and off by default. The first value is the base path: empty string for the domain root, or a directory path such as `cms/` without leading slash and with trailing slash. To prepare root-based URLs without rewrite, set the base path to an empty string:
 
 ```php
-'urlrewrite'=>['/'],
+'urlrewrite'=>[''],
 ```
 
 To enable rewrite URLs, use the same base path with `true` and copy the matching `.htaccess` example to `.htaccess`:
 
 ```php
-'urlrewrite'=>['/', true],
+'urlrewrite'=>['', true],
 ```
 
-For a site installed in `/cms/`, use:
+For a site installed in `/cms/`, use the base path without leading slash and with trailing slash:
 
 ```php
-'urlrewrite'=>['/cms/', true],
+'urlrewrite'=>['cms/', true],
 ```
 
 Internal PHP links should still be written as `zlink('page')` or `zhref('page', 'Text')`. With rewrite enabled, `zlink('contact')` becomes a URL such as `/en/contact`; without rewrite it stays a normal PHP URL in PHP mode. The `lay` design selector remains a query parameter.

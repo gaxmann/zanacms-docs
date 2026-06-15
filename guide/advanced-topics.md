@@ -164,26 +164,26 @@ To add a new admin translation, copy an existing file to `/admin/lang/<language>
 
 ## URL rewrite
 
-ZANACMS works without URL rewrite by default. Rewrite is optional and can be enabled in `/__config/conf.php`:
+ZANACMS works without URL rewrite by default. Rewrite is optional and can be enabled in `/__config/conf.php`. The first value is the base path: empty string for the domain root, or a directory path such as `cms/` without leading slash and with trailing slash.
 
 ```php
-'urlrewrite'=>['/', true],
+'urlrewrite'=>['', true],
 ```
 
-For a site installed in `/cms/`:
+For a site installed in `/cms/`, use the base path without leading slash and with trailing slash:
 
 ```php
-'urlrewrite'=>['/cms/', true],
+'urlrewrite'=>['cms/', true],
 ```
 
 The matching `.htaccess` example must also be copied to `.htaccess`.
 
 With rewrite enabled, `zlink('contact')` produces URLs such as `/en/contact`. Without rewrite, it produces query URLs. Internal links should always use `zlink()`, `zhref()`, `@page` or `[@page]` so they work in both modes. The `lay` design selector remains a query parameter.
 
-To prepare root-based URLs without rewrite, set only the base path:
+To prepare root-based URLs without rewrite, set the base path to an empty string:
 
 ```php
-'urlrewrite'=>['/'],
+'urlrewrite'=>[''],
 ```
 
 ---
