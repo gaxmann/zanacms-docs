@@ -41,7 +41,7 @@ The admin page **Settings** can write fallback values to `/__config/_admconf.php
 
 The design select is shown when `layout` is not set in `/__config/conf.php`. If `$GLOBALS['zconf']['layout']` is set there, the design is manually controlled by `conf.php` and the select is not shown.
 
-Layouts can output a sidebar with `~~ZCOL2~~`. The sidebar is read through `zgetconf('col2')`, so page data can override the global `$GLOBALS['zconf']['col2']`. If `$GLOBALS['zconf']['col2']` is set in `/__config/conf.php`, that configuration text is used as the global runtime value.
+Layouts can output a sidebar with `{% raw %}{{ZCOL2}}{% endraw %}`. The sidebar is read through `zgetconf('col2')`, so page data can override the global `$GLOBALS['zconf']['col2']`. If `$GLOBALS['zconf']['col2']` is set in `/__config/conf.php`, that configuration text is used as the global runtime value.
 
 The sidebar field in **Settings** is shown only when `col2` is not set directly in `/__config/conf.php` and the active design opts in with `design.ini` / `columns=2`. If the design is fixed in `conf.php` but `col2` is not fixed there and the active design supports `columns=2`, the settings page shows only the sidebar field. MD mode stores Markdown in `_admconf.php` and caches rendered HTML in `/zpcache/_meta.php`; Rich and PHP mode store HTML there, in separate mode branches. Without `design.ini`, the design is treated as `columns=1`.
 

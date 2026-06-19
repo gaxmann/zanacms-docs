@@ -13,7 +13,7 @@ Shared setup topics such as layouts, languages, footer syntax, CSS and media acc
 
 ### MD additions/extensions for ZANACMS
 
-MD mode is normal Markdown with MD additions/extensions for ZANACMS: internal page links use `@page`, and relative images from `/img` use a compact media syntax. This affects relative image URLs such as `img/file.jpg`; image URLs starting with `/`, `http://`, `https://` or `~~ZBASEURL~~` keep normal Markdown image behaviour.
+MD mode is normal Markdown with MD additions/extensions for ZANACMS: internal page links use `@page`, and relative images from `/img` use a compact media syntax. This affects relative image URLs such as `img/file.jpg`; image URLs starting with `/`, `http://`, `https://` or `{% raw %}{{ZBASEURL}}{% endraw %}` keep normal Markdown image behaviour.
 
 For relative `/img` images, the text in the brackets is not the normal Markdown alt text. It is read as `class|alt`:
 
@@ -154,7 +154,7 @@ Normal Markdown can be used:
 ![Image text](/img/image.jpg)
 ```
 
-HTML can also be used inside Markdown if needed. Relative images such as `![](img/example.jpg)`, `![|Alt text](img/example.jpg)` or `![alignright|Alt text](img/example.jpg)` are rendered as ZANACMS media images with the configured small image width and an optional link to the larger image when available. For these relative images the bracket text is `class|alt`, not normal Markdown alt text. Images starting with `/`, `http://`, `https://` or `~~ZBASEURL~~` keep normal Markdown image behaviour.
+HTML can also be used inside Markdown if needed. Relative images such as `![](img/example.jpg)`, `![|Alt text](img/example.jpg)` or `![alignright|Alt text](img/example.jpg)` are rendered as ZANACMS media images with the configured small image width and an optional link to the larger image when available. For these relative images the bracket text is `class|alt`, not normal Markdown alt text. Images starting with `/`, `http://`, `https://` or `{% raw %}{{ZBASEURL}}{% endraw %}` keep normal Markdown image behaviour.
 
 ## 6. Optional page header
 
@@ -211,9 +211,9 @@ $GLOBALS['zdata']=[
 
 ## Sidebar in MD mode
 
-`~~ZCOL2~~` first reads `col2` through `zgetconf('col2')`, so allowed page data can override the global sidebar.
+`{% raw %}{{ZCOL2}}{% endraw %}` first reads `col2` through `zgetconf('col2')`, so allowed page data can override the global sidebar.
 
-If the active HTML layout contains `~~ZCOL2~~`, the active design must define `columns=2` in `design.ini`, and `$GLOBALS['zconf']['col2']` is not set, the sidebar tool stores Markdown sidebar content in:
+If the active HTML layout contains `{% raw %}{{ZCOL2}}{% endraw %}`, the active design must define `columns=2` in `design.ini`, and `$GLOBALS['zconf']['col2']` is not set, the sidebar tool stores Markdown sidebar content in:
 
 ```text
 /__config/_admconf.php

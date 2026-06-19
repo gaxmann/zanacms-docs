@@ -263,7 +263,7 @@ This is useful for values such as prices, opening hours, or generated output lik
 
 ## Sidebar
 
-Some layouts support a sidebar through `~~ZCOL2~~`. The sidebar content can come from three places, checked in this order:
+Some layouts support a sidebar through `{% raw %}{{ZCOL2}}{% endraw %}`. The sidebar content can come from three places, checked in this order:
 
 1. Page data (`$GLOBALS['zdata']['col2']`) — per-page override
 2. Manual config (`$GLOBALS['zconf']['col2']` in `/__config/conf.php`) — global value

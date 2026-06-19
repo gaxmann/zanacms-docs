@@ -39,7 +39,7 @@ When you upload an image from the editor, ZANACMS resizes it in the browser befo
 
 ## Settings
 
-The **Settings** admin tool uses the same editor style for the global `~~ZCOL2~~` content. It has language tabs in one form. The settings page does not store a page title or a page H1, and H1 is not supported there.
+The **Settings** admin tool uses the same editor style for the global `{% raw %}{{ZCOL2}}{% endraw %}` content. It has language tabs in one form. The settings page does not store a page title or a page H1, and H1 is not supported there.
 
 In PHP mode, the settings page uses the Rich editor.
 

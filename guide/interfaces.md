@@ -65,7 +65,7 @@ $GLOBALS['zdata']
 | Current page | `$GLOBALS['zdata']` | title, heading, body, page language and page image/layout data |
 | PHP page helpers | `out_page()`, `zlink()`, `zhref()`, `ztokenhref()`, `zautop()`, `zsetlangs()`, `zautolg()`, `zvarlg()`, `zquote()`, `zoutimg()` | normal PHP page output and internal links |
 | MD/Rich variables | `/pages/zvars.php` | prepared values or generated output for normal editors |
-| Sidebar admin data | `/__config/_admconf.php` | admin-written sidebar content for `~~ZCOL2~~` when page data and `zconf['col2']` are not set |
+| Sidebar admin data | `/__config/_admconf.php` | admin-written sidebar content for `{% raw %}{{ZCOL2}}{% endraw %}` when page data and `zconf['col2']` are not set |
 | ZTOKENS / text tokens | `[@page]`, `[[@page]]`, `[footertext]`, `[VAR:name]` | replacement tokens for footer, col2 and editor content |
 | CSS | `/layout/supercustom.css`, `/layout/<family>/<design>/custom.css` | update-safe visual changes |
 | Own HTML design | `/layout/html/<design>/design.html`, `/layout/html/<design>/zp.css` | local HTML design without a PHP generator |
@@ -100,7 +100,7 @@ urlrewrite      optional URL base and rewrite setting
 stdlang         standard language of the website
 fallbacklg      optional fallback language
 foot            footer lines
-col2            optional sidebar HTML for layouts with `~~ZCOL2~~`; page data can override the config value through `zgetconf('col2')`; if set in config, this manual value has runtime priority
+col2            optional sidebar HTML for layouts with `{% raw %}{{ZCOL2}}{% endraw %}`; page data can override the config value through `zgetconf('col2')`; if set in config, this manual value has runtime priority
 headlast        optional HTML directly before </head>
 bodylast        optional HTML directly before </body>
 opengraph       optional; false disables Open Graph output, array img sets the fallback image
@@ -229,7 +229,7 @@ when extra query parameters have to be appended.
 
 Do not use `zlink()` or `zhref()` directly inside footer configuration in `/__config/conf.php`.
 
-`~~ZCOL2~~` reads sidebar text through `zgetconf('col2')`. This means allowed `$GLOBALS['zdata']['col2']` can override the global sidebar for the current page. Text variables are read from `$GLOBALS['zlangs'][language]['vars']` first, then link tokens are resolved. If `$GLOBALS['zconf']['col2']` is set, the manual config value has runtime priority and the matching admin value is ignored. If neither page data nor manual config provides `col2`, the settings page stores sidebar content in `/__config/_admconf.php`. The sidebar field in the settings page is shown only when `col2` is not set directly in `/__config/conf.php` and the active design has `columns=2`. MD mode stores Markdown there and caches the rendered sidebar HTML in `/zpcache/_meta.php`; Rich and PHP mode store HTML there, in separate mode branches.
+`{% raw %}{{ZCOL2}}{% endraw %}` reads sidebar text through `zgetconf('col2')`. This means allowed `$GLOBALS['zdata']['col2']` can override the global sidebar for the current page. Text variables are read from `$GLOBALS['zlangs'][language]['vars']` first, then link tokens are resolved. If `$GLOBALS['zconf']['col2']` is set, the manual config value has runtime priority and the matching admin value is ignored. If neither page data nor manual config provides `col2`, the settings page stores sidebar content in `/__config/_admconf.php`. The sidebar field in the settings page is shown only when `col2` is not set directly in `/__config/conf.php` and the active design has `columns=2`. MD mode stores Markdown there and caches the rendered sidebar HTML in `/zpcache/_meta.php`; Rich and PHP mode store HTML there, in separate mode branches.
 
 ## 5. Internal links by context
 
@@ -710,7 +710,7 @@ zp.css        optional CSS for the normal ZANACMS CSS path
 
 `custom.css` is not needed when the design itself is yours. Use `custom.css` mainly when you adjust an existing supplied design and want to keep those local adjustments separate from supplied CSS.
 
-The HTML layout generator replaces documented placeholders in `design.html`. These HTML template replacement variables are called HVARS. Common HVARS are `~~ZHEAD~~`, `~~ZTITLE~~`, `~~ZH1~~`, `~~ZBODY~~`, `~~ZCOL2~~`, `~~ZNAVI~~`, `~~ZFOOT~~`, `~~ZBASEURL~~`, `~~ZDIRDESIGN~~` and `~~ZDIRSCRIPTS~~`. `~~ZCOL2~~` may come from `$GLOBALS['zdata']['col2']`, `$GLOBALS['zconf']['col2']` or from the sidebar files if no page or config value is present. The settings page is linked from the admin dashboard when `adminexposure >= 3`. To show the sidebar field there, the active design must define `columns=2` in `design.ini` and `col2` must not be set directly in `/__config/conf.php`; otherwise the default is `columns=1`. The full list is documented in [`layout/html/README.md`](https://github.com/gaxmann/zanacms/blob/master/layout/html/README.md). Framework CSS, JavaScript, fonts and images from the active design are referenced directly from `design.html` with `~~ZDIRDESIGN~~`; shared scripts use `~~ZDIRSCRIPTS~~`.
+The HTML layout generator replaces documented placeholders in `design.html`. These HTML template replacement variables are called HVARS. Common HVARS are `{% raw %}{{ZHEAD}}{% endraw %}`, `{% raw %}{{ZTITLE}}{% endraw %}`, `{% raw %}{{ZH1}}{% endraw %}`, `{% raw %}{{ZBODY}}{% endraw %}`, `{% raw %}{{ZCOL2}}{% endraw %}`, `{% raw %}{{ZNAVI}}{% endraw %}`, `{% raw %}{{ZFOOT}}{% endraw %}`, `{% raw %}{{ZBASEURL}}{% endraw %}`, `{% raw %}{{ZDIRDESIGN}}{% endraw %}` and `{% raw %}{{ZDIRSCRIPTS}}{% endraw %}`. `{% raw %}{{ZCOL2}}{% endraw %}` may come from `$GLOBALS['zdata']['col2']`, `$GLOBALS['zconf']['col2']` or from the sidebar files if no page or config value is present. The settings page is linked from the admin dashboard when `adminexposure >= 3`. To show the sidebar field there, the active design must define `columns=2` in `design.ini` and `col2` must not be set directly in `/__config/conf.php`; otherwise the default is `columns=1`. The full list is documented in [`layout/html/README.md`](https://github.com/gaxmann/zanacms/blob/master/layout/html/README.md). Framework CSS, JavaScript, fonts and images from the active design are referenced directly from `design.html` with `{% raw %}{{ZDIRDESIGN}}{% endraw %}`; shared scripts use `{% raw %}{{ZDIRSCRIPTS}}{% endraw %}`.
 
 ## 12. Layout families and generators
 

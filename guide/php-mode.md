@@ -187,7 +187,7 @@ $GLOBALS['zdata']['col2']='<p>Sidebar for this page.</p>';
 /__config/_admconf.php
 ```
 
-That value is only used for `~~ZCOL2~~`. Normal PHP pages still live in the website root.
+That value is only used for `{% raw %}{{ZCOL2}}{% endraw %}`. Normal PHP pages still live in the website root.
 
 ## 4. Page content
 

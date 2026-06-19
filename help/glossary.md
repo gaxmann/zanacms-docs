@@ -20,7 +20,7 @@ A layout from the `html` family. Instead of a PHP generator, it uses a `design.h
 
 ## HVARS
 
-HTML template replacement variables used by HTML layouts. HVARS are named placeholders in `/layout/html/<design>/design.html` that ZANACMS replaces with page content, navigation, footer or asset output. `~~ZDIRDESIGN~~` points to the active design directory and `~~ZDIRSCRIPTS~~` points to `/layout/_scripts/`.
+HTML template replacement variables used by HTML layouts. HVARS are named placeholders in `/layout/html/<design>/design.html` that ZANACMS replaces with page content, navigation, footer or asset output. `{% raw %}{{ZDIRDESIGN}}{% endraw %}` points to the active design directory and `{% raw %}{{ZDIRSCRIPTS}}{% endraw %}` points to `/layout/_scripts/`.
 
 ## language code
 
@@ -65,8 +65,8 @@ The page variable system based on `/pages/zvars.php`. ZVARS let a PHP developer 
 
 ## settings page
 
-The admin tool `/admin/c.php`. It edits the file-based content for `~~ZCOL2~~` when `$GLOBALS['zconf']['col2']` is not set.
+The admin tool `/admin/c.php`. It edits the file-based content for `{% raw %}{{ZCOL2}}{% endraw %}` when `$GLOBALS['zconf']['col2']` is not set.
 
 ## col2img
 
-The optional image slot for the sidebar. It is stored once for all languages and rendered before the `~~ZCOL2~~` text with CSS class `col2img`. It is separate from `pageimg`.
+The optional image slot for the sidebar. It is stored once for all languages and rendered before the `{% raw %}{{ZCOL2}}{% endraw %}` text with CSS class `col2img`. It is separate from `pageimg`.

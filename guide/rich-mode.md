@@ -180,14 +180,14 @@ The Rich editor shows `h1` as a visible heading while editing. On save, the head
 
 ## Page image
 
-The Rich editor can store one page image in `pageimg.src`. If the active layout contains `~~ZPAGEIMG~~`, the image is inserted there. Otherwise ZP inserts it inside the page body directly after the first opening `<p>` tag. The generated image uses the standard class `alignpageimg`.
+The Rich editor can store one page image in `pageimg.src`. If the active layout contains `{% raw %}{{ZPAGEIMG}}{% endraw %}`, the image is inserted there. Otherwise ZP inserts it inside the page body directly after the first opening `<p>` tag. The generated image uses the standard class `alignpageimg`.
 
 
 ## Sidebar in Rich mode
 
-`~~ZCOL2~~` first reads `col2` through `zgetconf('col2')`, so allowed page data can override the global sidebar.
+`{% raw %}{{ZCOL2}}{% endraw %}` first reads `col2` through `zgetconf('col2')`, so allowed page data can override the global sidebar.
 
-If the active HTML layout contains `~~ZCOL2~~`, the active design must define `columns=2` in `design.ini`, and `$GLOBALS['zconf']['col2']` is not set, the sidebar tool stores its HTML content in:
+If the active HTML layout contains `{% raw %}{{ZCOL2}}{% endraw %}`, the active design must define `columns=2` in `design.ini`, and `$GLOBALS['zconf']['col2']` is not set, the sidebar tool stores its HTML content in:
 
 ```text
 /__config/_admconf.php

@@ -93,7 +93,7 @@ Complex layout families (`wordpress`, `wondercms`, `editorial`, `paradigm-shift`
 
 If cached HTML output must be rebuilt manually, use `/admin/d.php` and choose "Clear all HTML cache".
 
-Cached templates use central placeholders such as `~~ZBASEURL~~`, `~~ZDIRDESIGN~~` and `~~ZDIRSCRIPTS~~`. The full placeholder list is in the [Layout generator manual]({{ '/guide/layout-generator-manual/' | relative_url }}#html-cache-standard).
+Cached templates use central placeholders such as `{% raw %}{{ZBASEURL}}{% endraw %}`, `{% raw %}{{ZDIRDESIGN}}{% endraw %}` and `{% raw %}{{ZDIRSCRIPTS}}{% endraw %}`. The full placeholder list is in the [Layout generator manual]({{ '/guide/layout-generator-manual/' | relative_url }}#html-cache-standard).
 
 ### WordPress themes
 

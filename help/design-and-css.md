@@ -55,7 +55,7 @@ The supplied `html/z-airy` design is included for preview and evaluation purpose
 
 ## Sidebar layouts
 
-HTML layouts can use `~~ZCOL2~~` for a sidebar. The admin settings page sidebar field is shown only when the active design has `design.ini` with `columns=2` and `col2` is not set directly in `/__config/conf.php`. Only set `columns=2` when the design should accept editable sidebar content; the default is `columns=1`. If a sidebar image is selected in the editor, ZANACMS renders it before the sidebar text with class `col2img`. The selected image applies to all language versions of the sidebar.
+HTML layouts can use `{% raw %}{{ZCOL2}}{% endraw %}` for a sidebar. The admin settings page sidebar field is shown only when the active design has `design.ini` with `columns=2` and `col2` is not set directly in `/__config/conf.php`. Only set `columns=2` when the design should accept editable sidebar content; the default is `columns=1`. If a sidebar image is selected in the editor, ZANACMS renders it before the sidebar text with class `col2img`. The selected image applies to all language versions of the sidebar.
 
 The supplied global CSS contains:
 

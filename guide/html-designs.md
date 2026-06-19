@@ -52,7 +52,7 @@ For generated variants, the target CSS is rebuilt from `zp.css` when the variant
 
 `zp.css` is optional. HTML designs usually use it, while generator-based layouts may load other stylesheet files. `custom.css` is optional and is loaded after the layout CSS when the selected layout provides the normal ZANACMS CSS path; it is intended for local changes to a supplied design.
 
-`design.ini` is optional. If the design provides editable sidebar content through `~~ZCOL2~~`, add:
+`design.ini` is optional. If the design provides editable sidebar content through `{% raw %}{{ZCOL2}}{% endraw %}`, add:
 
 ```text
 # number of columns (for editor)
@@ -84,28 +84,28 @@ Only `zp.css` and the generated target CSS are compared for rebuilds. Changes to
 The HTML generator replaces placeholders in `design.html`. Common placeholders are:
 
 ```text
-~~ZHEAD~~
-~~ZHEADLAST~~
-~~ZBASEURL~~
-~~ZDIRSCRIPTS~~
-~~ZDIRDESIGN~~
-~~ZSITETITLE~~
-~~ZSITESUB~~
-~~ZTITLE~~
-~~ZHOMEURL~~
-~~ZNAVI~~
-~~ZNAVI_LI~~
-~~ZH1~~
-~~ZBODY~~
-~~ZCOL2~~
-~~ZPAGEIMG~~
-~~ZFOOT~~
-~~ZBODYLAST~~
+{% raw %}{{ZHEAD}}{% endraw %}
+{% raw %}{{ZHEADLAST}}{% endraw %}
+{% raw %}{{ZBASEURL}}{% endraw %}
+{% raw %}{{ZDIRSCRIPTS}}{% endraw %}
+{% raw %}{{ZDIRDESIGN}}{% endraw %}
+{% raw %}{{ZSITETITLE}}{% endraw %}
+{% raw %}{{ZSITESUB}}{% endraw %}
+{% raw %}{{ZTITLE}}{% endraw %}
+{% raw %}{{ZHOMEURL}}{% endraw %}
+{% raw %}{{ZNAVI}}{% endraw %}
+{% raw %}{{ZNAVI_LI}}{% endraw %}
+{% raw %}{{ZH1}}{% endraw %}
+{% raw %}{{ZBODY}}{% endraw %}
+{% raw %}{{ZCOL2}}{% endraw %}
+{% raw %}{{ZPAGEIMG}}{% endraw %}
+{% raw %}{{ZFOOT}}{% endraw %}
+{% raw %}{{ZBODYLAST}}{% endraw %}
 ```
 
-`~~ZBODY~~` is the main page content. `~~ZPAGEIMG~~` outputs the normal page image. If `~~ZPAGEIMG~~` is not used, ZANACMS can insert the page image into the body automatically.
+`{% raw %}{{ZBODY}}{% endraw %}` is the main page content. `{% raw %}{{ZPAGEIMG}}{% endraw %}` outputs the normal page image. If `{% raw %}{{ZPAGEIMG}}{% endraw %}` is not used, ZANACMS can insert the page image into the body automatically.
 
-`~~ZCOL2~~` outputs sidebar content. The content can come from page data, `$GLOBALS['zconf']['col2']` or from the admin settings data in `_admconf.php`. A selected `col2img` is output before the sidebar text with the CSS class `col2img`.
+`{% raw %}{{ZCOL2}}{% endraw %}` outputs sidebar content. The content can come from page data, `$GLOBALS['zconf']['col2']` or from the admin settings data in `_admconf.php`. A selected `col2img` is output before the sidebar text with the CSS class `col2img`.
 
 ## Layout image in HTML designs
 
@@ -135,15 +135,15 @@ The second value in `var(...)` is the design default. It is used when no `layout
 
 A design's default image should still be defined in the design CSS file. This allows each CSS variant to define its own default image, for example `zp.css` for the default variant and `zpblue.css` for the blue variant.
 
-These CSS variables do not change the meaning of `~~ZLAYOUTIMG~~`. `~~ZLAYOUTIMG~~` remains an HTML image fragment for designs or generators that need to output an actual image in the HTML. The CSS variables are intended for HTML designs that use the layout image as a background image.
+These CSS variables do not change the meaning of `{% raw %}{{ZLAYOUTIMG}}{% endraw %}`. `{% raw %}{{ZLAYOUTIMG}}{% endraw %}` remains an HTML image fragment for designs or generators that need to output an actual image in the HTML. The CSS variables are intended for HTML designs that use the layout image as a background image.
 
 ## Referencing files
 
-In `design.html`, use `~~ZDIRDESIGN~~` for files from the current design directory. Use `~~ZDIRSCRIPTS~~` for shared script files below `/layout/_scripts/`. Use `~~ZBASEURL~~` only for resources outside the current design directory:
+In `design.html`, use `{% raw %}{{ZDIRDESIGN}}{% endraw %}` for files from the current design directory. Use `{% raw %}{{ZDIRSCRIPTS}}{% endraw %}` for shared script files below `/layout/_scripts/`. Use `{% raw %}{{ZBASEURL}}{% endraw %}` only for resources outside the current design directory:
 
 ```html
-<link rel="stylesheet" href="~~ZDIRDESIGN~~extra.css">
-<script src="~~ZDIRDESIGN~~theme.js"></script>
+<link rel="stylesheet" href="{% raw %}{{ZDIRDESIGN}}{% endraw %}extra.css">
+<script src="{% raw %}{{ZDIRDESIGN}}{% endraw %}theme.js"></script>
 ```
 
 In CSS files in the same directory, use normal relative CSS URLs:

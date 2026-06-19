@@ -23,9 +23,9 @@ layout/html/<design>/design.html
 layout/html/<design>/zp.css
 ```
 
-`design.html` is the HTML shell of the design. ZP placeholders are inserted there. The full central placeholder list is in [HTML cache: standard](#html-cache-standard). If `~~ZCOL2~~` includes a selected sidebar image, it is output before the sidebar text as `.col2img`. A design that should accept editable sidebar content must add `design.ini` with `columns=2`; missing `design.ini` means `columns=1`.
+`design.html` is the HTML shell of the design. ZP placeholders are inserted there. The full central placeholder list is in [HTML cache: standard](#html-cache-standard). If `{% raw %}{{ZCOL2}}{% endraw %}` includes a selected sidebar image, it is output before the sidebar text as `.col2img`. A design that should accept editable sidebar content must add `design.ini` with `columns=2`; missing `design.ini` means `columns=1`.
 
-`zp.css` is included through the normal ZP CSS order if the file exists. Framework CSS, JavaScript, images, fonts and other files are referenced directly in `design.html`. The `html` generator does not automatically load `design.css` or `design.js`. `~~ZNAVI~~` outputs the complete neutral navigation. `~~ZNAVI_LI~~` outputs only the `<li>` elements so that `design.html` can provide its own navigation wrapper. `~~ZHOMEURL~~` is the language-dependent home page URL. `~~ZCOL2~~` outputs the config-based or editor-based sidebar.
+`zp.css` is included through the normal ZP CSS order if the file exists. Framework CSS, JavaScript, images, fonts and other files are referenced directly in `design.html`. The `html` generator does not automatically load `design.css` or `design.js`. `{% raw %}{{ZNAVI}}{% endraw %}` outputs the complete neutral navigation. `{% raw %}{{ZNAVI_LI}}{% endraw %}` outputs only the `<li>` elements so that `design.html` can provide its own navigation wrapper. `{% raw %}{{ZHOMEURL}}{% endraw %}` is the language-dependent home page URL. `{% raw %}{{ZCOL2}}{% endraw %}` outputs the config-based or editor-based sidebar.
 
 The usual process is:
 
@@ -212,29 +212,29 @@ Central constants:
 const ZP_HTML_CACHE = 'zpcache.html';
 
 const ZP_HTML_CACHE_VARS = [
-	'htmllang'=>'~~ZHTMLLG~~',
-	'head'=>'~~ZHEAD~~',
-	'headlast'=>'~~ZHEADLAST~~',
-	'baseurl'=>'~~ZBASEURL~~',
-	'dirscripts'=>'~~ZDIRSCRIPTS~~',
-	'dirdesign'=>'~~ZDIRDESIGN~~',
-	'sitetitle'=>'~~ZSITETITLE~~',
-	'sitesub'=>'~~ZSITESUB~~',
-	'title'=>'~~ZTITLE~~',
-	'homeurl'=>'~~ZHOMEURL~~',
-	'navi'=>'~~ZNAVI~~',
-	'navi_li'=>'~~ZNAVI_LI~~',
-	'naviafter'=>'~~ZNAVIAFTER~~',
-	'menutx'=>'~~ZMENUTX~~',
-	'h1'=>'~~ZH1~~',
-	'body'=>'~~ZBODY~~',
-	'col2'=>'~~ZCOL2~~', // sidebar from zconf['col2'] or file-based editor data
-	'layoutimg'=>'~~ZLAYOUTIMG~~',
-	'pageimg'=>'~~ZPAGEIMG~~',
-	'foot'=>'~~ZFOOT~~',
-	'foot0'=>'~~ZFOOT0~~',
-	'foot1'=>'~~ZFOOT1~~',
-	'bodylast'=>'~~ZBODYLAST~~',
+	'htmllang'=>'{% raw %}{{ZHTMLLG}}{% endraw %}',
+	'head'=>'{% raw %}{{ZHEAD}}{% endraw %}',
+	'headlast'=>'{% raw %}{{ZHEADLAST}}{% endraw %}',
+	'baseurl'=>'{% raw %}{{ZBASEURL}}{% endraw %}',
+	'dirscripts'=>'{% raw %}{{ZDIRSCRIPTS}}{% endraw %}',
+	'dirdesign'=>'{% raw %}{{ZDIRDESIGN}}{% endraw %}',
+	'sitetitle'=>'{% raw %}{{ZSITETITLE}}{% endraw %}',
+	'sitesub'=>'{% raw %}{{ZSITESUB}}{% endraw %}',
+	'title'=>'{% raw %}{{ZTITLE}}{% endraw %}',
+	'homeurl'=>'{% raw %}{{ZHOMEURL}}{% endraw %}',
+	'navi'=>'{% raw %}{{ZNAVI}}{% endraw %}',
+	'navi_li'=>'{% raw %}{{ZNAVI_LI}}{% endraw %}',
+	'naviafter'=>'{% raw %}{{ZNAVIAFTER}}{% endraw %}',
+	'menutx'=>'{% raw %}{{ZMENUTX}}{% endraw %}',
+	'h1'=>'{% raw %}{{ZH1}}{% endraw %}',
+	'body'=>'{% raw %}{{ZBODY}}{% endraw %}',
+	'col2'=>'{% raw %}{{ZCOL2}}{% endraw %}', // sidebar from zconf['col2'] or file-based editor data
+	'layoutimg'=>'{% raw %}{{ZLAYOUTIMG}}{% endraw %}',
+	'pageimg'=>'{% raw %}{{ZPAGEIMG}}{% endraw %}',
+	'foot'=>'{% raw %}{{ZFOOT}}{% endraw %}',
+	'foot0'=>'{% raw %}{{ZFOOT0}}{% endraw %}',
+	'foot1'=>'{% raw %}{{ZFOOT1}}{% endraw %}',
+	'bodylast'=>'{% raw %}{{ZBODYLAST}}{% endraw %}',
 ];
 ```
 
@@ -243,10 +243,10 @@ Do not add further cache placeholders without an explicit task.
 For static layout resources in the HTML cache, layouts explicitly put the base path before local resources:
 
 ```html
-<link rel="stylesheet" href="~~ZDIRDESIGN~~water.min.css">
-<script src="~~ZDIRDESIGN~~theme.js"></script>
-<script src="~~ZDIRSCRIPTS~~1.12.4/jquery.min.js"></script>
-<img src="~~ZBASEURL~~img/logo.png" alt="">
+<link rel="stylesheet" href="{% raw %}{{ZDIRDESIGN}}{% endraw %}water.min.css">
+<script src="{% raw %}{{ZDIRDESIGN}}{% endraw %}theme.js"></script>
+<script src="{% raw %}{{ZDIRSCRIPTS}}{% endraw %}1.12.4/jquery.min.js"></script>
+<img src="{% raw %}{{ZBASEURL}}{% endraw %}img/logo.png" alt="">
 ```
 
 Generators that create HTML cache use `zurl_html_resource($file)` for local resources. Normal PHP output may use `zurl_resource($file)`.
@@ -298,7 +298,7 @@ This means the file name of the internal generator variant without `.php`, for e
 
 Current rule: generators do not pass additional files for cache freshness. Do not check `functions.php`, `header.php`, `page.php`, `footer.php`, `theme.json`, `style.css`, template parts or whole directories.
 
-`zgen_hvars($var, $html='', $ignore=[])` is the central interface for HTML/cache variables. It must accept all keys from `ZP_HTML_CACHE_VARS`. Individual values may initially only be passed through, but they must remain callable. `baseurl` returns the base path and is used as `~~ZBASEURL~~`. `dirdesign` returns the selected design directory URL and is used as `~~ZDIRDESIGN~~`. `dirscripts` returns the shared script directory URL and is used as `~~ZDIRSCRIPTS~~`. `head` adds the central head block including `robots`, page title, generator meta, description, canonical, Open Graph/Twitter Card meta, ZP CSS, hreflang and optional page-data head. Open Graph description uses a normalised excerpt of about 128 characters from the current page body and falls back to the site subtitle when the body is empty. `body` automatically adds `pageimg` if the generator does not use its own `pageimg` position in the template. `htmllang` returns the complete `lang="..."` attribute. `headlast` is optional HTML at the end of `<head>`, after the central ZP head block. `sitetitle` is the language-dependent website title. `sitesub` is the language-dependent site subtitle and has no fallback. `title` is the page title; if the page title is empty, `h1` is used. `h1` itself has no fallback. `menutx` is the language-dependent menu button text. `naviafter` is optional HTML directly after the navigation. `layoutimg` is optional layout image/design HTML for layouts that support such values. `foot` is the previous standard footer. `foot0` and `foot1` are optional separate footer areas for layouts with several footer positions. `bodylast` is optional HTML directly before `</body>`. When calling `zgen_hvars()` directly, `$ignore` is a simple list such as `['title', 'robots']`. With `zhtmlcachrepl()`, `$ignore` is grouped by area, for example `['head'=>['title'], 'body'=>['pageimg']]`. This makes it possible to suppress automatic additions deliberately.
+`zgen_hvars($var, $html='', $ignore=[])` is the central interface for HTML/cache variables. It must accept all keys from `ZP_HTML_CACHE_VARS`. Individual values may initially only be passed through, but they must remain callable. `baseurl` returns the base path and is used as `{% raw %}{{ZBASEURL}}{% endraw %}`. `dirdesign` returns the selected design directory URL and is used as `{% raw %}{{ZDIRDESIGN}}{% endraw %}`. `dirscripts` returns the shared script directory URL and is used as `{% raw %}{{ZDIRSCRIPTS}}{% endraw %}`. `head` adds the central head block including `robots`, page title, generator meta, description, canonical, Open Graph/Twitter Card meta, ZP CSS, hreflang and optional page-data head. Open Graph description uses a normalised excerpt of about 128 characters from the current page body and falls back to the site subtitle when the body is empty. `body` automatically adds `pageimg` if the generator does not use its own `pageimg` position in the template. `htmllang` returns the complete `lang="..."` attribute. `headlast` is optional HTML at the end of `<head>`, after the central ZP head block. `sitetitle` is the language-dependent website title. `sitesub` is the language-dependent site subtitle and has no fallback. `title` is the page title; if the page title is empty, `h1` is used. `h1` itself has no fallback. `menutx` is the language-dependent menu button text. `naviafter` is optional HTML directly after the navigation. `layoutimg` is optional layout image/design HTML for layouts that support such values. `foot` is the previous standard footer. `foot0` and `foot1` are optional separate footer areas for layouts with several footer positions. `bodylast` is optional HTML directly before `</body>`. When calling `zgen_hvars()` directly, `$ignore` is a simple list such as `['title', 'robots']`. With `zhtmlcachrepl()`, `$ignore` is grouped by area, for example `['head'=>['title'], 'body'=>['pageimg']]`. This makes it possible to suppress automatic additions deliberately.
 
 ## HTML cache: generator integration
 
@@ -331,12 +331,12 @@ If after an update no rebuild happens because of ZIP timestamps, do not delete a
 
 The cache template contains only the central values from `ZP_HTML_CACHE_VARS`.
 
-When rebuilding a template, insert `~~ZHEAD~~` as generically as possible directly before `</head>`. Do not attach it to a specific CSS or meta line of a theme. The generator passes its head part to `zgen_hvars('head', $head)`. ZP CSS is added there centrally and after the passed head part so that ZP fixes can override design CSS rules. CSS already fixed in the cache template before `~~ZHEAD~~` is not affected by this.
+When rebuilding a template, insert `{% raw %}{{ZHEAD}}{% endraw %}` as generically as possible directly before `</head>`. Do not attach it to a specific CSS or meta line of a theme. The generator passes its head part to `zgen_hvars('head', $head)`. ZP CSS is added there centrally and after the passed head part so that ZP fixes can override design CSS rules. CSS already fixed in the cache template before `{% raw %}{{ZHEAD}}{% endraw %}` is not affected by this.
 
 In generators, avoid hard-coding:
 
 ```php
-'~~ZHEAD~~'
+'{% raw %}{{ZHEAD}}{% endraw %}'
 ```
 
 Use this instead:
@@ -347,7 +347,7 @@ ZP_HTML_CACHE_VARS['head']
 
 The same applies to `baseurl`, `headlast`, `body`, `bodylast`, `h1`, `layoutimg`, `navi`, `naviafter`, `menutx`, `sitesub`, `sitetitle`, `foot`, `foot0`, `foot1`, `title` and `htmllang`.
 
-The language switcher is deprecated. Do not use `~~ZLANGSWITCH~~`. Language links belong in the navigation if they exist.
+The language switcher is deprecated. Do not use `{% raw %}{{ZLANGSWITCH}}{% endraw %}`. Language links belong in the navigation if they exist.
 
 ## Layout image/design values
 
@@ -397,9 +397,9 @@ layout/<family>/<design>/custom.css
 
 Generators do not include `zp.css` again by themselves.
 
-For cache templates, the theme's own CSS head should stand before `~~ZHEAD~~` when the foreign theme already brings its own CSS in the template. CSS that the generator passes in `$head` comes before the central ZP CSS. If a generator exceptionally has to add something after that in the head, it uses `headlast` or `~~ZHEADLAST~~`.
+For cache templates, the theme's own CSS head should stand before `{% raw %}{{ZHEAD}}{% endraw %}` when the foreign theme already brings its own CSS in the template. CSS that the generator passes in `$head` comes before the central ZP CSS. If a generator exceptionally has to add something after that in the head, it uses `headlast` or `{% raw %}{{ZHEADLAST}}{% endraw %}`.
 
-`~~ZHEAD~~` contains the ZP head block, not individual SEO variables. `zgen_hvars('head', $head)` also adds automatic language alternatives (`<link rel="alternate" hreflang="...">`) when the head does not already contain `hreflang=`.
+`{% raw %}{{ZHEAD}}{% endraw %}` contains the ZP head block, not individual SEO variables. `zgen_hvars('head', $head)` also adds automatic language alternatives (`<link rel="alternate" hreflang="...">`) when the head does not already contain `hreflang=`.
 
 Do not add separate cache variables for:
 
@@ -447,7 +447,7 @@ zcss()              central CSS inclusion
 
 `$GLOBALS['zdata']` contains the prepared page data. Generators only output this data and do not read page sources directly. Usual values are `title`, `h1`, `body` and `head`.
 
-`$GLOBALS['zconf']['bodylast']` is optional HTML directly before `</body>`. All generators must output this interface at the right position. For cache generators, `~~ZBODYLAST~~` stands in the cache template and the fast path replaces `bodylast` through `zhtmlcachrepl()`.
+`$GLOBALS['zconf']['bodylast']` is optional HTML directly before `</body>`. All generators must output this interface at the right position. For cache generators, `{% raw %}{{ZBODYLAST}}{% endraw %}` stands in the cache template and the fast path replaces `bodylast` through `zhtmlcachrepl()`.
 
 CSS customisation is the official update interface for visual changes. `zcss()` includes the existing CSS files. Generators must not invent an additional CSS interface and must not load `zp.css` twice.
 
@@ -479,7 +479,7 @@ Language links are part of the navigation when `znavi()` returns them. Do not ad
 
 ### Small navigation / mobile menu
 
-If a design does not work with the normal desktop navigation in the small view, the generator may additionally output `naviafter`. This is optional HTML directly after the navigation and is replaced through `~~ZNAVIAFTER~~`.
+If a design does not work with the normal desktop navigation in the small view, the generator may additionally output `naviafter`. This is optional HTML directly after the navigation and is replaced through `{% raw %}{{ZNAVIAFTER}}{% endraw %}`.
 
 The text for the menu button always comes from `zmenu_text()` or from `ZP_HTML_CACHE_VARS['menutx']`. Do not hard-code `Menu`, `MENÜ` or a custom language list in the generator.
 
@@ -546,9 +546,9 @@ use zhtmlcacheold(basename(__FILE__, '.php')); `gen2015`/`gen2026` are only inte
 do not check additional cache dependencies
 ```
 
-In `gen2015.php`, navigation had already been correct for a long time. When adding cache, make sure that only the previously supported menu positions become `~~ZNAVI~~` and that other theme menus stay empty as before. Menu button texts must not be hard-coded as `Menu`/`MENÜ` in the cache, but must use `~~ZMENUTX~~`.
+In `gen2015.php`, navigation had already been correct for a long time. When adding cache, make sure that only the previously supported menu positions become `{% raw %}{{ZNAVI}}{% endraw %}` and that other theme menus stay empty as before. Menu button texts must not be hard-coded as `Menu`/`MENÜ` in the cache, but must use `{% raw %}{{ZMENUTX}}{% endraw %}`.
 
-In `gen2026.php`, take block navigation only once as `~~ZNAVI~~`. Do not output additional `wp:navigation` blocks as well.
+In `gen2026.php`, take block navigation only once as `{% raw %}{{ZNAVI}}{% endraw %}`. Do not output additional `wp:navigation` blocks as well.
 
 ## Generators without cache
 
@@ -630,7 +630,7 @@ Check in the generated HTML:
 ```text
 <!DOCTYPE html>
 <html ...>
-~~ZHEAD~~ and then ~~ZHEADLAST~~ before </head> in the cache template, central head additions through zgen_hvars('head', ...)
+{% raw %}{{ZHEAD}}{% endraw %} and then {% raw %}{{ZHEADLAST}}{% endraw %} before </head> in the cache template, central head additions through zgen_hvars('head', ...)
 theme CSS in the cache template and in the passed head before ZP CSS
 no visible cache placeholder left
 navigation only once
